@@ -1,0 +1,518 @@
+/* ==UserStyle==
+@name           Google Drive Dark
+@namespace      asdf
+@version        0.1.0
+@author         Dylan Yang
+
+@preprocessor	stylus
+
+@var	color	accentColor	"Accent Color"	#8ab4f8
+@var	color	darkColor	"Dark Color"	#202124
+@var	color	dark2	"Dark 2"	#28292c
+@var	color	dark3	"Dark 3"	#313235
+@var	color	dark4	"Dark 4"	#2d2e31
+@var	color	gray1	"Gray 1"	#28292c
+@var	color	gray2	"Gray 2"	#313235
+@var	color	light	"Light Color"	#e8eaed
+==/UserStyle== */
+
+@-moz-document domain("drive.google.com") {
+	accentColorRGB=138,180,248; // darkColor = #202124
+	highlight=rgba(255, 255, 255, .08);
+
+	@media (prefers-color-scheme: dark) {
+
+		:focus {
+			outline-color: accentColor;
+		}
+
+		/* various top menu bar/navbar things */
+		.gb_qa svg,
+		.gb_Cc svg,
+		.gb_Zc .gb_fe,
+		.gb_Oc .gb_fe {
+			color: light;
+		}
+
+		.a-qc-La {
+			background: darkColor;
+		}
+
+		.aabwZd .WYuW0e .M3pype {
+			color: light;
+			fill: darkColor;
+		}
+
+		.a-U-J-x {
+			color: light;
+		}
+
+		.a-U-ye-ha > .a-U-J .a-U-Ze svg,
+		.a-U-xc-J .a-Ng-c-wk svg,
+		.a-U-J .a-U-Ze svg {
+			fill: light;
+		}
+
+		.a-U-ye-ha > .a-U-J {
+			background-color: rgba(accentColorRGB, 0.2);
+		}
+
+		.a-U-ye-ha > .a-U-J > .a-U-J-x {
+			color: accentColor;
+		}
+
+		.a-Ng-c-ha svg {
+			fill: accentColor;
+		}
+
+		.a-D-B,
+		{
+			background-color: dark2;
+		}
+
+		/* some icons */
+		.gb_qa svg,
+		.gb_Bc svg,
+		.gb_Xc .gb_6d,
+		.gb_Nc .gb_6d {
+			color: light;
+		}
+
+		header#gb {
+			background-color: dark2 !important;
+		}
+
+		.gb_sa svg,
+		.gb_Fc svg,
+		.gb_8c .gb_he,
+		.gb_Rc .gb_he {
+			color: light;
+		}
+
+		/* scroll bar */
+		::-webkit-scrollbar-thumb {
+			background-color: gray2;
+			box-shadow: none;
+
+			&:hover {
+				background-color: gray2;
+				box-shadow: none;
+			}
+
+			&:active {
+				background-color: gray1;
+			}
+		}
+
+		::-webkit-scrollbar-track {
+			background-color: darkColor !important;
+
+			&:hover {
+				box-shadow: none;
+			}
+		}
+
+		/* left side bar: */
+		/* new button */
+		.a-ec-Gd .Kzazxf.x6jRSb {
+			background-color: dark3;
+			color: white;
+		}
+		.a-ec-Gd .Kzazxf.x6jRSb:hover {
+			background-color: dark2;
+		}
+
+		.a-U-J-x {
+			color: light;
+		}
+
+		/* search bar */
+		.gb_7e,
+		.gb_4e,
+		.gb_Ve,
+		.gb_Ue {
+			background: darkColor !important;
+		}
+		.gb_rf,
+		.gb_of,
+		.gb_gf,
+		.gb_ff {
+			color: white !important;
+
+			&::placeholder {
+				color: light !important;
+			}
+		}
+
+		/* search bar active */
+		.gb_7e.gb_8e,
+		.gb_Ve.gb_We,
+		.gb_Ue.gb_Ve {
+			background: dark3 !important;
+			transition: 0.2s ease-in-out;
+		}
+
+		/* search bar bg */
+		.a-D-B-WErN3d-j {
+			border-bottom-color: dark3;
+		}
+
+		/* settings icon */
+		.a-D-B .a-D-B-WErN3d-j .a-d-c .a-nEbBXb-c {
+			fill: light;
+		}
+
+		/* current file path */
+		.h-R-w-d.a-l-S-Pc-w-d {
+			color: light;
+		}
+
+		.a-l-S-Pc-w-d.h-R-w-d-W {
+			background-color: dark3;
+		}
+		.a-l-S-Pc-w-d.h-R-w-d-pb {
+			background-color: rgba(accentColorRGB, 0.2);
+			color: accentColor;
+		}
+
+		.a-D-B .a-l-S-Pc-w-d.h-R-w-d-pb .a-w-d-aa-zd svg {
+			fill: accentColor;
+		}
+
+
+
+		/* current file path icons */
+		.a-s-fa-Ha-pa {
+			fill: light;
+		}
+
+		/* file path ellipsis */
+		.o-Yc-Vf-d svg {
+			fill: light;
+		}
+
+		.Hb-ja-Na .a-c-d:not(.h-R-d-db):focus,
+		.Hb-ja-Na .a-c-d:not(.h-R-d-db).h-R-d-Pb,
+		.a-c-d:not(.h-R-d-db):hover,
+		.a-c-d.h-R-d-W:not(.h-R-d-db) {
+			background-color: dark3;
+		}
+
+		/* info icon */
+		.a-d-c svg {
+			fill: light;
+		}
+		.a-D-B .a-c-d.h-R-d-rc svg,
+		.a-D-B .a-c-d.h-R-d-pb svg,
+		.a-D-B .Hb-ja-Na .a-c-d.h-R-d-Pb.h-R-d-pb:not(.h-R-d-db) svg,
+		.a-D-B .a-c-d:not(.h-R-d-db):active svg {
+			fill: accentColor;
+		}
+		.a-c-d.h-R-d-rc {
+			background: rgba(accentColorRGB, 0.2);
+		}
+
+		/* current file path bg */
+		.a-D-B-x {
+			background-color: darkColor;
+		}
+		.a-s-Ba-Ak {
+			border-bottom-color: dark3;
+		}
+
+		/* current file path folders */
+		.o-Yc-o-T {
+			color: light;
+		}
+
+		.o-Yc-o-T:hover,
+		.Hb-ja-Na .o-Yc-o-T:focus:hover {
+			background-color: dark3;
+		}
+
+		/* current folder dropdown */
+		.a-l-S-Pc-w-d .a-w-d-aa-zd svg {
+			fill: white;
+		}
+
+		/* file list, shared with me file list */
+		.aabwZd .WYuW0e,
+		.a-t-cb {
+			color: light;
+			fill: light;
+			border-bottom-color: dark3;
+		}
+
+		.aabwZd .WYuW0e .M3pype[data-column-field="6"] {
+			color: light;
+		}
+
+		/* file list :focus border */
+		.Hb-ja-Na .s55KNe .WYuW0e [role="row"]:focus .jGNTYb::after,
+		.Hb-ja-Na .aabwZd .WYuW0e [role="row"]:focus::before {
+			border-color: accentColor;
+		}
+
+		/* file list text placeholder that appears before text is loaded */
+		.Oni9ib {
+			background: dark3;
+		}
+
+		/* currently highlighted item */
+		.s55KNe:not(.KBj6Qd) .GZwC2b .jGNTYb,
+		.aabwZd:not(.KBj6Qd) .GZwC2b,
+		.a-t-J-ha,
+		.a-t-J-ha .l-t-T-V > .l-Ab-T-r {
+			background-color: gray1;
+			color: accentColor;
+		}
+
+		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype[data-column-field="6"] {
+			color: accentColor;
+			fill: accentColor;
+		}
+
+		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype .YUNZ4c {
+			color: accentColor;
+		}
+
+		/* file list headers */
+		.N7iPof,
+		.a-t-D {
+			background-color: darkColor;
+			border-bottom-color: dark3 !important;
+		}
+
+		.iZz7md,
+		.a-t-D-cb {
+			color: white;
+		}
+		.iZz7md.aaQsNb:hover,
+		.iZz7md.aaQsNb:hover svg,
+		.iZz7md .I2rTXb:focus,
+		.iZz7md .I2rTXb:focus svg,
+		.a-t-D-ip:focus,
+		.a-t-D-ip:hover {
+			color: white;
+			fill: light;
+		}
+
+		/* right click context menu dropdown */
+		.h-w {
+			background-color: dark2;
+		}
+		.a-w-Mr::after {
+			background: none;
+		}
+		.h-v-x {
+			color: light;
+		}
+
+		.h-Yo {
+			border-top-color: dark3;
+		}
+
+		/* hover */
+		.h-v-pc,
+		.h-v-W {
+			background-color: dark3;
+		}
+		.h-v-pc .h-v-x,
+		.h-v-W .h-v-x {
+			color: light;
+		}
+
+		/* file list search results footer for file path */
+		.a-S-dc {
+			background-color: darkColor;
+			color: light;
+			border-top-color: dark3;
+		}
+
+		.a-S-dc-Q-r {
+			color: light;
+		}
+
+		/* available offline icon */
+		span.h-v-c.a-v-c.a-v-c-mh div svg {
+			fill: light !important;
+		}
+
+		/* quick access suggestions */
+		.L202Xe {
+			background: dark2;
+			border-color: dark2;
+		}
+		.pMw0s .g5SSAf .ta-gc-np-Nd {
+			background-color: dark3;
+		}
+		.RwLyCe {
+			border-top-color: dark2;
+		}
+		.eAQ1W,
+		.Vl9rfc {
+			color: white;
+		}
+
+		.Ccie2c:focus {
+			transition: 0.5s !important;
+		}
+
+		.Ccie2c:focus .L202Xe,
+		.Ccie2c.Pb .L202Xe {
+			border-color: transparent;
+		}
+
+		.Ccie2c:focus .L202Xe,
+		.Ccie2c.Pb .L202Xe,
+		.Ccie2c:focus .v2devc,
+		.Ccie2c.Pb .v2devc {
+			background-color: dark4;
+			color: white;
+		}
+
+		.Ccie2c:focus .eAQ1W,
+		.Ccie2c.Pb .eAQ1W {
+			color: accentColor;
+		}
+		.Ccie2c:focus .Vl9rfc,
+		.Ccie2c.Pb .Vl9rfc {
+			color: white;
+		}
+
+		/* info sidebar */
+		.a-ub-Gd,
+		.a-ub-oa,
+		.y-C-Ed-V,
+		.y-C {
+			background-color: darkColor;
+			border-color: transparent;
+		}
+
+		.y-C-ka:hover,
+		.y-C-ka:active,
+		.y-C-ka:focus {
+			background-color: unset;
+		}
+
+		.y-C-ka-T.y-C-xj-ka:hover,
+		.y-C-ka-T.y-C-xj-ka:active,
+		.y-C-ka-T.y-C-xj-ka:focus,
+		.y-C-ka-T .y-C-xj-ka:hover,
+		.y-C-ka-T .y-C-xj-ka:active,
+		.y-C-ka-T .y-C-xj-ka:focus {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		.a-ub-Gd {
+			border-left: 1px solid gray1;
+		}
+		
+		/* info sidebar tabs */
+		.a-ub-ra-B>.h-ra-B>.h-ra {
+			color: light;
+		}
+		
+		/* info sidebar tabs active */
+		.a-ub-ra-B>.h-ra-B>.h-ra-ha {
+			color: accentColor;
+		}
+		
+		/* info sidebar tabs active bottom border */
+		.a-ub-ra-B>.h-ra-B>.h-ra.h-ra-ha>.a-ra-Mb-j>.a-ra-Mb {
+			border-bottom-color: accentColor;
+		}
+
+		/* info sidebar text */
+		.y-C-sa-RvPyde,
+		.y-C-H-Sb {
+			color: white;
+		}
+
+		.y-C-q-D,
+		.y-C-Ed-V,
+		.y-C-Ya,
+		.y-C-q-j,
+		.y-C-fh-Bf-r,
+		.y-C-fh-Bf-Jj {
+			color: light;
+		}
+
+		/* info sidebar title */
+		.a-Mg-V-T,
+		.a-Mg-YsLxq-V-T {
+			color: white;
+		}
+		.a-Mg-V:focus > .a-Mg-V-T,
+		.a-Mg-V:hover > .a-Mg-V-T {
+			color: accentColor;
+		}
+
+		/* info sidebar item show in folder icon */
+		.y-C-ka:hover .y-C-lg svg,
+		.y-C-ka:active .y-C-lg svg,
+		.y-C-ka:focus .y-C-lg svg {
+			fill: light !important;
+		}
+
+		/* info sidebar details */
+		/* info sidebar details folder icon preview background */
+		.l-Mg-wg-o .a-q-zb-j {
+			background-color: dark2;
+			border: transparent;
+		}
+
+		.a-q-Jc-Pj-Ya,
+		.a-q-Lf-me-Z-r {
+			color: light;
+		}
+
+		/* shared with me file list background */
+		.a-t-j .a-gd-j {
+			background-color: darkColor;
+		}
+
+		/* shared with me file names */
+		.l-t-T-V > .l-Ab-T-r {
+			color: light;
+		}
+		.a-t-J {
+			color: light;
+		}
+
+		/* share icon next to folder */
+		.H-qa-H-d-c div svg path {
+			fill: light;
+		}
+
+		/* storage percentage used */
+		.B-ZB7aWe-UvFRu.L3Yhxc-Ya {
+			background-color: accentColor !important;
+			box-shadow: 2px 0 0 accentColor !important;
+		}
+
+		.B-Nd-ZB7aWe-UvFRu {
+			background-color: dark3;
+		}
+
+		/* storage top border divider */
+		.a-U-xc > .a-da-fc-Ug::after,
+		.a-U-xc > .a-da-ji::before,
+		.a-U-xc > .a-da-Ul::before {
+			border-color: dark3;
+		}
+
+		/* buy storage button */
+		.USrqEe-ml-Pr-gi .ml-Pr-kg {
+			display: none;
+		}
+
+		/* side panel with gcal, tasks, etc. */
+		.Kk7lMc-Yb-Il-j,
+		.a-Kk7lMc-ae3xF-j {
+			border-left: transparent;
+		}
+	}
+	// }
+}
