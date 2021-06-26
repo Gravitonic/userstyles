@@ -13,17 +13,18 @@
 @var	color	gray2	"Gray 2"	#313235
 @var	color	light	"Light Color"	#e8eaed
 ==/UserStyle== */
-
 @-moz-document domain("drive.google.com") {
 
 	@media (prefers-color-scheme: dark) {
 
-		html {
+		body {
+			color: light;
 			background-color: darkColor;
 		}
 
-		body {
-			color: light;
+		body[jsaction="UjQMac:.CLIENT;wINJic:.CLIENT"] {
+			background: none;
+			backdrop-filter: blur(10px);
 		}
 
 		:focus {
@@ -52,6 +53,13 @@
 		.gb_Cc svg,
 		.gb_Zc .gb_fe,
 		.gb_Oc .gb_fe {
+			color: light;
+			fill: light;
+		}
+		.gb_pa svg,
+		.gb_Ac svg,
+		.gb_Wc .gb_5d,
+		.gb_Mc .gb_5d {
 			color: light;
 		}
 
@@ -88,6 +96,11 @@
 		.a-D-B {
 			background-color: dark2;
 		}
+		
+		/* app switcher icon active state */
+		.gb_C[aria-expanded=true] .gb_Ve, .gb_C[aria-expanded=true] .gb_We {
+			fill: accentColor;
+		}
 
 		/* some icons */
 		.gb_qa svg,
@@ -114,42 +127,44 @@
 		}
 
 		/* SCROLL BAR */
-		::-webkit-scrollbar {
-			padding: 0 !important;
-			border: 0 solid darkColor;
-			height: 10px;
-			width: 10px;
+		::-webkit-scrollbar-track {
 			background: darkColor;
 		}
 
-		::-webkit-scrollbar-thumb {
-			background-color: dark3 !important;
-			box-shadow: none;
-			border: 0 solid darkColor !important;
 
-			&:hover {
-				background-color: dark3;
-				box-shadow: none;
-			}
-
-			&:active {
-				background-color: dark2;
-			}
-		}
-
-		::-webkit-scrollbar-track {
-			background: transparent !important;
-			color: red;
-			border: 0 solid darkColor !important &:hover {
-				box-shadow: none;
-			}
-		}
-
-		::-webkit-scrollbar-track-piece {
-			background: transparent !important;
-			border: 0 solid darkColor !important
-		}
-
+		// turns out messing with the padding shifts elements around unintentially
+		// albeit in relatively obscure cases that I cannot remember
+		// ::-webkit-scrollbar {
+		// 	padding: 0 !important;
+		// 	border: 0 solid darkColor;
+		// 	height: 10px;
+		// 	width: 10px;
+		// 	background: darkColor;
+		// }
+		// ::-webkit-scrollbar-thumb {
+		// 	background-color: dark3 !important;
+		// 	box-shadow: none;
+		// 	border: 0 solid darkColor !important;
+		// 	&:hover {
+		// 		background-color: dark3;
+		// 		box-shadow: none;
+		// 	}
+		// 	&:active {
+		// 		background-color: dark2;
+		// 	}
+		// }
+		// ::-webkit-scrollbar-track {
+		// 	background: transparent !important;
+		// 	color: red;
+		// 	border: 0 solid darkColor !important &:hover {
+		// 		box-shadow: none;
+		// 	}
+		// }
+		// ::-webkit-scrollbar-track-piece {
+		// 	background: transparent !important;
+		// 	border: 0 solid darkColor !important
+		// }
+				
 		/* LEFT SIDEBAR */
 		/* new button */
 		.a-ec-Gd .Kzazxf.x6jRSb {
@@ -167,8 +182,8 @@
 		/* search bar */
 		.gb_7e,
 		.gb_4e,
-		.gb_Ve,
-		.gb_Ue {
+		.gb_Ue,
+		.gb_Te {
 			background: darkColor !important;
 		}
 		.gb_rf,
@@ -185,7 +200,8 @@
 		/* search bar active */
 		.gb_7e.gb_8e,
 		.gb_Ve.gb_We,
-		.gb_Ue.gb_Ve {
+		.gb_Ue.gb_Ve,
+		.gb_Te.gb_Ue {
 			background: dark3 !important;
 			transition: 0.2s ease-in-out;
 		}
@@ -195,9 +211,16 @@
 			border-bottom-color: dark3;
 		}
 
-		/* settings icon */
-		.a-D-B .a-D-B-WErN3d-j .a-d-c .a-nEbBXb-c {
-			fill: light;
+		/* search bar input */
+		.gb_ef,
+		.gb_Te.gb_Ue .gb_ef {
+			color: white;
+			caret-color: white;
+		}
+
+		/* search bar buttons while search is active */
+		.gb_Te.gb_Ue button svg {
+			color: white;
 		}
 
 		/* current folder */
@@ -210,7 +233,7 @@
 			background-color: dark3;
 		}
 		.a-l-S-Pc-w-d.h-R-w-d-pb {
-			background-color: rgba(accentColor, 0.2);
+			background-color: rgba(accentColor, 0.1);
 			color: accentColor;
 		}
 
@@ -223,13 +246,6 @@
 			fill: light;
 		}
 
-		.Hb-ja-Na .a-c-d:not(.h-R-d-db):focus,
-		.Hb-ja-Na .a-c-d:not(.h-R-d-db).h-R-d-Pb,
-		.a-c-d:not(.h-R-d-db):hover,
-		.a-c-d.h-R-d-W:not(.h-R-d-db) {
-			background-color: dark3;
-		}
-
 		/* top toolbar icons */
 		.a-c-d.h-R-d-pb,
 		.Hb-ja-Na .a-c-d.h-R-d-Pb.h-R-d-pb:not(.h-R-d-db),
@@ -237,9 +253,18 @@
 			background-color: dark2;
 		}
 
-		/* info icon */
+		/* toolbar icons */
 		.a-d-c svg {
 			fill: light;
+			opacity: 1;
+		}
+		/* toolbar icons disabled */
+		.h-R-d-db .a-d-c svg {
+			opacity: 0.5;
+		}
+		.Ewn2Sd.C0fwCb .wo35tf {
+			fill: light;
+			opacity: 0.5;
 		}
 		.a-D-B .a-c-d.h-R-d-rc svg,
 		.a-D-B .a-c-d.h-R-d-pb svg,
@@ -250,6 +275,26 @@
 		.a-c-d.h-R-d-rc {
 			background: rgba(accentColor, 0.2);
 		}
+
+		/* top toolbar icons hover */
+		.Hb-ja-Na .a-c-d:not(.h-R-d-db):focus,
+		.Hb-ja-Na .a-c-d:not(.h-R-d-db).h-R-d-Pb,
+		.a-c-d:not(.h-R-d-db):hover,
+		.a-c-d.h-R-d-W:not(.h-R-d-db) {
+			background-color: dark3;
+		}
+
+		.a-c-d:hover,
+		.a-c-d.h-R-d-W {
+			border: none;
+			background-color: dark3;
+		}
+
+		/* top toolbar icons divider */
+		.a-d-vc {
+			border-color: dark3;
+		}
+
 
 		/* current file path bg */
 		.a-D-B-x {
@@ -274,10 +319,16 @@
 			fill: white;
 		}
 
+		/* quick access heading */
+		.VV2Bdf {
+			color: light;
+		}
+
+		/* FILE LIST */
 		/* file list, shared with me file list */
 		.aabwZd .WYuW0e,
 		.a-t-cb {
-			color: light;
+			// color: light;
 			fill: light;
 			border-bottom-color: dark3;
 		}
@@ -286,16 +337,54 @@
 			color: light;
 		}
 
+		/* shared with me file names */
+		.l-t-T-V > .l-Ab-T-r {
+			color: light;
+		}
+		.a-t-J {
+			color: light;
+		}
+
+		/* file list offline disabled items */
+		.a-cc .aabwZd .WYuW0e .ACGwFc .M3pype,
+		.a-cc .aabwZd .WYuW0e .M3pype .YUNZ4c,
+		.a-cc .l-oi-cc .l-t-T-V > .l-Ab-T-r,
+		.l-oi-ka .l-t-T-V > .l-Ab-T-r,
+		.a-cc .l-oi-cc .a-t-cb,
+		.l-oi-ka .a-t-cb {
+			color: rgba(light, 0.25);
+		}
+
+		/* file list group headings e.g. 'today', 'earlier this week' ins hared list */
+		.a-ok-Ji-ga {
+			color: white;
+		}
+		.a-t-j .a-ok-Ji-D {
+			border-bottom-color: rgba(light, 0.25);
+		}
+
 		/* file list :focus border */
 		.Hb-ja-Na .s55KNe .WYuW0e [role="row"]:focus .jGNTYb::after,
 		.Hb-ja-Na .aabwZd .WYuW0e [role="row"]:focus::before {
 			border-color: accentColor;
 		}
+		/* file list :focus border in search results */
+		.Hb-ja-Na .a-t-J-ha.a-t-J-Vd-ja.a-t-J-Vd-jh > .a-t-cb:first-child > .a-t-cb-Ef-Ja > .a-t-cb-oa,
+		.Hb-ja-Na .a-t-J-ha.a-t-J:focus > .a-t-cb:first-child > .a-t-cb-Ef-Ja > .a-t-cb-oa,
+		.Hb-ja-Na .a-t-J-Vd-ja.a-t-J-Vd-jh .a-t-cb-oa,
+		.Hb-ja-Na .a-t-J-ha.a-t-J:focus .a-t-cb-oa,
+		.Hb-ja-Na .a-t-J-ha.a-t-J-Vd-ja.a-t-J-Vd-jh .a-t-cb:last-child > .a-t-cb-Ef-Ja > .a-t-cb-oa,
+		.Hb-ja-Na .a-t-J-ha.a-t-J:focus > .a-t-cb:last-child > .a-t-cb-Ef-Ja > .a-t-cb-oa {
+			border-color: accentColor;
+		}
 
 		/* file list last editor */
 		.aabwZd .WYuW0e .M3pype .YUNZ4c {
-			color: light;
-			opacity: 0.5;
+			color: rgba(light, 0.5);
+		}
+		.a-cc .aabwZd .WYuW0e .ACGwFc .M3pype,
+		.a-cc .aabwZd .WYuW0e .M3pype .YUNZ4c {
+			color: rgba(light, 0.5);
 		}
 
 		/* file list text placeholder that appears before text is loaded */
@@ -306,9 +395,11 @@
 		/* currently highlighted item */
 		.s55KNe:not(.KBj6Qd) .GZwC2b .jGNTYb,
 		.aabwZd:not(.KBj6Qd) .GZwC2b,
-		.a-t-J-ha,
+		.a-t-J-ha {
+			background-color: rgba(accentColor, 0.1);
+			color: accentColor;
+		}
 		.a-t-J-ha .l-t-T-V > .l-Ab-T-r {
-			background-color: dark2;
 			color: accentColor;
 		}
 
@@ -316,9 +407,9 @@
 			color: accentColor;
 			fill: accentColor !important;
 		}
-
 		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype .YUNZ4c {
 			color: accentColor;
+			fill: accentColor;
 		}
 
 		/* file list headers */
@@ -330,15 +421,16 @@
 
 		.iZz7md,
 		.a-t-D-cb {
-			color: white;
+			color: light;
 		}
-		.iZz7md.aaQsNb:hover,
-		.iZz7md.aaQsNb:hover svg,
-		.iZz7md .I2rTXb:focus,
-		.iZz7md .I2rTXb:focus svg,
-		.a-t-D-ip:focus,
-		.a-t-D-ip:hover {
+		
+		.iZz7md.aaQsNb:hover, .iZz7md.aaQsNb:hover svg, .iZz7md .I2rTXb:focus, .iZz7md .I2rTXb:focus svg {
 			color: white;
+			fill: white;
+		}
+		
+		/* file list headers sort direction arrow */
+		.KZ6CTb.a-c-d svg {
 			fill: light;
 		}
 
@@ -390,18 +482,58 @@
 			box-shadow: 0 1px 3px 0 rgba(dark3, 0.3), 0 4px 8px 3px rgba(dark3, 0.15)
 		}
 
-		/* fie list shared file & available offline icons next to file name */
-		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype[data-column-field="6"] svg {
+		/* search results offline icons next to file name */
+		.l-t-Op-cc-j .Auu9lc > .l-c-cc {
+			fill: light;
+		}
+
+		/* file list icons next to file name (shared file, starred, offline, etc.) */
+		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype[data-column-field="6"] svg,
+		.l-t-T-j .l-t-sb-c-ha svg {
 			fill: accentColor;
-		} // span.h-v-c.a-v-c.a-v-c-mh div svg {
-		// 	fill: light !important;
-		// }
+		}
+		.a-t-J-ha .l-t-Op-cc-j .Auu9lc > .l-c-cc {
+			fill: accentColor;
+		}
+
+		/* file list action items counter icon */
+		.ocLVN-Y-Sn-og {
+			border: none;
+			background-color: dark3;
+		}
+		/* file list action items counter icon text */
+		.ocLVN-Y-Sn-og-yc {
+			color: light;
+		}
+		.ocLVN-Y-Sn-og:hover {
+			background-color: dark2;
+		}
+		/* file list action items counter icon when item is selected */
+		.aabwZd:not(.KBj6Qd) .GZwC2b .ocLVN-Y-Sn-og {
+			background-color: accentColor;
+		}
+		.aabwZd:not(.KBj6Qd) .GZwC2b .ocLVN-Y-Sn-og .ocLVN-Y-Sn-og-yc {
+			color: darkColor;
+		}
+		.a-t-J-ha .ocLVN-Y-Sn-og {
+			background-color: accentColor;
+		}
+		.a-t-J-ha .ocLVN-Y-Sn-og .ocLVN-Y-Sn-og-yc {
+			color: darkColor;
+		}
 		/* file list action items pop-up */
 		.ocLVN-w-ia .h-w {
 			background-Color: dark2;
 		}
 		.ocLVN-w-ia .g-ia-Ud .g-ia-Jd {
 			border-color: dark2 transparent;
+		}
+
+		/* quick access suggestions unloaded placeholder */
+		.xI4DIe,
+		.Wj69db,
+		.A3bYpd {
+			background: dark3;
 		}
 
 		/* quick access suggestions */
@@ -418,6 +550,9 @@
 		.eAQ1W,
 		.Vl9rfc {
 			color: white;
+		}
+		.l-u-Ab-zb {
+			background-color: dark3;
 		}
 
 		.Ccie2c:focus {
@@ -446,7 +581,7 @@
 			color: white;
 		}
 
-		/* info sidebar */
+		/* INFO SIDEBAR */
 		.a-ub-Gd,
 		.a-ub-oa,
 		.y-C-Ed-V,
@@ -556,17 +691,14 @@
 			opacity: 0.5;
 		}
 
+		/* info sidebar folder container */
+		.y-C-je {
+			border-color: dark3;
+		}
+
 		/* shared with me file list background */
 		.a-t-j .a-gd-j {
 			background-color: darkColor;
-		}
-
-		/* shared with me file names */
-		.l-t-T-V > .l-Ab-T-r {
-			color: light;
-		}
-		.a-t-J {
-			color: light;
 		}
 
 		/* share icon next to folder */
@@ -660,11 +792,17 @@
 		.h-R-w-d.g-Qb {
 			color: white;
 		}
+		
+		/* divider */
+		.a-Va-Zb-ut {
+			border-top-color: dark3;
+		}
 
 		/* POPUP DIALOGS */
 		/* popup dialog background */
 		.lb-k {
 			background-color: darkColor;
+			color: white;
 		}
 
 		/* popup dialog heading background */
@@ -701,6 +839,9 @@
 			color: white;
 			border-radius: 2px;
 			box-shadow: none;
+		}
+		.g-Gh:focus {
+			border-color: accentColor;
 		}
 
 		/* popup dropdown box */
@@ -753,6 +894,9 @@
 				color: accentColor;
 			}
 		}
+		.a-Ws-nb-Oh-Ma-A::before {
+			box-shadow: inset 0 0 0 1px accentColor;
+		}
 
 		/* checkbox unchecked */
 		.g-Qa {
@@ -772,9 +916,179 @@
 			color: white;
 		}
 
-		/* STORAGE WARNING ALERT */
-		.clyeee {
-			// background-color:
+		/* FILE UPLOAD NOTIFICATION */
+		.a-Cd-oa {
+			background-color: dark2;
+			border-color: dark2;
+		}
+		.Ea-oa {
+			border-color: dark2;
+		}
+		.Ea-oa.Ea-G {
+			color: light;
+		}
+		.z-Ea-Lm {
+			color: rgba(light, 0.5);
+		}
+
+		/* SHARE MENU DIALOG */
+		.ea-Rc-n {
+			display: none;
+		}
+
+		.Dn-Ti-ea-Rc-k {
+			backdrop-filter: blur(10px);
+		}
+
+		.GmCard {
+			background: darkColor;
+		}
+
+		.boqDrivesharedialogCommonTitlebarTitleBar .Heading .Title {
+			color: white;
+		}
+
+		.boqDrivesharedialogPermissionslistPermissionrowMain .boqDrivesharedialogPermissionslistPermissionrowPrimary {
+			color: white;
+		}
+		.boqDrivesharedialogPermissionslistPermissionrowMain .boqDrivesharedialogPermissionslistPermissionrowSecondary {
+			color: light;
+		}
+
+		.appsDriveElementsMaterialScrollcontainerSeamCoverTop,
+		.appsDriveElementsMaterialScrollcontainerSeamCoverBottom {
+			border-top-color: darkColor;
+		}
+
+		.boqDrivesharedialogLinkLinksummaryLinkPermissionsSummary {
+			color: light;
+		}
+
+		.boqDrivesharedialogLinkLinksummaryLinkPermissionsSummary .boqDrivesharedialogLinkLinksummaryBolded {
+			color: white;
+		}
+
+		.appsMaterialWizButtonPaperbuttonTextColored,
+		.appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink {
+			color: accentColor;
+		}
+
+		.appsDriveElementsMaterialFormfield_filledFieldContainer {
+			background: dark3;
+		}
+		.appsDriveElementsMaterialFormfield_filledFieldContainer:hover {
+			background: dark2;
+		}
+
+		.appsDriveElementsMaterialFormfield_filledFieldContainer,
+		.appsDriveElementsMaterialFormfield_filledFieldContainer::after {
+			border-bottom-color: accentColor;
+		}
+
+		.GmButtonText:not(:disabled) {
+			color: accentColor;
+		}
+		.GmFillButton:not(:disabled) {
+			background-color: accentColor;
+		}
+
+		.GmButtonGreyInkText:disabled {
+			color: rgba(white, 0.5);
+		}
+
+		.GmButtonText:hover:not(:disabled),
+		.GmButtonText:active:not(:disabled),
+		.GmButtonText:not(.gm-focus-hidden):focus:not(:disabled),
+		.GmButtonText.mdc-ripple-upgraded--background-focused:not(:disabled) {
+			color: accentColor;
+		}
+
+		.boqDrivesharedialogPermissionslistPermissionrowListItem:hover .boqDrivesharedialogPermissionslistPermissionrowPermissionRow,
+		.boqDrivesharedialogPermissionslistPermissionrowListItem:focus-within .boqDrivesharedialogPermissionslistPermissionrowPermissionRow {
+			background-color: dark3;
+		}
+
+		.boqDrivesharedialogCommonTitlebarTitleBar .boqDrivesharedialogCommonTitlebarIconContainer {
+			background-color: accentColor;
+		}
+
+		.mdc-form-field {
+			color: light;
+		}
+
+		.appsMaterialWizTextinputTextareaFilled .appsMaterialWizTextinputTextareaMainContent,
+		.appsMaterialWizTextinputTextareaFilled:not(.isDisabled):hover .appsMaterialWizTextinputTextareaMainContent {
+			background-color: dark3;
+		}
+
+		.appsMaterialWizTextinputTextareaEl.isFocused .appsMaterialWizTextinputTextareaFloatingLabel {
+			color: accentColor;
+		}
+
+		.appsMaterialWizTextinputTextareaInput {
+			caret-color: accentColor;
+		}
+
+		.appsMaterialWizTextinputTextareaFocusUnderline {
+			background-color: accentColor;
+		}
+
+		.GmButtonGreyInkText:not(:disabled) {
+			color: rgba(light, 0.5);
+		}
+		.GmButtonGreyInkText:hover:not(:disabled),
+		.GmButtonGreyInkText:active:not(:disabled),
+		.GmButtonGreyInkText:not(.gm-focus-hidden):focus:not(:disabled),
+		.GmButtonGreyInkText.mdc-ripple-upgraded--background-focused:not(:disabled) {
+			color: rgba(light, 0.8);
+		}
+
+		.GmFillButton:disabled {
+			color: rgba(light, 0.5);
+		}
+
+		/* search result filters */
+		/* e.g. searching in [folder], file type, etc. */
+		.glX3de {
+			mix-blend-mode: normal;
+		}
+
+		.glX3de.KKjvXb {
+			background: rgba(accentColor, 0.1);
+			color: accentColor;
+			--mdc-ripple-color: accentColor;
+		}
+	}
+}
+
+@-moz-document domain("drive.google.com") {
+	// Side Panel
+	@media (prefers-color-scheme: dark) {
+
+		.Kk7lMc-Yb-Il-j {
+			background-color: dark2;
+		}
+
+		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd,
+		.Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd {
+			background-color: dark3;
+		} // hover
+		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd,
+		.Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd,
+		.Yb-Il-d-W .Yb-Il-d-c-Nd,
+		.Yb-Il-d-pb .Yb-Il-d-c-Nd,
+		.Kk7lMc-Wc-Tn .Yb-Il-d-ha .Yb-Il-d-c-Nd,
+		.Kk7lMc-Wc-Tn .Yb-Il-d-Pb .Yb-Il-d-c-Nd {
+			background-color: dark4;
+		} // focus
+		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd,
+		.Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd,
+		.Yb-Il-d-Pb .Yb-Il-d-c-Nd,
+		.Yb-Il-d-Pb.Yb-Il-d-W .Yb-Il-d-c-Nd,
+		.Kk7lMc-Wc-Tn .Yb-Il-d-W .Yb-Il-d-c-Nd,
+		.Kk7lMc-Wc-Tn .Yb-Il-d-pb .Yb-Il-d-c-Nd,
+		.Kk7lMc-Wc-Tn .Yb-Il-d-ha.Yb-Il-d-W .Yb-Il-d-c-Nd {
+			background-color: dark3;
 		}
 	}
 }
