@@ -1,0 +1,1225 @@
+/* ==UserStyle==
+@name           Spotify Light Theme
+@namespace      https://github.com/gravitonic
+@version        0.10.1
+@description    Light theme for the Spotify web player
+@author         Dylan Yang
+
+@preprocessor stylus
+
+@var	color	mainText	"Main Text Color"	#191414
+@var	color	lightText	"Light Text Color"	#535353
+@var	color	lightGrey	"Light Gray Color"	#b3b3b3
+@var	color	accentColor	"Accent Color"	#1db954
+@var	color	lightColor	"Light Color"	#f3f2f2
+@var	number	blurRadius	"Blur Radius"	[20, 0, 'px']
+@var	checkbox	compactPlayer	"Horizontal Playing Bar"	1
+==/UserStyle== */
+// @var	checkbox	lightTheme	"Light Theme"	1
+@-moz-document domain("open.spotify.com") {
+
+	playerHeight=90px;
+
+	if compactPlayer==1 {
+		playerHeight=56px;
+
+		.player-controls {
+			flex-direction: row;
+		}
+
+		.player-controls__buttons {
+			margin: 0 12px 0 0;
+		}
+
+		.now-playing-bar,
+		.a2d114f8465b4517d0dcdf068d15e9cd-scss {
+			height: auto;
+			padding-left: 0;
+		}
+		
+		[dir=ltr] .b63c05e4f277a01813677f1aa11b8aa3-scss {
+			webkit-transform: translateX(-58px);
+    transform: translateX(-58px);
+		}
+
+		.now-playing {
+			transition: .5s ease-in-out;
+		}
+
+		.now-playing.now-playing--cover-expanded {
+			padding-left: 16px;
+			transition: .5s ease-in-out;
+		}
+
+		.now-playing-bar__left,
+		.now-playing-bar__right {
+			width: 25%;
+		}
+	}
+
+	box-shadow() {
+		box-shadow: 0 0 10px 0 transparentify(mainText, #fff, 0.1);
+		transition: 0.3s ease-in-out;
+
+		&:hover {
+			box-shadow: 0 5px 10px 2px transparentify(mainText, #fff, 0.15);
+			transition: 0.3s ease-in-out;
+		}
+	}
+
+	@media (prefers-color-scheme: light) {
+		body,
+		button,
+		input {
+			color: lightText;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background-color: hsla(0, 0%, 0%, .3);
+		}
+		.main-view-container__scroll-node::-webkit-scrollbar-track-piece {
+			margin-bottom: playerHeight;
+		}
+
+		.Root__now-playing-bar {
+			grid-area: none;
+			bottom: 0;
+			position: absolute;
+			background-color: transparent;
+		}
+
+		/* BACKGROUND */
+		.main-view-container__scroll-node-child {
+			padding-bottom: playerHeight + 32px;
+		}
+		html {
+			background-color: white;
+		}
+		.b1b53e70887a91051a9d7dc85160fc6b-scss {
+			background-color: white;
+		}
+
+		/* GENERAL */
+		a {
+			color: mainText;
+		}
+
+		/*
+		[data-context-menu-open=true] a,
+		a:focus,
+		a:hover,
+		a[data-context-menu-open=true] {
+			text-decoration: none;
+		}
+		*/
+		.inputBox-input {
+			color: lightText;
+		}
+		.inputBox-label {
+			color: lightText;
+		}
+		.dialog {
+			backdrop-filter: blur(blurRadius);
+			background-color: rgba(255, 255, 255, .8);
+		}
+		/* dialog x mark */
+		.c74a35c3aba27d72ee478f390f5d8c16-scss svg path {
+			fill: lightText;
+		}
+		._7c0399398b8b07b1b1fa6764a3ed59b1-scss {
+			background: none;
+		}
+		.inputBox {
+			background-color: white;
+			border-radius: 8px;
+		}
+
+		.react-contextmenu {
+			background-color: white;
+		}
+		.react-contextmenu-item.active,
+		.react-contextmenu-item:hover {
+			filter: brightness(90%);
+		}
+
+		._5991c352036dcc651a7bec853fd570a8-scss {
+			color: mainText;
+		}
+
+		/* Headings for items not found e.g. no podcasts */
+		._43fc5cbf15304cf223134ca70b6692f1-scss {
+			color: mainText;
+		}
+
+		/* BUTTONS/ICONs */
+		.a8cc695b476965309a30d01880d6cb01-scss {
+			color: rgba(mainText, 0.7) !important;
+		}
+
+		/* TRACKLIST */
+		._235729a60d5e265806e8509d8633b779-scss {
+			background-color: white;
+		}
+
+		/* gradient from playlist header color to black */
+		._59ed5f1313c7c4b211995d2b6463683f-scss {
+			display: none;
+		}
+
+		/* song names */
+		.da0bc4060bb1bdb4abb8e402916af32e-scss {
+			color: mainText;
+		}
+
+		/* artist names, album names, date added, song length */
+		._966e29b71d2654743538480947a479b3-scss a,
+		.c6287512c50a737d01bd9db32b301fab-scss a,
+		[data-testid="tracklist-row"] .f3fc214b257ae2f1d43d4c594a94497f-scss[style] {
+			color: lightText !important;
+		}
+
+		/* play icon on hover */
+		._38168f0d5f20e658506cd3e6204c1f9a-scss {
+			color: mainText;
+		}
+
+		/* tracklist row hover */
+		.e8ea6a219247d88aa936a012f6227b0d-scss:focus-within,
+		.e8ea6a219247d88aa936a012f6227b0d-scss:hover {
+			background-color: rgba(mainText, 0.05);
+		}
+		/* tracklist row hover after focused */
+		.e8ea6a219247d88aa936a012f6227b0d-scss.bcc38527b11ab105d496846b4ad11ef4-scss,
+		.e8ea6a219247d88aa936a012f6227b0d-scss.bcc38527b11ab105d496846b4ad11ef4-scss:hover {
+			background-color: rgba(mainText, 0.1);
+		}
+
+		/* ellipsis icons on tracklist row hover */
+		.e8ea6a219247d88aa936a012f6227b0d-scss:focus-within:not(.a735c1fd070add4b8837ff382ba2f6df-scss) ._50a94aaa6bd60a02583729be7f0e4f93-scss,
+		.e8ea6a219247d88aa936a012f6227b0d-scss:hover:not(.a735c1fd070add4b8837ff382ba2f6df-scss) ._50a94aaa6bd60a02583729be7f0e4f93-scss {
+			color: lightText;
+		}
+
+		/* ellipsis icon in tracklist row when menu opened */
+		._50a94aaa6bd60a02583729be7f0e4f93-scss[data-context-menu-open=true] {
+			color: lightText;
+		}
+
+		/* play icon on tracklist row focus */
+		.e8ea6a219247d88aa936a012f6227b0d-scss.bcc38527b11ab105d496846b4ad11ef4-scss ._6b1ff8eab07810e2b7845ffe28430e38-scss,
+		.e8ea6a219247d88aa936a012f6227b0d-scss.bcc38527b11ab105d496846b4ad11ef4-scss:hover ._6b1ff8eab07810e2b7845ffe28430e38-scss {
+			color: mainText;
+		}
+
+		/* tracklist play icon focused */
+		.e8ea6a219247d88aa936a012f6227b0d-scss:focus-within:not(.a735c1fd070add4b8837ff382ba2f6df-scss) ._38168f0d5f20e658506cd3e6204c1f9a-scss,
+		.e8ea6a219247d88aa936a012f6227b0d-scss:hover:not(.a735c1fd070add4b8837ff382ba2f6df-scss) ._38168f0d5f20e658506cd3e6204c1f9a-scss {
+			outline: none;
+		}
+
+		/* track number of plays popularity -- e.g. for top traacks on artiest page */
+		.e8ea6a219247d88aa936a012f6227b0d-scss:hover:not(.a735c1fd070add4b8837ff382ba2f6df-scss) .c6287512c50a737d01bd9db32b301fab-scss,
+		.e8ea6a219247d88aa936a012f6227b0d-scss:hover:not(.a735c1fd070add4b8837ff382ba2f6df-scss) .c6287512c50a737d01bd9db32b301fab-scss a {
+			color: mainText;
+		}
+
+		/* track number of plays popularity on tracklist row focus */
+		.e8ea6a219247d88aa936a012f6227b0d-scss.bcc38527b11ab105d496846b4ad11ef4-scss .c6287512c50a737d01bd9db32b301fab-scss,
+		.e8ea6a219247d88aa936a012f6227b0d-scss.bcc38527b11ab105d496846b4ad11ef4-scss:hover .c6287512c50a737d01bd9db32b301fab-scss {
+			color: mainText;
+		}
+
+		/* tracklist headers sticky */
+		._83d9fef4ae69148dc1fc9b8323f8528b-scss._2dc8cce76d72af90f5e00e781db42541-scss {
+			background-color: lightColor;
+			border: none;
+		}
+
+		/* Ellipsis */
+		.a319647e0b4638c35cbe1cc56bbe8710-scss {
+			color: mainText;
+		}
+		.a319647e0b4638c35cbe1cc56bbe8710-scss:hover {
+			color: lightText;
+		}
+
+		/* Also ellipsis apparently */
+		._605821ce181f6de6632eabd6a46377fb-scss {
+			color: lightText;
+		}
+		/* ellipsis next to follow, on hover */
+		._605821ce181f6de6632eabd6a46377fb-scss:active,
+		._605821ce181f6de6632eabd6a46377fb-scss:hover {
+			color: mainText;
+		}
+
+		/* Find more button at bottom of playlist */
+		._1de06189bc33bb25805c19bdbc99664e-scss {
+			color: mainText;
+		}
+
+		/* refresh playlist suggestions */
+		.e6ed3359ee250e2ecc13253d4db86076-scss {
+			color: mainText;
+		}
+
+		/* title in top bar on scroll */
+		._5acabdea2ee35e177c1df2bfde71d869-scss {
+			color: mainText;
+		}
+
+		/* ROUNDED RECTANGLE PANELS */
+		/* panel background */
+		._3802c04052af0bb5d03956299250789e-scss {
+			background: white;
+			box-shadow();
+		}
+		._3802c04052af0bb5d03956299250789e-scss:hover,
+		._3802c04052af0bb5d03956299250789e-scss[data-context-menu-open=true] {
+			background: darken(white, 4%);
+		}
+
+		._6424f268be3505ebab663700d60ebaa6-scss {
+			overflow: visible;
+		}
+
+		/* background behind images */
+		._2ce7a4a879bab3a4f4543c870c6d79fd-scss {
+			background: transparent;
+			border-radius: 4px;
+		}
+
+		/* same but for podcasts */
+		._3c714093dde27a95828cd3b036c6bd47-scss {
+			background: transparent;
+			border-radius: 12px;
+		}
+		
+		.ea5ea5226ed6fbf2cc63599fbda43580-scss {
+			border-radius: 50%;
+		}
+
+		/* Circle  */
+		._11f5fc88e3dec7bfec55f7f49d581d78-scss {
+			background-color: accentColor;
+		}
+
+		._80c2c1f0f44b53866fc1b5e9fa66b949-scss,
+		._231fdfa582dcc286559e37228e472dfd-scss {
+			color: mainText !important;
+		}
+		._244a0ac55904a7c958f4f21be2f7a673-scss {
+			overflow: visible !important;
+		}
+
+		._150ae7fd9abd9aa13b6fa9c8be2b76a6-scss {
+			color: mainText !important;
+		}
+
+		._1aca8ea6d314e58957d99cc0df0d2ca1-scss {
+			background-image: linear-gradient(rgba(255, 255, 255, .95), white 50%) !important;
+		}
+
+		/* HOME */
+		html[dir=ltr] .a30bc3a2554a1ee9d60cc33f550927fe-scss,
+		.bec438c032702fec6886039b3385e589-scss {
+			color: lightText;
+		}
+		._79db9bc9b8d7d51dc51191bf91a55c64-scss {
+			background: white;
+		}
+		._7ae3a7b5ef70bce1740ff486c4467d56-scss {
+			background-image: linear-gradient(rgba(255, 255, 255, .8), white);
+		}
+
+		/* suggestion subtitles */
+		._3cfbde1fd9fecaaa77935664eeb6e346-scss {
+			color: lightText !important;
+		}
+
+		/* play buttons on hover over suggestions */
+		._1991208eaca7e4ed0cff8a9919cfd509-scss,
+		._3a2318b538bc2aae78113023036a879a-scss {
+			box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		/* shortcuts items */
+		._28be3af50433a1164b3a62a898dce43e-scss {
+			background-color: rgba(white, 0.4);
+			box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+			transition-property: all;
+		}
+
+		._28be3af50433a1164b3a62a898dce43e-scss:focus-within,
+		._28be3af50433a1164b3a62a898dce43e-scss:hover,
+		._28be3af50433a1164b3a62a898dce43e-scss[data-context-menu-open=true] {
+			background-color: rgba(white, 0.01);
+			box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+		}
+
+		/* shortcuts grid template */
+		._560fb0a89f4ec24665eb945cfe2c97b0-scss {
+			overflow: visible;
+		}
+
+		/* shortcuts album/playlist covers */
+		._28be3af50433a1164b3a62a898dce43e-scss ._9ac38655c14bc3ee70c0c38bce1c9e89-scss {
+			box-shadow: none;
+		}
+
+		/* see all */
+		._03c8a5d5aecfd3620383a75c995c96a2-scss {
+			color: lightText;
+		}
+
+		.d4bde6d299ba74c3c75642eb13327afa-scss {
+			color: lightText;
+		}
+		.c65f5ba184497ced74470e887c6a95c3-scss {
+			color: mainText;
+		}
+
+		/* artist names under albums */
+		._3cfbde1fd9fecaaa77935664eeb6e346-scss a {
+			color: lightText;
+		}
+
+		/* Header inside "SEE ALL" */
+		.b67f9f2fa9d849c4210f8ea627c7204c-scss {
+			color: mainText;
+		}
+
+		/* ALBMUN ART*/
+		._2218f5ab2ec765b2e30ce4c9e256ee35-scss {
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .2), 0 1px 2px 0 rgba(0, 0, 0, .1);
+		}
+		/* TOP BAR */
+		._7f29d1db930e7882d0ee6099f36e3bc7-scss {
+			background-color: rgba(255, 255, 255, 0.9) !important;
+			box-shadow: 0 0 20px 0 rgba(25, 20, 20, 0.1);
+			backdrop-filter: blur(blurRadius);
+		}
+		._2411182f42f92a221e29c993de036981-scss {
+			background-color: transparent;
+		}
+
+		/* username */
+		.f0bf8a7dad77ed72ebfc3b801e5f6956-scss {
+			color: white !important;
+		}
+
+		/* ACCOUNT DISPLAY */
+		._34098cfd13d48e2910679f35aea2c377-scss {
+			background-color: rgba(255, 255, 255, 0.8);
+			backdrop-filter: blur(blurRadius);
+			color: lightText;
+			transition: 0.5s;
+		}
+		._61ab7cffe8117f2123af98dc70709f39-scss,
+		._34098cfd13d48e2910679f35aea2c377-scss:hover {
+			background-color: rgba(255, 255, 255, 1);
+			color: mainText;
+			transition: 0.5s;
+		}
+
+		/* SIDEBAR */
+		.Root__nav-bar {
+			background-color: lightColor;
+		}
+		.link-subtle {
+			color: lightText;
+		}
+		.CreatePlaylistButton,
+		.d3a60496d4f3220a5d8ee78c4547f503-scss span,
+		.afec5b394ce1c22d0d67a957b6d121fa-scss,
+		.RootlistItem__link:link,
+		.RootlistItem__link:visited,
+		html:not([lang=ar]) .Rootlist__playlists-header,
+		.b682d766775429c174843277b73eec2d-scss,
+		.ac0df040748287f39652cc42e3b762ba-scss {
+			color: mainText;
+		}
+		/* liked songs heart icon */
+		._6b5bc370e9834a4932f57284a96a0748-scss svg {
+			color: white;
+		}
+		.RootlistItem__link--is-highlighted:hover,
+		.RootlistItem__link--is-highlighted:link,
+		.RootlistItem__link--is-highlighted:visited {
+			color: mainText;
+		}
+		.link-subtle:focus,
+		.link-subtle:hover {
+			color: mainText;
+		}
+		.navBar-link--active {
+			background-color: rgba(25, 20, 20, 0.1);
+		}
+		.navBar-link--active,
+		.navBar-link--active:focus,
+		.navBar-link--active:hover {
+			color: accentColor;
+		}
+		.RootlistItem__link:focus,
+		.RootlistItem__link:hover {
+			color: accentColor;
+		}
+		.Rootlist__divider {
+			background-color: rgba(25, 20, 20, 0.1);
+		}
+		.Rootlist__playlists {
+			padding-bottom: playerHeight;
+		}
+
+		.f92d0df6ae4da826d7d532fbf608d469-scss {
+			color: mainText;
+		}
+		.de74c1f13a9a8150dfe21bf59c967111-scss {
+			background-color: white;
+		}
+		.d1c9699572913ee01b0280946ab1f470-scss,
+		.d1c9699572913ee01b0280946ab1f470-scss:focus,
+		.d1c9699572913ee01b0280946ab1f470-scss:hover,
+		.logo {
+			background-color: white;
+			color: accentColor !important;
+		}
+
+		._7b6273541d969069bb18c4fcae4120e7-scss {
+			background: none;
+		}
+
+		._098f19e4e257ef05dd9cf335bd1573d0-scss {
+			color: mainText;
+		}
+		._56457be97556c9daa63940d2affe755c-scss {
+			color: white;
+		}
+
+		.PlayButton--pause {
+			color: lightText;
+			border: 1px solid lightText;
+		}
+
+		/* sidebar playlist hr divider */
+		._752cd60a82eaf0dd41c84e90b6479cbb-scss {
+			background-color: lightGrey;
+		}
+
+		/* SIDEBAR PLAYLIST LIST */
+		._9a78420cc4a863b2f413ce55e759a321-scss:link,
+		._9a78420cc4a863b2f413ce55e759a321-scss:visited {
+			color: lightText;
+		}
+
+		.a49166e7146d2aeb9f688dae35feb040-scss:focus,
+		.a49166e7146d2aeb9f688dae35feb040-scss:hover,
+		.bd0f04911fe4adb022e666269a90a739-scss:focus,
+		.bd0f04911fe4adb022e666269a90a739-scss:hover {
+			color: accentColor;
+		}
+		
+		/* PLAYLIST EDIT DETAILS MODAL */
+		/* included in general styles since it can be opened from the sidebar from any page */
+		.bc0109b875a51728301c6c8714dd62a6-scss {
+			background-color: white;
+			color: mainText;
+		}
+		/* disclaimer */
+		._4f5711876dc7f7be484e85681995a149-scss {
+			color: lightText;
+			font-weight: normal;
+		}
+		/* Inputs */
+		._7d5cbe075a3190d517615c5e4920fece-scss,
+		.aadce2cf337afcd21e5164448c728328-scss {
+			background-color: lightColor;
+			color: mainText;
+		}
+
+		.c76abee82453b70f30de965dabdfa92f-scss:focus {
+			background-color: white;
+			border-color: lightColor;
+		}
+
+		/* Input labels */
+		._6d7035f8052007f18f8f46a03c3d6f5f-scss {
+			color: lightText;
+		}
+		._6d7035f8052007f18f8f46a03c3d6f5f-scss:before {
+			background: white;
+		}
+
+		/* Playlist cover image */
+		._5d10f53f6ab203d3259e148b9f1c2278-scss {
+			box-shadow();
+		}
+		
+		/* Modal close button */
+._433bb3889da319fd609d00342005387a-scss {
+	color: lightText;
+}
+
+		/* RIGHT CLICK MENU / CONTEXT MENU */
+		._8bfd0bd3ba9dd8201e38b1622bc74fb6-scss {
+			background-color: rgba(white, 0.7);
+			box-shadow: 0 0 10px 0 rgba(mainText, 0.2);
+		}
+
+		._8bfd0bd3ba9dd8201e38b1622bc74fb6-scss::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-radius: 4px;
+			z-index: -1;
+
+			backdrop-filter: blur(blurRadius);
+		}
+
+		.c0d55e1c080fb2fc96ec06ac344b577b-scss,
+		.d2a8e42f26357f2d21c027f30d93fb64-scss {
+			color: lightText;
+		}
+
+		.d2a8e42f26357f2d21c027f30d93fb64-scss:not(.dc5f7fd27690f895e13260e2b7910d76-scss):focus,
+		.d2a8e42f26357f2d21c027f30d93fb64-scss:not(.dc5f7fd27690f895e13260e2b7910d76-scss):hover {
+			color: mainText;
+			background-color: rgba(mainText, 0.05);
+		}
+
+		/* TRACK LISTS */
+		.tracklist-row:focus .tracklist-play-pause,
+		.tracklist-row:hover .tracklist-play-pause {
+			color: mainText
+		}
+
+		.TrackListRow__explicit-label {
+			background-color: rgba(25, 20, 20, 0.6);
+			color: white;
+		}
+
+		/* TRACKLIST HEADER */
+		/* background color gradient */
+		._4e5d4ac7abe19f92074b5861b22fa8a4-scss {
+			background-image: linear-gradient(rgba(25, 20, 20, 0.2), rgba(25, 20, 20, 0.07)) !important;
+		}
+		/* background color */
+		._9764a8966c108117bdf6f47cb601747a-scss {
+			filter: saturate(1.2) brightness(2);
+		}
+		.f4b1f74959ffcd62faae5551a8014ba2-scss._38b3795856908ed8af1c91b224d3663f-scss {
+			margin: 0;
+		}
+
+		/* username in header e.g. playlist creator */
+		// a._9642f084eaa7faec9f8f003145b6c289-scss {
+		// 	color: white;
+		// }
+		/* tracklist header container */
+		._4c3b6e4e88112fc8ef88512cbe7521ed-scss a {
+			color: white;
+		}
+
+		/*._77ccab85bb794646035d39a339c41781-scss {
+padding: 0 !important;
+}*/
+		// @media only screen and (min-width: 1280px) {
+		// 	._7313e48b8f1c8a11ff2eff89b67ff69a-scss {
+		// 		min-height: 232px;
+		// 		justify-content: center;
+		// 	}
+		// }
+		// ._7313e48b8f1c8a11ff2eff89b67ff69a-scss {
+		// 	background: rgba(0, 0, 0, .5);
+		// 	padding: 16px;
+		// 	border-radius: 8px;
+		// 	text-shadow: 0 0 20px rgba(25, 20, 20, .3);
+		// }
+		.b9cf8ca0c14080b2bd5ea7b219e3939b-scss {
+			align-items: flex-end;
+			padding: 0 48px 36px;
+		}
+
+		span._80c2c1f0f44b53866fc1b5e9fa66b949-scss {
+			color: mainText !important;
+		}
+
+		/* ALBUM PAGE */
+		.copyrights {
+			color: inherit;
+		}
+
+		/* ALERTS */
+		._9018961d6e6c1fe417dbb72d6d24061c-scss {
+			bottom: playerHeight + 18px;
+		}
+
+
+		/* MISC */
+		._8590c692ba7506fd532576e77a50b225-scss,
+		._8bfc65eb3b883f9eed4b640911ea9302-scss {
+			background-color: accentColor;
+		}
+
+		.ce791fbc27dc77ab9c2f9dccc84d6d66-scss:after {
+			border-bottom-color: accentColor;
+		}
+
+		[data-testid="test-ref-div"] {
+			border-top: none;
+		}
+
+		._7978d1a53eb00cc7b3a900c911fd0493-scss {
+			box-shadow: 0 0 12px 0px rgba(25, 20, 20, 0.3);
+		}
+
+		/* NOW PLAYING BAR */
+		.player-controls__buttons button {
+			color: lightText;
+		}
+
+		.player-controls__buttons button[title="Pause"],
+		.player-controls__buttons button[title="Play"] {
+			background: lightColor;
+		}
+
+		.player-controls__buttons button:hover,
+		player-controls__buttons button:focus,
+		{
+			color: mainText;
+		}
+		.player-controls__buttons button:active {
+			color: lightGrey;
+		}
+
+		/* next track button */
+		.bf01b0d913b6bfffea0d4ffd7393c4af-scss:focus:not(:focus-visible):not(:hover) {
+			color: lightText;
+		} // .bf01b0d913b6bfffea0d4ffd7393c4af-scss:active {
+		// 	color: lightGrey;
+		// }
+		._82ba3fb528bb730b297a91f46acd37a3-scss {
+			border-color: lightText;
+		}
+
+		._82ba3fb528bb730b297a91f46acd37a3-scss:focus,
+		._82ba3fb528bb730b297a91f46acd37a3-scss:hover {
+			color: mainText;
+			border-color: mainText;
+		}
+
+		._82ba3fb528bb730b297a91f46acd37a3-scss:focus:not(:focus-visible):not(:hover) {
+			color: lightText;
+		}
+
+		/* shuffle button */
+		._39234eb5c173f8b6de80ed73820b1be8-scss[disabled] {
+			color: transparentify(mainText, #fff, 0.3);
+		}
+
+		._82a78ff58d3fcba0cb9b8083fe6dd05c-scss {
+			background-color: rgba(white, 0.9);
+			border-top: none;
+			color: mainText;
+			box-shadow: 0 0 20px 0 rgba(25, 20, 20, 0.1);
+			backdrop-filter: blur(blurRadius);
+		}
+		.now-playing-bar-container {
+			background-color: rgba(255, 255, 255, 0.9);
+			border-top: none;
+			color: mainText;
+			box-shadow: 0 0 20px 0 rgba(25, 20, 20, 0.1);
+			backdrop-filter: blur(blurRadius);
+		}
+
+
+		._44843c8513baccb36b3fa171573a128f-scss a:link,
+		._44843c8513baccb36b3fa171573a128f-scss a:visited {
+			color: lightText;
+		}
+
+		/* current track container */
+		._3773b711ac57b50550c9f80366888eab-scss {
+			color: mainText;
+		}
+
+		/* current track artist */
+		.b6d18e875efadd20e8d037931d535319-scss a:link,
+		.b6d18e875efadd20e8d037931d535319-scss a:visited {
+			color: lightText;
+		}
+
+		.control-button {
+			color: lightText;
+		}
+		.control-button:focus,
+		.control-button:hover {
+			color: mainText;
+		}
+		.control-button:focus:active,
+		.control-button:hover:active {
+			color: lightText;
+		}
+		.control-button--active {
+			color: accentColor;
+		}
+		.control-button--circled:after {
+			border-color: hsla(0, 0%, 0%, .6);
+		}
+		.control-button--circled:focus:after,
+		.control-button--circled:hover:after {
+			border-color: mainText;
+		}
+		.control-button--circled:focus:active:after,
+		.control-button--circled:hover:active:after {
+			border-color: hsla(0, 0%, 0%, .6)
+		}
+		.control-button--disabled,
+		.control-button--disabled:hover {
+			color: lightGrey;
+		}
+		.control-button--circled.control-button--disabled:after {
+			border-color: lightGrey;
+		}
+		.control-button--circled.control-button--loading:after {
+			border: 3px solid transparent;
+			border-top-color: lightText;
+		}
+		.control-button--active-dot:after {
+			background-color: accentColor;
+		}
+		.control-button--active:not(.control-button--disabled):focus,
+		.control-button--active:not(.control-button--disabled):hover {
+			color: accentColor;
+			filter: saturate(1.05) brightness(1.2);
+		}
+
+
+		.progress-bar__bg {
+			background-color: rgba(25, 20, 20, .1);
+		}
+		.progress-bar__fg {
+			background-color: lightText;
+		}
+		.progress-bar--is-active .progress-bar__fg {
+			background-color: accentColor;
+		}
+
+		div.NavBarFooter {
+			transform: translateY(-(playerHeight));
+		}
+
+		._4fac214bccd807d7c6fed21d4e0ea6de-scss[data-testid="CoverSlotExpanded__container"] {
+			transform: translateY(-(playerHeight));
+		}
+
+		/* track name overflow ellipsis */
+		.c319b99793755cc3bba709fe1b1fda42-scss {
+			color: mainText;
+		}
+
+		/* connect to a device dialog */
+		.connect-device-list-container {
+			background-color: rgba(255, 255, 255, 1);
+			box-shadow: 0 4px 12px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.connect-device-list-container:before {
+			border-top-color: white; // content: '';
+			// position: absolute;
+			// background: none;
+			// backdrop-filter: blur(blurRadius);
+			// width: -webkit-fill-available;
+			// height: -webkit-fill-available;
+			// top: 0;
+			// left: 0;
+			// z-index: -1;
+			// padding: 4px;
+			// margin: 12px;
+			// border-radius: 4px;
+		}
+
+		.connect-title__text {
+			color: mainText !important;
+		}
+
+		img.connect-header__image {
+			filter: invert(1);
+		}
+		
+		/* save to your library button / favorite button next to song */
+		._07bed3a434fa59aa1852a431bf2e19cb-scss {
+			color: mainText;
+		}
+		._07bed3a434fa59aa1852a431bf2e19cb-scss:focus, ._07bed3a434fa59aa1852a431bf2e19cb-scss:hover {
+			color: lightText;
+		}
+
+		/* BUTTONS */
+		/* filled background button */
+		._1f2f8feb807c94d2a0a7737b433e19a8-scss {
+			background-color: lightColor;
+		}
+	}
+
+	/* SET ACCENT COLORS TO CHANGE WITH VARIABLE */
+	._47872eede19af06725157ba21fea3516-scss:focus {
+		color: accentColor;
+	}
+
+	/* shuffle icon in now playing bar */
+	._39234eb5c173f8b6de80ed73820b1be8-scss._2b9d3fe8c4a53ea94eb650fbbb9b0124-scss {
+		color: accentColor;
+	}
+	._39234eb5c173f8b6de80ed73820b1be8-scss._2b9d3fe8c4a53ea94eb650fbbb9b0124-scss:not([disabled]):focus,
+	._39234eb5c173f8b6de80ed73820b1be8-scss._2b9d3fe8c4a53ea94eb650fbbb9b0124-scss:not([disabled]):hover {
+		color: lighten(accentColor, 10%);
+	}
+
+	/* play icons over home suggestions */
+	._8e7d398e09c25b24232d92aac8a15a81-scss.e8b2fe03d4e4726484b879ed8ff6f096-scss {
+		background: accentColor;
+	}
+
+	/* playlist list in sidebar */
+	._9a78420cc4a863b2f413ce55e759a321-scss._5410434ea85680cea058500c25251528-scss,
+	._9a78420cc4a863b2f413ce55e759a321-scss:focus,
+	._9a78420cc4a863b2f413ce55e759a321-scss:hover {
+		color: accentColor;
+	}
+	.c9c91e3ac3f8007893010e4484c2ef7d-scss[data-context-menu-open=true] ._9a78420cc4a863b2f413ce55e759a321-scss {
+		color: mainText;
+	}
+
+	/* track list currently playing track name */
+	.e8ea6a219247d88aa936a012f6227b0d-scss._4b308d5c9250cfb0620ce3b40765ef4a-scss ._6b1ff8eab07810e2b7845ffe28430e38-scss,
+	.e8ea6a219247d88aa936a012f6227b0d-scss._4b308d5c9250cfb0620ce3b40765ef4a-scss .da0bc4060bb1bdb4abb8e402916af32e-scss {
+		color: accentColor;
+	}
+	.a49166e7146d2aeb9f688dae35feb040-scss:focus,
+	.a49166e7146d2aeb9f688dae35feb040-scss:hover,
+	.bd0f04911fe4adb022e666269a90a739-scss:focus,
+	.bd0f04911fe4adb022e666269a90a739-scss:hover {
+		color: accentColor;
+	}
+
+	/* GENERAL PAGES */
+	/* General Page Header */
+	/* Heading title styling */
+	.a12b67e576d73f97c44f1f37026223c4-scss {
+		color: white;
+	}
+}
+
+@-moz-document url("https://open.spotify.com/queue") {
+	/* QUEUE */
+	@media (prefers-color-scheme: light) {
+
+		/* queue heading */
+		._15b259574e48922b106bc4b01521f33b-scss {
+			color: mainText !important;
+		}
+
+		._587844af67ca3c14dbf7deb3d5e64f69-scss {
+			color: mainText;
+		}
+		._46f32c2f0c501019abb7863d1947377f-scss {
+			color: mainText;
+		}
+
+		/* queue now playing / next up headings */
+		._3957b7dd066dbbba6a311b40a427c59f-scss {
+			color: lightText !important;
+		}
+
+		.c08d7ac77aad119eb2f6bb322fa7fff4-scss {
+			color: lightText;
+		}
+		.c08d7ac77aad119eb2f6bb322fa7fff4-scss:hover {
+			color: mainText;
+		}
+	}
+}
+
+@-moz-document url-prefix("https://open.spotify.com/collection") {
+	/* COLLECTION/LIBRARY */
+	@media (prefers-color-scheme: light) {
+		a.f7ebc3d96230ee12a84a9b0b4b81bb8f-scss[title="Liked Songs"] ._4927510282dae1bd4bce47f1df0bc361-scss {
+			color: white !important;
+		}
+
+		/*LIBRARY */
+		// .c9f0f64f59cd085f9c8fbf36e2c1c009-scss {
+		// 	background-image: linear-gradient(149.46deg, rgb(69, 10, 245), rgb(142, 142, 229) 99.16%) !important;
+		// }
+		.ce750f65e138b4757b889ab4980d197b-scss {
+			color: mainText;
+		}
+
+		/* library tabs */
+		._43e978b8fbef3b1a5fc86ea29e51a0fd-scss {
+			color: lightText;
+		}
+
+		/* library tab active */
+		._43e978b8fbef3b1a5fc86ea29e51a0fd-scss.a4bc298d40e9660cd25cd3ac1a7f9c49-scss {
+			background-color: lightColor;
+		}
+
+		._43e978b8fbef3b1a5fc86ea29e51a0fd-scss.a4bc298d40e9660cd25cd3ac1a7f9c49-scss ._9642f084eaa7faec9f8f003145b6c289-scss {
+			color: mainText;
+		}
+	}
+}
+
+@-moz-document url-prefix("https://open.spotify.com/playlist") {
+	/* PLAYLISTS */
+	// general styling for tracklists is in the general section since it is used on multiple pages:
+	// playlist, queue, etc.
+	@media (prefers-color-scheme: light) {
+
+
+		/* Playlist recommendations heading */
+		._774456834f4a0dcc05be3b82fcb213b4-scss {
+			color: mainText;
+		}
+
+		/* Playlist recommendations subtitle */
+		._1aeb8cb3caf53b3d962919b32849de54-scss {
+			color: lightText;
+		}
+
+		/* Playlist recommendations album shading on tracklist row hover */
+		/* (By default this makes the album image darker, change to lighter to match black play button) */
+		/* (I know this is ugly but the play button selector is the same one as in the regular tracklist and I'm currently too lazy to make a more specific selector for play buttons only in the recommendations tracklist) */
+		._9811afda86f707ead7da1d12f4dd2d3e-scss ._34cfa3028b29d1f7b0c7794ad6a9c77a-scss {
+			background: rgba(white, 0.6);
+		}
+
+		/* playlist add buttons for recommended tracks */
+		button._3f37264be67c8f40fa9f76449afdb4bd-scss._110dbc41d89af63f97cdd8b7cd7fea47-scss._2e6fd4bdb936691a0eceb04a1e880c2f-scss .b490086127ec0ecdc7b170c03de9c5b1-scss {
+			color: mainText;
+		}
+		.e8ea6a219247d88aa936a012f6227b0d-scss:focus-within ._2e6fd4bdb936691a0eceb04a1e880c2f-scss,
+		.e8ea6a219247d88aa936a012f6227b0d-scss:hover ._2e6fd4bdb936691a0eceb04a1e880c2f-scss {
+			border-color: mainText !important;
+		}
+		
+		/* playlist heart icon */
+		._07bed3a434fa59aa1852a431bf2e19cb-scss {
+			color: lightText;
+		}
+
+		._07bed3a434fa59aa1852a431bf2e19cb-scss:focus,
+		._07bed3a434fa59aa1852a431bf2e19cb-scss:hover {
+			color: mainText;
+		}
+
+		.a65d8d62fe56eed3e660b937a9be8a93-scss,
+		.a65d8d62fe56eed3e660b937a9be8a93-scss:focus,
+		.a65d8d62fe56eed3e660b937a9be8a93-scss:hover {
+			color: accentColor;
+		}
+	}
+}
+
+@-moz-document url-prefix("https://open.spotify.com/artist") {
+	/* ARTIST PAGE */
+	@media (prefers-color-scheme: light) {
+
+		.a232f016804d04ce9c5bbfd1a5e00d54-scss {
+			background: white;
+		}
+
+		/*.content.artist {
+background-color: white;
+}*/
+		/* follow */
+		.ff6a86a966a265b5a51cf8e30c6c52f4-scss {
+			color: lightText;
+			border-color: lightText;
+			transition: 0.15s ease-in-out;
+		}
+
+		.ff6a86a966a265b5a51cf8e30c6c52f4-scss:hover {
+			color: mainText;
+			border-color: mainText;
+			transition: 0.15s ease-in-out;
+		}
+
+		/* artist page headers */
+		._15b259574e48922b106bc4b01521f33b-scss {
+			color: mainText !important;
+		}
+
+		/* see more */
+		._8eaf9c7e0fab279ec19ca81d822db2ad-scss {
+			color: lightText;
+		}
+		._8eaf9c7e0fab279ec19ca81d822db2ad-scss:hover {
+			color: mainText;
+		}
+
+		/* offers headings */
+		.e196b478b42f00ef4caa571248f5f358-scss ._91b9ec5049d6f659ee1af2383da22781-scss {
+			color: mainText !important;
+		}
+
+		/* offers descriptions */
+		.e196b478b42f00ef4caa571248f5f358-scss ._8ed03ff3b7fa7d30b590186db0e65f87-scss {
+			color: lightText !important;
+		}
+
+		/* offers images */
+		.e815c7e6b4190e26d76d1f2d82c38daf-scss {
+			box-shadow()
+		}
+
+		/* about pop-up */
+		._4c277e39d9f5f55336d9e30d97558002-scss {
+			background-color: white;
+			box-shadow: 0 0 10px rgba(mainText, 0.08);
+		}
+
+		/* about pop-up stats - also h1 at wider screen widths */
+		._4927510282dae1bd4bce47f1df0bc361-scss {
+			color: mainText !important;
+		}
+
+		/* about pop-up smaller stats */
+		._2eee4ad4921084de0155e065e5472c31-scss * {
+			color: mainText !important;
+		}
+
+		/* about pop-up social links */
+		.dfd6a5953317bb059758c70087fa9b38-scss {
+			color: lightText;
+
+			&:focus,
+			&:hover {
+				color: mainText;
+			}
+		}
+
+		/* about pop-up background */
+		.GenericModal__overlay {
+			background-color: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(blurRadius);
+		}
+
+		/* tour calendar times */
+		._174ef7aa907adc012179bd002117e924-scss {
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		}
+
+		/* tour concert names */
+		.afa2b848e3b3bc81d497d2ebffcd88d1-scss {
+			color: mainText !important;
+		}
+
+		.mo-info-name {
+			color: mainText;
+		}
+
+		.b49b68b14a1771a4cb36313f2b350e84-scss {
+			color: mainText !important;
+			border: 1px solid hsla(0, 0%, 0%, .3) !important;
+		}
+
+		._137ec408b14ac4ea5aec6ded3d95f328-scss {
+			color: mainText !important;
+		}
+		._137ec408b14ac4ea5aec6ded3d95f328-scss.be059487cfa7b71ee0f482c8e5be2b7e-scss {
+			background-color: rgba(0, 0, 0, 0.1) !important;
+		}
+
+		.ArtistAbout__header {
+			color: mainText;
+		}
+		.ArtistAbout__paragraph {
+			color: lightText;
+		}
+		.ArtistAbout__city__name {
+			color: lightText;
+		}
+
+		/* album covers */
+		._2ce7a4a879bab3a4f4543c870c6d79fd-scss {
+			box-shadow: 0 4px 8px rgba(0, 0, 0, .25);
+		}
+
+		/*  */
+		._1991208eaca7e4ed0cff8a9919cfd509-scss {
+			box-shadow: 0 4px 6px rgba(0, 0, 0, .15);
+		}
+	}
+}
+
+@-moz-document url-prefix("https://open.spotify.com/search") {
+	/* SEARCH */
+	.adcd1f81c1b64d2212fa5e532c5baa4f-scss {
+		color: white;
+	}
+	/* input search box */
+	._2f8ed265fb69fb70c0c9afef329ae0b6-scss,
+	._748c0c69da51ad6d4fc04c047806cd4d-scss {
+		background-color: lightColor;
+	}
+	._4d8a0b01a5e2d87aef411a650d1c1c71-scss {
+		color: mainText !important;
+	}
+	/* search genre suggestions */
+	.fbe9fd01f8ae7354e9082a5816a3300c-scss {
+		color: white;
+	}
+	/* search all genres list */
+	.c5d42a6a1f132e80cad79e45193e9e80-scss {
+		color: white;
+	}
+
+	/* SEARCH RESULTS */
+	._7bf3a3e89d344d0809e4d543836dc86a-scss {
+		background-color: lightText;
+	}
+
+	._59c935afb8f0130a69a7b07e50bac04b-scss {
+		color: mainText !important;
+	}
+	.fa5d61cbff164a35eeb31d9e7ec6d466-scss {
+		border-radius: 8px;
+	}
+	.fa5d61cbff164a35eeb31d9e7ec6d466-scss._330120983547cb0c119a357dbb9ab8ab-scss,
+	.fa5d61cbff164a35eeb31d9e7ec6d466-scss:hover {
+		background-color: rgba(0, 0, 0, 0.1) !important;
+	}
+	._9c34eab534cc1fe8d59c9ed342b6285e-scss a,
+	._1619930a9feb69c65153ace65708448d-scss a,
+	._6e5cf60990caa49a88594d32c96440a3-scss a {
+		color: lightText !important;
+	}
+	.a651a6c0857e2201b06b57b1d45eb2f4-scss {
+		color: mainText !important;
+	}
+
+	._2f859138f9d0ecc3c687296f572c5dca-scss {
+		background-color: transparentify(mainText, #fff, 0.03);
+	}
+
+	._2f859138f9d0ecc3c687296f572c5dca-scss:hover {
+		background-color: transparentify(mainText, #fff, 0.06);
+	}
+}
+
+@-moz-document url-prefix("https://open.spotify.com/genre") {
+	/* Genre Page */
+	@media (prefers-color-scheme: light) {
+
+		/* heading at top */
+		.ea808ed7ca7ccc2fc34f5ebc41e0cdef-scss {
+			color: mainText;
+		}
+	}
+}
