@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.3
+@version        0.1.5
 
 @preprocessor	stylus
 
@@ -12,17 +12,16 @@
 @var	color	dark4	"Dark 4"	#2d2e31
 @var	color	gray2	"Gray 2"	#313235
 @var	color	light	"Light Color"	#e8eaed
+@var	select	activationMode	"Activate Based On"	["System", "Always"]
 ==/UserStyle== */
 @-moz-document domain("drive.google.com") {
-
-	@media (prefers-color-scheme: dark) {
-
+	activate() {
 		body {
 			color: light;
 			background-color: darkColor;
 		}
 
-		body[jsaction="UjQMac:.CLIENT;wINJic:.CLIENT"] {
+		body[jsaction='UjQMac:.CLIENT;wINJic:.CLIENT'] {
 			background: none;
 			backdrop-filter: blur(10px);
 		}
@@ -42,24 +41,18 @@
 			/* Firefox */
 		}
 
-		.a-Va-Zb-vb:focus,
-		.a-Va-Zb-vb:hover {
+		.a-Va-Zb-vb:focus, .a-Va-Zb-vb:hover {
 			border: 1px solid transparent;
 			box-shadow: inset 0 -2px 0 0 accentColor;
 		}
 
 		/* various top menu bar/navbar things */
-		.gb_qa svg,
-		.gb_Cc svg,
-		.gb_Zc .gb_fe,
-		.gb_Oc .gb_fe {
+		.gb_qa svg, .gb_Cc svg, .gb_Zc .gb_fe, .gb_Oc .gb_fe {
 			color: light;
 			fill: light;
 		}
-		.gb_pa svg,
-		.gb_Ac svg,
-		.gb_Wc .gb_5d,
-		.gb_Mc .gb_5d {
+
+		.gb_pa svg, .gb_Ac svg, .gb_Wc .gb_5d, .gb_Mc .gb_5d {
 			color: light;
 		}
 
@@ -75,9 +68,7 @@
 			color: light;
 		}
 
-		.a-U-ye-ha > .a-U-J .a-U-Ze svg,
-		.a-U-xc-J .a-Ng-c-wk svg,
-		.a-U-J .a-U-Ze svg {
+		.a-U-ye-ha > .a-U-J .a-U-Ze svg, .a-U-xc-J .a-Ng-c-wk svg, .a-U-J .a-U-Ze svg {
 			fill: light;
 		}
 
@@ -96,17 +87,14 @@
 		.a-D-B {
 			background-color: dark2;
 		}
-		
+
 		/* app switcher icon active state */
 		.gb_C[aria-expanded=true] .gb_Ve, .gb_C[aria-expanded=true] .gb_We {
 			fill: accentColor;
 		}
 
 		/* some icons */
-		.gb_qa svg,
-		.gb_Bc svg,
-		.gb_Xc .gb_6d,
-		.gb_Nc .gb_6d {
+		.gb_qa svg, .gb_Bc svg, .gb_Xc .gb_6d, .gb_Nc .gb_6d {
 			color: light;
 		}
 
@@ -119,10 +107,7 @@
 			background-color: dark2 !important;
 		}
 
-		.gb_sa svg,
-		.gb_Fc svg,
-		.gb_8c .gb_he,
-		.gb_Rc .gb_he {
+		.gb_sa svg, .gb_Fc svg, .gb_8c .gb_he, .gb_Rc .gb_he {
 			color: light;
 		}
 
@@ -131,46 +116,13 @@
 			background: darkColor;
 		}
 
-
-		// turns out messing with the padding shifts elements around unintentially
-		// albeit in relatively obscure cases that I cannot remember
-		// ::-webkit-scrollbar {
-		// 	padding: 0 !important;
-		// 	border: 0 solid darkColor;
-		// 	height: 10px;
-		// 	width: 10px;
-		// 	background: darkColor;
-		// }
-		// ::-webkit-scrollbar-thumb {
-		// 	background-color: dark3 !important;
-		// 	box-shadow: none;
-		// 	border: 0 solid darkColor !important;
-		// 	&:hover {
-		// 		background-color: dark3;
-		// 		box-shadow: none;
-		// 	}
-		// 	&:active {
-		// 		background-color: dark2;
-		// 	}
-		// }
-		// ::-webkit-scrollbar-track {
-		// 	background: transparent !important;
-		// 	color: red;
-		// 	border: 0 solid darkColor !important &:hover {
-		// 		box-shadow: none;
-		// 	}
-		// }
-		// ::-webkit-scrollbar-track-piece {
-		// 	background: transparent !important;
-		// 	border: 0 solid darkColor !important
-		// }
-				
 		/* LEFT SIDEBAR */
 		/* new button */
 		.a-ec-Gd .Kzazxf.x6jRSb {
 			background-color: dark3;
 			color: white;
 		}
+
 		.a-ec-Gd .Kzazxf.x6jRSb:hover {
 			background-color: dark2;
 		}
@@ -180,16 +132,11 @@
 		}
 
 		/* search bar */
-		.gb_7e,
-		.gb_4e,
-		.gb_Ue,
-		.gb_Te {
+		.gb_7e, .gb_4e, .gb_Ue, .gb_Te {
 			background: darkColor !important;
 		}
-		.gb_rf,
-		.gb_of,
-		.gb_gf,
-		.gb_ff {
+
+		.gb_rf, .gb_of, .gb_gf, .gb_ff {
 			color: white !important;
 
 			&::placeholder {
@@ -198,10 +145,7 @@
 		}
 
 		/* search bar active */
-		.gb_7e.gb_8e,
-		.gb_Ve.gb_We,
-		.gb_Ue.gb_Ve,
-		.gb_Te.gb_Ue {
+		.gb_7e.gb_8e, .gb_Ve.gb_We, .gb_Ue.gb_Ve, .gb_Te.gb_Ue {
 			background: dark3 !important;
 			transition: 0.2s ease-in-out;
 		}
@@ -212,8 +156,7 @@
 		}
 
 		/* search bar input */
-		.gb_ef,
-		.gb_Te.gb_Ue .gb_ef {
+		.gb_ef, .gb_Te.gb_Ue .gb_ef {
 			color: white;
 			caret-color: white;
 		}
@@ -224,14 +167,14 @@
 		}
 
 		/* current folder */
-		.h-R-w-d.a-l-S-Pc-w-d,
-		.Q62IOe {
+		.h-R-w-d.a-l-S-Pc-w-d, .Q62IOe {
 			color: white;
 		}
 
 		.a-l-S-Pc-w-d.h-R-w-d-W {
 			background-color: dark3;
 		}
+
 		.a-l-S-Pc-w-d.h-R-w-d-pb {
 			background-color: rgba(accentColor, 0.1);
 			color: accentColor;
@@ -247,9 +190,7 @@
 		}
 
 		/* top toolbar icons */
-		.a-c-d.h-R-d-pb,
-		.Hb-ja-Na .a-c-d.h-R-d-Pb.h-R-d-pb:not(.h-R-d-db),
-		.a-c-d:not(.h-R-d-db):active {
+		.a-c-d.h-R-d-pb, .Hb-ja-Na .a-c-d.h-R-d-Pb.h-R-d-pb:not(.h-R-d-db), .a-c-d:not(.h-R-d-db):active {
 			background-color: dark2;
 		}
 
@@ -258,34 +199,31 @@
 			fill: light;
 			opacity: 1;
 		}
+
 		/* toolbar icons disabled */
 		.h-R-d-db .a-d-c svg {
 			opacity: 0.5;
 		}
+
 		.Ewn2Sd.C0fwCb .wo35tf {
 			fill: light;
 			opacity: 0.5;
 		}
-		.a-D-B .a-c-d.h-R-d-rc svg,
-		.a-D-B .a-c-d.h-R-d-pb svg,
-		.a-D-B .Hb-ja-Na .a-c-d.h-R-d-Pb.h-R-d-pb:not(.h-R-d-db) svg,
-		.a-D-B .a-c-d:not(.h-R-d-db):active svg {
+
+		.a-D-B .a-c-d.h-R-d-rc svg, .a-D-B .a-c-d.h-R-d-pb svg, .a-D-B .Hb-ja-Na .a-c-d.h-R-d-Pb.h-R-d-pb:not(.h-R-d-db) svg, .a-D-B .a-c-d:not(.h-R-d-db):active svg {
 			fill: accentColor;
 		}
+
 		.a-c-d.h-R-d-rc {
 			background: rgba(accentColor, 0.2);
 		}
 
 		/* top toolbar icons hover */
-		.Hb-ja-Na .a-c-d:not(.h-R-d-db):focus,
-		.Hb-ja-Na .a-c-d:not(.h-R-d-db).h-R-d-Pb,
-		.a-c-d:not(.h-R-d-db):hover,
-		.a-c-d.h-R-d-W:not(.h-R-d-db) {
+		.Hb-ja-Na .a-c-d:not(.h-R-d-db):focus, .Hb-ja-Na .a-c-d:not(.h-R-d-db).h-R-d-Pb, .a-c-d:not(.h-R-d-db):hover, .a-c-d.h-R-d-W:not(.h-R-d-db) {
 			background-color: dark3;
 		}
 
-		.a-c-d:hover,
-		.a-c-d.h-R-d-W {
+		.a-c-d:hover, .a-c-d.h-R-d-W {
 			border: none;
 			background-color: dark3;
 		}
@@ -295,11 +233,11 @@
 			border-color: dark3;
 		}
 
-
 		/* current file path bg */
 		.a-D-B-x {
 			background-color: darkColor;
 		}
+
 		.a-s-Ba-Ak {
 			border-bottom-color: dark3;
 		}
@@ -309,8 +247,7 @@
 			color: light;
 		}
 
-		.o-Yc-o-T:hover,
-		.Hb-ja-Na .o-Yc-o-T:focus:hover {
+		.o-Yc-o-T:hover, .Hb-ja-Na .o-Yc-o-T:focus:hover {
 			background-color: dark3;
 		}
 
@@ -326,14 +263,13 @@
 
 		/* FILE LIST */
 		/* file list, shared with me file list */
-		.aabwZd .WYuW0e,
-		.a-t-cb {
+		.aabwZd .WYuW0e, .a-t-cb {
 			// color: light;
 			fill: light;
 			border-bottom-color: dark3;
 		}
 
-		.aabwZd .WYuW0e .M3pype[data-column-field="6"] {
+		.aabwZd .WYuW0e .M3pype[data-column-field='6'] {
 			color: light;
 		}
 
@@ -341,17 +277,13 @@
 		.l-t-T-V > .l-Ab-T-r {
 			color: light;
 		}
+
 		.a-t-J {
 			color: light;
 		}
 
 		/* file list offline disabled items */
-		.a-cc .aabwZd .WYuW0e .ACGwFc .M3pype,
-		.a-cc .aabwZd .WYuW0e .M3pype .YUNZ4c,
-		.a-cc .l-oi-cc .l-t-T-V > .l-Ab-T-r,
-		.l-oi-ka .l-t-T-V > .l-Ab-T-r,
-		.a-cc .l-oi-cc .a-t-cb,
-		.l-oi-ka .a-t-cb {
+		.a-cc .aabwZd .WYuW0e .ACGwFc .M3pype, .a-cc .aabwZd .WYuW0e .M3pype .YUNZ4c, .a-cc .l-oi-cc .l-t-T-V > .l-Ab-T-r, .l-oi-ka .l-t-T-V > .l-Ab-T-r, .a-cc .l-oi-cc .a-t-cb, .l-oi-ka .a-t-cb {
 			color: rgba(light, 0.25);
 		}
 
@@ -359,22 +291,18 @@
 		.a-ok-Ji-ga {
 			color: white;
 		}
+
 		.a-t-j .a-ok-Ji-D {
 			border-bottom-color: rgba(light, 0.25);
 		}
 
 		/* file list :focus border */
-		.Hb-ja-Na .s55KNe .WYuW0e [role="row"]:focus .jGNTYb::after,
-		.Hb-ja-Na .aabwZd .WYuW0e [role="row"]:focus::before {
+		.Hb-ja-Na .s55KNe .WYuW0e [role='row']:focus .jGNTYb::after, .Hb-ja-Na .aabwZd .WYuW0e [role='row']:focus::before {
 			border-color: accentColor;
 		}
+
 		/* file list :focus border in search results */
-		.Hb-ja-Na .a-t-J-ha.a-t-J-Vd-ja.a-t-J-Vd-jh > .a-t-cb:first-child > .a-t-cb-Ef-Ja > .a-t-cb-oa,
-		.Hb-ja-Na .a-t-J-ha.a-t-J:focus > .a-t-cb:first-child > .a-t-cb-Ef-Ja > .a-t-cb-oa,
-		.Hb-ja-Na .a-t-J-Vd-ja.a-t-J-Vd-jh .a-t-cb-oa,
-		.Hb-ja-Na .a-t-J-ha.a-t-J:focus .a-t-cb-oa,
-		.Hb-ja-Na .a-t-J-ha.a-t-J-Vd-ja.a-t-J-Vd-jh .a-t-cb:last-child > .a-t-cb-Ef-Ja > .a-t-cb-oa,
-		.Hb-ja-Na .a-t-J-ha.a-t-J:focus > .a-t-cb:last-child > .a-t-cb-Ef-Ja > .a-t-cb-oa {
+		.Hb-ja-Na .a-t-J-ha.a-t-J-Vd-ja.a-t-J-Vd-jh > .a-t-cb:first-child > .a-t-cb-Ef-Ja > .a-t-cb-oa, .Hb-ja-Na .a-t-J-ha.a-t-J:focus > .a-t-cb:first-child > .a-t-cb-Ef-Ja > .a-t-cb-oa, .Hb-ja-Na .a-t-J-Vd-ja.a-t-J-Vd-jh .a-t-cb-oa, .Hb-ja-Na .a-t-J-ha.a-t-J:focus .a-t-cb-oa, .Hb-ja-Na .a-t-J-ha.a-t-J-Vd-ja.a-t-J-Vd-jh .a-t-cb:last-child > .a-t-cb-Ef-Ja > .a-t-cb-oa, .Hb-ja-Na .a-t-J-ha.a-t-J:focus > .a-t-cb:last-child > .a-t-cb-Ef-Ja > .a-t-cb-oa {
 			border-color: accentColor;
 		}
 
@@ -382,8 +310,8 @@
 		.aabwZd .WYuW0e .M3pype .YUNZ4c {
 			color: rgba(light, 0.5);
 		}
-		.a-cc .aabwZd .WYuW0e .ACGwFc .M3pype,
-		.a-cc .aabwZd .WYuW0e .M3pype .YUNZ4c {
+
+		.a-cc .aabwZd .WYuW0e .ACGwFc .M3pype, .a-cc .aabwZd .WYuW0e .M3pype .YUNZ4c {
 			color: rgba(light, 0.5);
 		}
 
@@ -393,42 +321,40 @@
 		}
 
 		/* currently highlighted item */
-		.s55KNe:not(.KBj6Qd) .GZwC2b .jGNTYb,
-		.aabwZd:not(.KBj6Qd) .GZwC2b,
-		.a-t-J-ha {
+		.s55KNe:not(.KBj6Qd) .GZwC2b .jGNTYb, .aabwZd:not(.KBj6Qd) .GZwC2b, .a-t-J-ha {
 			background-color: rgba(accentColor, 0.1);
 			color: accentColor;
 		}
+
 		.a-t-J-ha .l-t-T-V > .l-Ab-T-r {
 			color: accentColor;
 		}
 
-		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype[data-column-field="6"] {
+		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype[data-column-field='6'] {
 			color: accentColor;
 			fill: accentColor !important;
 		}
+
 		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype .YUNZ4c {
 			color: accentColor;
 			fill: accentColor;
 		}
 
 		/* file list headers */
-		.N7iPof,
-		.a-t-D {
+		.N7iPof, .a-t-D {
 			background-color: darkColor;
 			border-bottom-color: dark3 !important;
 		}
 
-		.iZz7md,
-		.a-t-D-cb {
+		.iZz7md, .a-t-D-cb {
 			color: light;
 		}
-		
+
 		.iZz7md.aaQsNb:hover, .iZz7md.aaQsNb:hover svg, .iZz7md .I2rTXb:focus, .iZz7md .I2rTXb:focus svg {
 			color: white;
 			fill: white;
 		}
-		
+
 		/* file list headers sort direction arrow */
 		.KZ6CTb.a-c-d svg {
 			fill: light;
@@ -438,11 +364,12 @@
 		.h-w {
 			background-color: dark2;
 		}
+
 		.a-w-Mr::after {
 			background: none;
 		}
-		.h-v-x,
-		.h-v-x svg {
+
+		.h-v-x, .h-v-x svg {
 			color: light !important;
 			fill: light;
 		}
@@ -456,12 +383,11 @@
 		}
 
 		/* hover */
-		.h-v-pc,
-		.h-v-W {
+		.h-v-pc, .h-v-W {
 			background-color: dark3;
 		}
-		.h-v-pc .h-v-x,
-		.h-v-W .h-v-x {
+
+		.h-v-pc .h-v-x, .h-v-W .h-v-x {
 			color: light;
 		}
 
@@ -479,7 +405,7 @@
 		/* context menu question mark help icon popup explanation e.g. what are shortcuts */
 		.Y6NKxf {
 			background-color: darkColor;
-			box-shadow: 0 1px 3px 0 rgba(dark3, 0.3), 0 4px 8px 3px rgba(dark3, 0.15)
+			box-shadow: 0 1px 3px 0 rgba(dark3, 0.3), 0 4px 8px 3px rgba(dark3, 0.15);
 		}
 
 		/* search results offline icons next to file name */
@@ -488,10 +414,10 @@
 		}
 
 		/* file list icons next to file name (shared file, starred, offline, etc.) */
-		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype[data-column-field="6"] svg,
-		.l-t-T-j .l-t-sb-c-ha svg {
+		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype[data-column-field='6'] svg, .l-t-T-j .l-t-sb-c-ha svg {
 			fill: accentColor;
 		}
+
 		.a-t-J-ha .l-t-Op-cc-j .Auu9lc > .l-c-cc {
 			fill: accentColor;
 		}
@@ -501,38 +427,44 @@
 			border: none;
 			background-color: dark3;
 		}
+
 		/* file list action items counter icon text */
 		.ocLVN-Y-Sn-og-yc {
 			color: light;
 		}
+
 		.ocLVN-Y-Sn-og:hover {
 			background-color: dark2;
 		}
+
 		/* file list action items counter icon when item is selected */
 		.aabwZd:not(.KBj6Qd) .GZwC2b .ocLVN-Y-Sn-og {
 			background-color: accentColor;
 		}
+
 		.aabwZd:not(.KBj6Qd) .GZwC2b .ocLVN-Y-Sn-og .ocLVN-Y-Sn-og-yc {
 			color: darkColor;
 		}
+
 		.a-t-J-ha .ocLVN-Y-Sn-og {
 			background-color: accentColor;
 		}
+
 		.a-t-J-ha .ocLVN-Y-Sn-og .ocLVN-Y-Sn-og-yc {
 			color: darkColor;
 		}
+
 		/* file list action items pop-up */
 		.ocLVN-w-ia .h-w {
 			background-Color: dark2;
 		}
+
 		.ocLVN-w-ia .g-ia-Ud .g-ia-Jd {
 			border-color: dark2 transparent;
 		}
 
 		/* quick access suggestions unloaded placeholder */
-		.xI4DIe,
-		.Wj69db,
-		.A3bYpd {
+		.xI4DIe, .Wj69db, .A3bYpd {
 			background: dark3;
 		}
 
@@ -541,16 +473,19 @@
 			background: dark2;
 			border-color: dark2;
 		}
+
 		.pMw0s .g5SSAf .ta-gc-np-Nd {
 			background-color: dark3;
 		}
+
 		.RwLyCe {
 			border-top-color: dark2;
 		}
-		.eAQ1W,
-		.Vl9rfc {
+
+		.eAQ1W, .Vl9rfc {
 			color: white;
 		}
+
 		.l-u-Ab-zb {
 			background-color: dark3;
 		}
@@ -559,49 +494,34 @@
 			transition: 0.5s !important;
 		}
 
-		.Ccie2c:focus .L202Xe,
-		.Ccie2c.Pb .L202Xe {
+		.Ccie2c:focus .L202Xe, .Ccie2c.Pb .L202Xe {
 			border-color: transparent;
 		}
 
-		.Ccie2c:focus .L202Xe,
-		.Ccie2c.Pb .L202Xe,
-		.Ccie2c:focus .v2devc,
-		.Ccie2c.Pb .v2devc {
+		.Ccie2c:focus .L202Xe, .Ccie2c.Pb .L202Xe, .Ccie2c:focus .v2devc, .Ccie2c.Pb .v2devc {
 			background-color: dark4;
 			color: white;
 		}
 
-		.Ccie2c:focus .eAQ1W,
-		.Ccie2c.Pb .eAQ1W {
+		.Ccie2c:focus .eAQ1W, .Ccie2c.Pb .eAQ1W {
 			color: accentColor;
 		}
-		.Ccie2c:focus .Vl9rfc,
-		.Ccie2c.Pb .Vl9rfc {
+
+		.Ccie2c:focus .Vl9rfc, .Ccie2c.Pb .Vl9rfc {
 			color: white;
 		}
 
 		/* INFO SIDEBAR */
-		.a-ub-Gd,
-		.a-ub-oa,
-		.y-C-Ed-V,
-		.y-C {
+		.a-ub-Gd, .a-ub-oa, .y-C-Ed-V, .y-C {
 			background-color: darkColor;
 			border-color: transparent;
 		}
 
-		.y-C-ka:hover,
-		.y-C-ka:active,
-		.y-C-ka:focus {
+		.y-C-ka:hover, .y-C-ka:active, .y-C-ka:focus {
 			background-color: unset;
 		}
 
-		.y-C-ka-T.y-C-xj-ka:hover,
-		.y-C-ka-T.y-C-xj-ka:active,
-		.y-C-ka-T.y-C-xj-ka:focus,
-		.y-C-ka-T .y-C-xj-ka:hover,
-		.y-C-ka-T .y-C-xj-ka:active,
-		.y-C-ka-T .y-C-xj-ka:focus {
+		.y-C-ka-T.y-C-xj-ka:hover, .y-C-ka-T.y-C-xj-ka:active, .y-C-ka-T.y-C-xj-ka:focus, .y-C-ka-T .y-C-xj-ka:hover, .y-C-ka-T .y-C-xj-ka:active, .y-C-ka-T .y-C-xj-ka:focus {
 			color: inherit;
 			text-decoration: none;
 		}
@@ -639,34 +559,25 @@
 		}
 
 		/* info sidebar text */
-		.y-C-sa-RvPyde,
-		.y-C-H-Sb {
+		.y-C-sa-RvPyde, .y-C-H-Sb {
 			color: white;
 		}
 
-		.y-C-q-D,
-		.y-C-Ed-V,
-		.y-C-Ya,
-		.y-C-q-j,
-		.y-C-fh-Bf-r,
-		.y-C-fh-Bf-Jj {
+		.y-C-q-D, .y-C-Ed-V, .y-C-Ya, .y-C-q-j, .y-C-fh-Bf-r, .y-C-fh-Bf-Jj {
 			color: light;
 		}
 
 		/* info sidebar title */
-		.a-Mg-V-T,
-		.a-Mg-YsLxq-V-T {
+		.a-Mg-V-T, .a-Mg-YsLxq-V-T {
 			color: white;
 		}
-		.a-Mg-V:focus > .a-Mg-V-T,
-		.a-Mg-V:hover > .a-Mg-V-T {
+
+		.a-Mg-V:focus > .a-Mg-V-T, .a-Mg-V:hover > .a-Mg-V-T {
 			color: accentColor;
 		}
 
 		/* info sidebar item show in folder icon */
-		.y-C-ka:hover .y-C-lg svg,
-		.y-C-ka:active .y-C-lg svg,
-		.y-C-ka:focus .y-C-lg svg {
+		.y-C-ka:hover .y-C-lg svg, .y-C-ka:active .y-C-lg svg, .y-C-ka:focus .y-C-lg svg {
 			fill: light !important;
 		}
 
@@ -677,8 +588,7 @@
 			border: transparent;
 		}
 
-		.a-q-Jc-Pj-Ya,
-		.a-q-Lf-me-Z-r {
+		.a-q-Jc-Pj-Ya, .a-q-Lf-me-Z-r {
 			color: light;
 		}
 
@@ -686,6 +596,7 @@
 		.a-q-me-Z-c svg {
 			fill: light;
 		}
+
 		.H-qa-Ma-d-Jb {
 			border-color: light;
 			opacity: 0.5;
@@ -721,9 +632,7 @@
 		}
 
 		/* storage top border divider */
-		.a-U-xc > .a-da-fc-Ug::after,
-		.a-U-xc > .a-da-ji::before,
-		.a-U-xc > .a-da-Ul::before {
+		.a-U-xc > .a-da-fc-Ug::after, .a-U-xc > .a-da-ji::before, .a-U-xc > .a-da-Ul::before {
 			border-color: dark3;
 		}
 
@@ -733,8 +642,7 @@
 		}
 
 		/* side panel with gcal, tasks, etc. */
-		.Kk7lMc-Yb-Il-j,
-		.a-Kk7lMc-ae3xF-j {
+		.Kk7lMc-Yb-Il-j, .a-Kk7lMc-ae3xF-j {
 			border-left: transparent;
 		}
 
@@ -756,23 +664,26 @@
 		}
 
 		/* search results suggestions */
-		.gssb_e,
-		.gssb_m {
+		.gssb_e, .gssb_m {
 			background-color: dark2;
 			color: white;
 			border-top-color: transparent;
 		}
+
 		/* search results suggestion separator */
 		.gssb_l {
 			background-color: dark3;
 		}
+
 		/* search results suggestion hover */
 		.gssb_i {
 			background-color: dark3;
 		}
+
 		.gssb_i > .gssb_a.gsfs {
 			border-left-color: accentColor;
 		}
+
 		/* search results suggestion subtitle */
 		.asor_e {
 			color: light;
@@ -792,7 +703,7 @@
 		.h-R-w-d.g-Qb {
 			color: white;
 		}
-		
+
 		/* divider */
 		.a-Va-Zb-ut {
 			border-top-color: dark3;
@@ -816,15 +727,11 @@
 		}
 
 		/* popup confirmation button */
-		.a-Lk .lb-k-Gb .h-De-Y,
-		.a-X-k-Gb .h-De-Y {
+		.a-Lk .lb-k-Gb .h-De-Y, .a-X-k-Gb .h-De-Y {
 			background-color: accentColor;
 		}
 
-		.a-Lk .lb-k-Gb .h-De-Y:focus,
-		.a-X-k-Gb .h-De-Y:focus,
-		.a-Lk .lb-k-Gb .h-De-Y:hover,
-		.a-X-k-Gb .h-De-Y:hover {
+		.a-Lk .lb-k-Gb .h-De-Y:focus, .a-X-k-Gb .h-De-Y:focus, .a-Lk .lb-k-Gb .h-De-Y:hover, .a-X-k-Gb .h-De-Y:hover {
 			background-color: accentColor;
 		}
 
@@ -840,6 +747,7 @@
 			border-radius: 2px;
 			box-shadow: none;
 		}
+
 		.g-Gh:focus {
 			border-color: accentColor;
 		}
@@ -851,8 +759,8 @@
 			border-radius: 2px;
 			box-shadow: none;
 		}
-		.h-R-w-d.g-Qb:focus,
-		.h-R-w-d.g-Qb:hover {
+
+		.h-R-w-d.g-Qb:focus, .h-R-w-d.g-Qb:hover {
 			box-shadow: inset 0 -2px 0 0 accentColor;
 		}
 
@@ -868,20 +776,17 @@
 
 		/* BUTTONS/INPUTS */
 		/* cancel/light button */
-		.a-Lk .g-d-wd:not(.g-d-db),
-		.a-Lk .g-d-wd:not(.g-d-db):focus,
-		.a-Lk .g-d-wd:not(.g-d-db).g-d-Pb {
+		.a-Lk .g-d-wd:not(.g-d-db), .a-Lk .g-d-wd:not(.g-d-db):focus, .a-Lk .g-d-wd:not(.g-d-db).g-d-Pb {
 			color: light;
 		}
+
 		/* cance/light button hover */
 		.a-Lk .g-d-wd:not(.g-d-db).g-d-W {
 			color: white;
 		}
 
 		/* submit/highlighted button */
-		.a-Lk .g-d-Y:not(.g-d-db),
-		.a-Lk .g-d-Y:not(.g-d-db):focus,
-		.a-Lk .g-d-Y:not(.g-d-db).g-d-Pb {
+		.a-Lk .g-d-Y:not(.g-d-db), .a-Lk .g-d-Y:not(.g-d-db):focus, .a-Lk .g-d-Y:not(.g-d-db).g-d-Pb {
 			background-color: accentColor;
 		}
 
@@ -894,6 +799,7 @@
 				color: accentColor;
 			}
 		}
+
 		.a-Ws-nb-Oh-Ma-A::before {
 			box-shadow: inset 0 0 0 1px accentColor;
 		}
@@ -921,12 +827,15 @@
 			background-color: dark2;
 			border-color: dark2;
 		}
+
 		.Ea-oa {
 			border-color: dark2;
 		}
+
 		.Ea-oa.Ea-G {
 			color: light;
 		}
+
 		.z-Ea-Lm {
 			color: rgba(light, 0.5);
 		}
@@ -951,12 +860,12 @@
 		.boqDrivesharedialogPermissionslistPermissionrowMain .boqDrivesharedialogPermissionslistPermissionrowPrimary {
 			color: white;
 		}
+
 		.boqDrivesharedialogPermissionslistPermissionrowMain .boqDrivesharedialogPermissionslistPermissionrowSecondary {
 			color: light;
 		}
 
-		.appsDriveElementsMaterialScrollcontainerSeamCoverTop,
-		.appsDriveElementsMaterialScrollcontainerSeamCoverBottom {
+		.appsDriveElementsMaterialScrollcontainerSeamCoverTop, .appsDriveElementsMaterialScrollcontainerSeamCoverBottom {
 			border-top-color: darkColor;
 		}
 
@@ -968,26 +877,26 @@
 			color: white;
 		}
 
-		.appsMaterialWizButtonPaperbuttonTextColored,
-		.appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink {
+		.appsMaterialWizButtonPaperbuttonTextColored, .appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink {
 			color: accentColor;
 		}
 
 		.appsDriveElementsMaterialFormfield_filledFieldContainer {
 			background: dark3;
 		}
+
 		.appsDriveElementsMaterialFormfield_filledFieldContainer:hover {
 			background: dark2;
 		}
 
-		.appsDriveElementsMaterialFormfield_filledFieldContainer,
-		.appsDriveElementsMaterialFormfield_filledFieldContainer::after {
+		.appsDriveElementsMaterialFormfield_filledFieldContainer, .appsDriveElementsMaterialFormfield_filledFieldContainer::after {
 			border-bottom-color: accentColor;
 		}
 
 		.GmButtonText:not(:disabled) {
 			color: accentColor;
 		}
+
 		.GmFillButton:not(:disabled) {
 			background-color: accentColor;
 		}
@@ -996,15 +905,11 @@
 			color: rgba(white, 0.5);
 		}
 
-		.GmButtonText:hover:not(:disabled),
-		.GmButtonText:active:not(:disabled),
-		.GmButtonText:not(.gm-focus-hidden):focus:not(:disabled),
-		.GmButtonText.mdc-ripple-upgraded--background-focused:not(:disabled) {
+		.GmButtonText:hover:not(:disabled), .GmButtonText:active:not(:disabled), .GmButtonText:not(.gm-focus-hidden):focus:not(:disabled), .GmButtonText.mdc-ripple-upgraded--background-focused:not(:disabled) {
 			color: accentColor;
 		}
 
-		.boqDrivesharedialogPermissionslistPermissionrowListItem:hover .boqDrivesharedialogPermissionslistPermissionrowPermissionRow,
-		.boqDrivesharedialogPermissionslistPermissionrowListItem:focus-within .boqDrivesharedialogPermissionslistPermissionrowPermissionRow {
+		.boqDrivesharedialogPermissionslistPermissionrowListItem:hover .boqDrivesharedialogPermissionslistPermissionrowPermissionRow, .boqDrivesharedialogPermissionslistPermissionrowListItem:focus-within .boqDrivesharedialogPermissionslistPermissionrowPermissionRow {
 			background-color: dark3;
 		}
 
@@ -1016,8 +921,7 @@
 			color: light;
 		}
 
-		.appsMaterialWizTextinputTextareaFilled .appsMaterialWizTextinputTextareaMainContent,
-		.appsMaterialWizTextinputTextareaFilled:not(.isDisabled):hover .appsMaterialWizTextinputTextareaMainContent {
+		.appsMaterialWizTextinputTextareaFilled .appsMaterialWizTextinputTextareaMainContent, .appsMaterialWizTextinputTextareaFilled:not(.isDisabled):hover .appsMaterialWizTextinputTextareaMainContent {
 			background-color: dark3;
 		}
 
@@ -1036,10 +940,8 @@
 		.GmButtonGreyInkText:not(:disabled) {
 			color: rgba(light, 0.5);
 		}
-		.GmButtonGreyInkText:hover:not(:disabled),
-		.GmButtonGreyInkText:active:not(:disabled),
-		.GmButtonGreyInkText:not(.gm-focus-hidden):focus:not(:disabled),
-		.GmButtonGreyInkText.mdc-ripple-upgraded--background-focused:not(:disabled) {
+
+		.GmButtonGreyInkText:hover:not(:disabled), .GmButtonGreyInkText:active:not(:disabled), .GmButtonGreyInkText:not(.gm-focus-hidden):focus:not(:disabled), .GmButtonGreyInkText.mdc-ripple-upgraded--background-focused:not(:disabled) {
 			color: rgba(light, 0.8);
 		}
 
@@ -1059,36 +961,120 @@
 			--mdc-ripple-color: accentColor;
 		}
 	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activate();
+		}
+	} else if (activationMode == 'Always') {
+		activate();
+	}
 }
 
 @-moz-document domain("drive.google.com") {
 	// Side Panel
-	@media (prefers-color-scheme: dark) {
-
+	activateSidePanel() {
 		.Kk7lMc-Yb-Il-j {
 			background-color: dark2;
 		}
 
-		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd,
-		.Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd {
-			background-color: dark3;
-		} // hover
-		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd,
-		.Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd,
-		.Yb-Il-d-W .Yb-Il-d-c-Nd,
-		.Yb-Il-d-pb .Yb-Il-d-c-Nd,
-		.Kk7lMc-Wc-Tn .Yb-Il-d-ha .Yb-Il-d-c-Nd,
-		.Kk7lMc-Wc-Tn .Yb-Il-d-Pb .Yb-Il-d-c-Nd {
-			background-color: dark4;
-		} // focus
-		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd,
-		.Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd,
-		.Yb-Il-d-Pb .Yb-Il-d-c-Nd,
-		.Yb-Il-d-Pb.Yb-Il-d-W .Yb-Il-d-c-Nd,
-		.Kk7lMc-Wc-Tn .Yb-Il-d-W .Yb-Il-d-c-Nd,
-		.Kk7lMc-Wc-Tn .Yb-Il-d-pb .Yb-Il-d-c-Nd,
-		.Kk7lMc-Wc-Tn .Yb-Il-d-ha.Yb-Il-d-W .Yb-Il-d-c-Nd {
+		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd {
 			background-color: dark3;
 		}
+
+		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd, .Yb-Il-d-W .Yb-Il-d-c-Nd, .Yb-Il-d-pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-ha .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-Pb .Yb-Il-d-c-Nd {
+			background-color: dark4;
+		}
+
+		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Yb-Il-d-Pb.Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-ha.Yb-Il-d-W .Yb-Il-d-c-Nd {
+			background-color: dark3;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activateSidePanel();
+		}
+	} else if (activationMode == 'Always') {
+		activateSidePanel();
+	}
+}
+
+@-moz-document domain("drive.google.com") {
+	activateFileMoveMenu() {
+		.e-F-V-Ta.e-Qf-Qd {
+			background-color: dark3;
+		}
+
+		.e-rf.e-Bd .e-F-aa-ed .e-F-aa-Wb {
+			border-color: dark3 transparent;
+		}
+
+		.e-F-V-Ta .e-D-o-T {
+			color: white;
+		}
+
+		.e-rf.e-F {
+			color: light;
+		}
+
+		/* hover over folder in list */
+		.e-Bd .e-F-v-qg .e-F-v-Qb {
+			background: dark3;
+		}
+
+		.e-Bd .e-F-v-W .e-F-v-Qb, .e-Bd .e-F-v-W.e-F-v-qg .e-F-v-Qb {
+			background: accentColor;
+		}
+
+		/* close icon */
+		.e-Bc-va-ra {
+			filter: invert(1);
+		}
+
+		/* back icon */
+		.e-Bc-Nq-Xd-d {
+			filter: invert(1);
+		}
+
+		/* create new folder icon */
+		.e-Bc-o-qb {
+			filter: invert(1);
+		}
+
+		.e-Bc-Ek-aa-be {
+			filter: invert(1);
+		}
+
+		.a-Lk .g-d::before {
+			box-shadow: inset 0 0 0 1px accentColor;
+		}
+
+		/* disabled 'Move Here' button */
+		.a-Lk .g-d.g-d-db {
+			color: rgba(light, 0.5);
+		}
+
+		/* file list focus border */
+		.e-Bd .e-x-j {
+			border-top-color: rgba(light, 0.25);
+			border-bottom-color: rgba(light, 0.25);
+		}
+
+		.Hb-ja-Na .e-Bd .e-x-j:focus {
+			border-color: accentColor;
+		}
+
+		.a-Lk .g-d:not(.g-d-db).g-d-R:active, .a-Lk .g-d:not(.g-d-db).g-d-R.g-d-Sa {
+			background-color: rgba(darkColor, 0.25);
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activateFileMoveMenu();
+		}
+	} else if (activationMode == 'Always') {
+		activateFileMoveMenu();
 	}
 }
