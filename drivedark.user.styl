@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.7
+@version        0.1.8
 
 @preprocessor	stylus
 
@@ -74,8 +74,14 @@ light = rgba(white, lightOpacity);
 			fill: light;
 		}
 
+		/* active left sidebar item */
 		.a-U-ye-ha > .a-U-J {
 			background-color: rgba(accentColor, 0.2);
+		}
+
+		.Hb-ja-Na .a-U-xc:focus .a-U-ye.a-U-Vd-jh>.a-U-J {
+			background-color: dark3;
+			border-color: accentColor;
 		}
 
 		.a-U-ye-ha > .a-U-J > .a-U-J-x {
@@ -302,13 +308,21 @@ light = rgba(white, lightOpacity);
 			color: rgba(light, 0.25);
 		}
 
-		/* file list group headings e.g. 'today', 'earlier this week' ins hared list */
+		/* file list group time/date headings e.g. 'today', 'earlier this week' in shared list */
 		.a-ok-Ji-ga {
 			color: white;
 		}
 
 		.a-t-j .a-ok-Ji-D {
-			border-bottom-color: rgba(light, 0.25);
+			border-color: light;
+		}
+
+		/* ditto in trash */
+		.aabwZd .Tguc8d {
+			background-color: transparent;
+			border-color: dark3;
+			border-top-color: transparent;
+			color: white;
 		}
 
 		/* file list :focus border */
@@ -900,7 +914,7 @@ light = rgba(white, lightOpacity);
 			color: white;
 		}
 
-		/* FILE UPLOAD NOTIFICATION */
+		/* == FILE UPLOAD NOTIFICATION == */
 		.a-Cd-oa {
 			background-color: dark2;
 			border-color: dark2;
@@ -918,7 +932,7 @@ light = rgba(white, lightOpacity);
 			color: rgba(light, 0.5);
 		}
 
-		/* SHARE MENU DIALOG */
+		/* == SHARE MENU DIALOG == */
 		.ea-Rc-n {
 			display: none;
 		}
@@ -1037,6 +1051,26 @@ light = rgba(white, lightOpacity);
 			background: rgba(accentColor, 0.1);
 			color: accentColor;
 			--mdc-ripple-color: accentColor;
+		}
+
+		/* == TRASH == */
+		/* trash automatic deletion warning */
+		.XzbSje.w8ecmf.VLrnY {
+			background-color: dark2;
+			border-color: dark2;
+		}
+
+		.XzbSje {
+			color: light;
+		}
+
+		/* empty trash button */
+		.uFAPIe.qoCZef:not(:disabled) {
+			color: light;
+		}
+
+		.uFAPIe.qoCZef:active:not(:disabled), .uFAPIe.qoCZef:focus:not(:disabled), .uFAPIe.qoCZef:hover:not(:disabled) {
+			color: white;
 		}
 	}
 
