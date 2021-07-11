@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.6
+@version        0.1.7
 
 @preprocessor	stylus
 
@@ -115,7 +115,20 @@ light = rgba(white, lightOpacity);
 
 		/* == SCROLL BAR == */
 		::-webkit-scrollbar-track {
-			background: darkColor;
+			background: transparent;
+		}
+
+		.a-t-j .a-s-oe:focus::-webkit-scrollbar-track, .a-t-j .a-s-oe:hover::-webkit-scrollbar-track {
+			background-color: transparent;
+		}
+
+		body::-webkit-scrollbar-track-piece {
+			background-color: transparent;
+			border-color: transparent;
+		}
+
+		::-webkit-scrollbar-track:hover {
+			background-color: unset;
 		}
 
 		/* == LEFT SIDEBAR == */
