@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.5
+@version        0.1.6
 
 @preprocessor	stylus
 
@@ -10,10 +10,12 @@
 @var	color	dark2	"Dark 2"	#28292c
 @var	color	dark3	"Dark 3"	#313235
 @var	color	dark4	"Dark 4"	#2d2e31
-@var	color	gray2	"Gray 2"	#313235
-@var	color	light	"Light Color"	#e8eaed
+@var	number	lightOpacity	"Light Text Opacity"	[0.8, 0, 1, 0.05]
 @var	select	activationMode	"Activate Based On"	["System", "Always"]
 ==/UserStyle== */
+light = rgba(white, lightOpacity);
+
+/* === MAIN === */
 @-moz-document domain("drive.google.com") {
 	activate() {
 		body {
@@ -111,12 +113,12 @@
 			color: light;
 		}
 
-		/* SCROLL BAR */
+		/* == SCROLL BAR == */
 		::-webkit-scrollbar-track {
 			background: darkColor;
 		}
 
-		/* LEFT SIDEBAR */
+		/* == LEFT SIDEBAR == */
 		/* new button */
 		.a-ec-Gd .Kzazxf.x6jRSb {
 			background-color: dark3;
@@ -261,7 +263,7 @@
 			color: light;
 		}
 
-		/* FILE LIST */
+		/* == FILE LIST VIEW == */
 		/* file list, shared with me file list */
 		.aabwZd .WYuW0e, .a-t-cb {
 			// color: light;
@@ -322,7 +324,7 @@
 
 		/* currently highlighted item */
 		.s55KNe:not(.KBj6Qd) .GZwC2b .jGNTYb, .aabwZd:not(.KBj6Qd) .GZwC2b, .a-t-J-ha {
-			background-color: rgba(accentColor, 0.1);
+			background-color: rgba(accentColor, 0.15);
 			color: accentColor;
 		}
 
@@ -511,7 +513,70 @@
 			color: white;
 		}
 
-		/* INFO SIDEBAR */
+		/* == FILE GRID VIEW == */
+		/* background of tiles in my drive */
+		.s55KNe .jGNTYb {
+			background-color: dark3;
+			border-color: transparent;
+		}
+
+		/* text color in my drive */
+		.WYuW0e {
+			color: white;
+		}
+
+		/* background of tiles in shared/search */
+		.l-u-xb {
+			background-color: dark3;
+			border-color: transparent;
+		}
+
+		/* text color in shared/search */
+		.l-u-V {
+			color: white;
+		}
+
+		/* background of tiles in computers */
+		.l-u-xb.l-u-o {
+			border-color: transparent;
+		}
+
+		/* note: selected text/background colors for files in my drive are the same as in the list view */
+		/* selected text color in shared/search */
+		.l-u-ha .l-u-V {
+			color: accentColor;
+		}
+
+		/* selected background color in shared/search */
+		.l-u-ha {
+			background-color: rgba(accentColor, 0.15);
+		}
+
+		/* :focus border in shared/search */
+		.Hb-ja-Na .a-u-xb-j:focus .l-u-xb {
+			border-color: accentColor;
+		}
+
+		/* file type headings */
+		.s55KNe .Tguc8d {
+			color: light;
+		}
+
+		/* sort options selector */
+		.ZqJeHd.a-c-d.a-r-d {
+			color: light;
+		}
+
+		.a-u-hd-Mb-dd .a-hd-Il-w-d {
+			color: light;
+		}
+
+		/* sort options arrow */
+		.a-u-hd-Mb-dd .a-hd-Il-mhHukc-d svg {
+			opacity: 1;
+		}
+
+		/* == INFO SIDEBAR == */
 		.a-ub-Gd, .a-ub-oa, .y-C-Ed-V, .y-C {
 			background-color: darkColor;
 			border-color: transparent;
@@ -646,7 +711,7 @@
 			border-left: transparent;
 		}
 
-		/* SEARCH SUGGESTIONS */
+		/* == SEARCH SUGGESTIONS == */
 		.a-jn-yd {
 			background-color: dark2;
 		}
@@ -689,7 +754,7 @@
 			color: light;
 		}
 
-		/* ADVANCED SEARCH DIALOG */
+		/* == ADVANCED SEARCH DIALOG == */
 		.h-uj {
 			background: dark2;
 		}
@@ -709,7 +774,7 @@
 			border-top-color: dark3;
 		}
 
-		/* POPUP DIALOGS */
+		/* == POPUP DIALOGS == */
 		/* popup dialog background */
 		.lb-k {
 			background-color: darkColor;
@@ -971,6 +1036,7 @@
 	}
 }
 
+/* === SIDE PANEL === */
 @-moz-document domain("drive.google.com") {
 	// Side Panel
 	activateSidePanel() {
@@ -1000,6 +1066,7 @@
 	}
 }
 
+/* === FILE MOVE MENU === */
 @-moz-document domain("drive.google.com") {
 	activateFileMoveMenu() {
 		.e-F-V-Ta.e-Qf-Qd {
