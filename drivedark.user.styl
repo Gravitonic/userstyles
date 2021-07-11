@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.8
+@version        0.1.9
 
 @preprocessor	stylus
 
@@ -528,7 +528,7 @@ light = rgba(white, lightOpacity);
 		}
 
 		.Ccie2c:focus .L202Xe, .Ccie2c.Pb .L202Xe, .Ccie2c:focus .v2devc, .Ccie2c.Pb .v2devc {
-			background-color: dark4;
+			background-color: rgba(accentColor, 0.1);
 			color: white;
 		}
 
@@ -937,18 +937,51 @@ light = rgba(white, lightOpacity);
 			display: none;
 		}
 
-		.Dn-Ti-ea-Rc-k {
-			backdrop-filter: blur(10px);
-		}
-
 		.GmCard {
 			background: darkColor;
 		}
 
+		/* title bar */
+		/* title bar: title */
 		.boqDrivesharedialogCommonTitlebarTitleBar .Heading .Title {
 			color: white;
 		}
 
+		/* title bar: settings button */
+		.boqDrivesharedialogCommonTitlebarTitleBar .SettingsButton {
+			color: rgba(light, 0.5);
+		}
+
+		.boqDrivesharedialogCommonTitlebarTitleBar .DisabledSettingsButton {
+			color: rgba(light, 0.5);
+			// same as not disabled button because orignal styles apply opacity to disable button already
+		}
+
+		/* input */
+		.boqDrivePeopleWebMultiselectInputchipInputBase {
+			caret-color: accentColor;
+			color: white;
+		}
+
+		/* input autocomplete */
+		.boqDrivePeopleWebMultiselectInputchipWrapper:after {
+			color: rgba(light, 0.3);
+		}
+
+		/* input suggestions dropdown */
+		.mdc-menu-surface {
+			background-color: dark2;
+		}
+
+		.GmMenu .mdc-deprecated-list {
+			color: light;
+		}
+
+		.mdc-deprecated-list-item__secondary-text {
+			color: rgba(light, 0.3);
+		}
+
+		/* shared permissions list */
 		.boqDrivesharedialogPermissionslistPermissionrowMain .boqDrivesharedialogPermissionslistPermissionrowPrimary {
 			color: white;
 		}
@@ -961,12 +994,64 @@ light = rgba(white, lightOpacity);
 			border-top-color: darkColor;
 		}
 
+		.boqDrivesharedialogPermissionslistPermissionsummarySummary {
+			color: light;
+		}
+
+		/* avatar background */
+		.boqDrivePeopleWebBubbleAvatarAvatar.hasPhoto {
+			background-color: transparent;
+		}
+
+		/* link menu */
+		/* link menu: url box */
+		.boqDrivesharedialogLinkLinkcopyUrlsBoxSpecificPeople {
+			background-color: dark2;
+			color: light;
+		}
+
 		.boqDrivesharedialogLinkLinksummaryLinkPermissionsSummary {
 			color: light;
 		}
 
 		.boqDrivesharedialogLinkLinksummaryLinkPermissionsSummary .boqDrivesharedialogLinkLinksummaryBolded {
 			color: white;
+		}
+
+		.boqDrivesharedialogLinkLinkpermissionVisibilityMenuTextButton.mdc-button:not(:disabled) {
+			color: white;
+		}
+
+		.boqDrivesharedialogLinkLinkpermissionLinkPermissionRow:hover, .boqDrivesharedialogLinkLinkpermissionLinkPermissionRow:focus-within {
+			background: dark3;
+		}
+
+		.boqDrivesharedialogLinkLinkpermissionLinkPermissionSummary {
+			color: light;
+		}
+
+		/* link menu: access type dropdown checkmark */
+		.boqDrivesharedialogLinkLinkvisibilityselectorMenuItem.mdc-deprecated-list-item .mdc-deprecated-list-item__graphic {
+			color: accentColor;
+		}
+
+		/* share menu ui elements */
+		/* checkbox background */
+		.GmCheckbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background, .GmCheckbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background, .GmCheckbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
+			border-color: accentColor;
+			background-color: accentColor;
+		}
+
+		/* checkbox background on hover */
+		.GmCheckbox:hover .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background, .GmCheckbox:hover .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background, .GmCheckbox:hover .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
+			border-color: darken(accentColor, 5);
+			background-color: darken(accentColor, 5);
+		}
+
+		/* checkbox background on active */
+		.GmCheckbox:active:active .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background, .GmCheckbox:active:active .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background, .GmCheckbox:active:active .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
+			border-color: darken(accentColor, 10);
+			background-color: darken(accentColor, 10);
 		}
 
 		.appsMaterialWizButtonPaperbuttonTextColored, .appsMaterialWizButtonPaperbuttonTextColored .exportButtonNestedLink {
