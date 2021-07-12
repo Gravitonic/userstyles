@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.10
+@version        0.1.11
 
 @preprocessor	stylus
 
@@ -13,6 +13,7 @@
 @var	number	overlayOpacity	"Overlay Opacity"	[0.08, 0, 0.5, 0.01]
 @var	number	overlayOpacity2	"Overlay Opacity 2"	[0.14, 0, 0.5, 0.01]
 @var	select	activationMode	"Activate Based On"	["System", "Always"]
+@var	select	embedActivation	"Enable for Drive Embeds"	["System", "Always"]
 ==/UserStyle== */
 light = rgba(white, lightOpacity);
 
@@ -1276,5 +1277,39 @@ light = rgba(white, lightOpacity);
 		}
 	} else if (activationMode == 'Always') {
 		activateFileMoveMenu();
+	}
+}
+
+/* === EMBEDS === */
+@-moz-document regexp("\S*drive.google.com/embeddedfolderview\S*") {
+	activateEmbeds() {
+		.flip-list-view .flip-entry {
+			border-color: rgba(white, overlayOpacity2);
+		}
+
+		.flip-list-view .flip-entry:hover {
+			background-color: rgba(white, overlayOpacity);
+		}
+
+		.flip-entry-title:hover {
+			color: accentColor;
+		}
+
+		.flip-list-view .flip-list-header {
+			color: light;
+			border-bottom-color: light;
+		}
+
+		.flip-list-title-header {
+			color: accentColor;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activateEmbeds();
+		}
+	} else if (activationMode == 'Always') {
+		activateEmbeds();
 	}
 }
