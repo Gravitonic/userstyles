@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.11
+@version        0.1.12
 
 @preprocessor	stylus
 
@@ -9,13 +9,23 @@
 @var	color	darkColor	"Dark Color"	#202124
 @var	color	dark2	"Dark 2"	#28292C
 @var	color	dark3	"Dark 3"	#393A3D
-@var	number	lightOpacity	"Light Text Opacity"	[0.8, 0, 1, 0.05]
+@var	color	text1	"Primary Text Color"	#ffffff
+@var	color	text2	"Secondary Text Color"	#e8eaed
+@var	color	text3	"Tertiary Text Color"	#9aa0a6
 @var	number	overlayOpacity	"Overlay Opacity"	[0.08, 0, 0.5, 0.01]
 @var	number	overlayOpacity2	"Overlay Opacity 2"	[0.14, 0, 0.5, 0.01]
 @var	select	activationMode	"Activate Based On"	["System", "Always"]
-@var	select	embedActivation	"Enable for Drive Embeds"	["System", "Always"]
 ==/UserStyle== */
-light = rgba(white, lightOpacity);
+white = text1;
+light = text2;
+
+detransparentify(top, bottom = #fff, opacity) {
+	rgb(
+		(1 - opacity) * red(bottom) + opacity * red(top),
+		(1 - opacity) * green(bottom) + opacity * green(top),
+		(1 - opacity) * blue(bottom) + opacity * blue(top)
+	);
+}
 
 /* === MAIN === */
 @-moz-document domain("drive.google.com") {
@@ -62,10 +72,6 @@ light = rgba(white, lightOpacity);
 
 		.a-qc-La {
 			background: transparent;
-		}
-
-		.aabwZd .WYuW0e {
-			color: light;
 		}
 
 		.a-U-J-x {
@@ -287,7 +293,7 @@ light = rgba(white, lightOpacity);
 		/* == FILE LIST VIEW == */
 		/* file list, shared with me file list */
 		.aabwZd .WYuW0e, .a-t-cb {
-			// color: light;
+			color: text3;
 			fill: light;
 			border-bottom-color: dark3;
 		}
@@ -353,7 +359,7 @@ light = rgba(white, lightOpacity);
 
 		/* currently highlighted item */
 		.s55KNe:not(.KBj6Qd) .GZwC2b .jGNTYb, .aabwZd:not(.KBj6Qd) .GZwC2b, .a-t-J-ha {
-			background-color: rgba(accentColor, 0.15);
+			background-color: detransparentify(accentColor, darkColor, overlayOpacity);
 			color: accentColor;
 		}
 
@@ -400,9 +406,14 @@ light = rgba(white, lightOpacity);
 			background: none;
 		}
 
+		/* right click context menu icons */
+		.a-v-c-mh {
+			opacity: 1;
+		}
+
 		.h-v-x, .h-v-x svg {
-			color: light !important;
-			fill: light;
+			color: text2 !important;
+			fill: text3;
 		}
 
 		.h-Yo {
@@ -420,6 +431,28 @@ light = rgba(white, lightOpacity);
 
 		.h-v-pc .h-v-x, .h-v-W .h-v-x {
 			color: light;
+		}
+
+		/* right click context menu: available offline toggle, disabled */
+		.a-v-c-Ge use[fill='#FFF'][href='#tf-a'] {
+			fill: darkColor;
+		}
+
+		.a-v-c-Ge use[fill='#000'][href='#tf-a'] {
+			fill: text2;
+		}
+
+		.a-v-c-Ge use[fill='#FFF'][href='#tf-c'] {
+			fill: text3;
+		}
+
+		/* right click context menu: available offline toggle, enabled */
+		.a-v-c-Ge use[fill='#fff'] {
+			fill: darkColor;
+		}
+
+		.a-v-c-Ge use[fill='#4285F4'], .a-v-c-Ge circle[fill='#4285F4'] {
+			fill: accentColor;
 		}
 
 		/* file list search results footer for file path */
@@ -513,8 +546,12 @@ light = rgba(white, lightOpacity);
 			border-top-color: dark2;
 		}
 
-		.eAQ1W, .Vl9rfc {
-			color: white;
+		.eAQ1W {
+			color: text2;
+		}
+
+		.Vl9rfc {
+			color: text3;
 		}
 
 		.l-u-Ab-zb {
@@ -530,7 +567,7 @@ light = rgba(white, lightOpacity);
 		}
 
 		.Ccie2c:focus .L202Xe, .Ccie2c.Pb .L202Xe, .Ccie2c:focus .v2devc, .Ccie2c.Pb .v2devc {
-			background-color: rgba(accentColor, 0.1);
+			background-color: detransparentify(accentColor, darkColor, overlayOpacity);
 			color: white;
 		}
 
@@ -539,7 +576,7 @@ light = rgba(white, lightOpacity);
 		}
 
 		.Ccie2c:focus .Vl9rfc, .Ccie2c.Pb .Vl9rfc {
-			color: white;
+			color: text3;
 		}
 
 		/* == FILE GRID VIEW == */
@@ -578,7 +615,7 @@ light = rgba(white, lightOpacity);
 
 		/* selected background color in shared/search */
 		.l-u-ha {
-			background-color: rgba(accentColor, 0.15);
+			background-color: detransparentify(accentColor, darkColor, overlayOpacity);
 		}
 
 		/* :focus border in shared/search */
@@ -725,13 +762,18 @@ light = rgba(white, lightOpacity);
 			background-color: dark3;
 		}
 
+		/* storage numerical value used */
+		.ub-ml-Pr .USrqEe-ml-Pr-gi .cr-hTVF2c-r {
+			color: text3;
+		}
+
 		/* storage top border divider */
 		.a-U-xc > .a-da-fc-Ug::after, .a-U-xc > .a-da-ji::before, .a-U-xc > .a-da-Ul::before {
 			border-color: dark3;
 		}
 
 		/* buy storage button */
-		.USrqEe-ml-Pr-gi .ml-Pr-kg {
+		.VfPpkd-d.VfPpkd-d-Qu-INsAgc.VfPpkd-d-Qu-dgl2Hf.Rj2Mlf.OLiIxf.PDpWxe.P62QJc.xFWpbf.uJtSke.paynGb {
 			display: none;
 		}
 
