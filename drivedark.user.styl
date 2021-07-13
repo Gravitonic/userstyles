@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.12
+@version        0.1.13
 
 @preprocessor	stylus
 
@@ -290,6 +290,13 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: light;
 		}
 
+		/* == GENERAL FILE DISPLAY == */
+		/* file display on drag and drop hover */
+		.a-l-Sa-Wa-ka {
+			background-color: rgba(accentColor, overlayOpacity2);
+			box-shadow: inset 2px 2px accentColor, inset -2px -2px accentColor, 0 1px 2px rgba(darkColor, 10%);
+		}
+
 		/* == FILE LIST VIEW == */
 		/* file list, shared with me file list */
 		.aabwZd .WYuW0e, .a-t-cb {
@@ -322,7 +329,7 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		.a-t-j .a-ok-Ji-D {
-			border-color: light;
+			border-color: text3;
 		}
 
 		/* ditto in trash */
@@ -1212,7 +1219,7 @@ detransparentify(top, bottom = #fff, opacity) {
 	}
 }
 
-/* === SIDE PANEL === */
+/* === RIGHT SIDE PANEL === */
 @-moz-document domain("drive.google.com") {
 	// Side Panel
 	activateSidePanel() {
@@ -1230,6 +1237,20 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Yb-Il-d-Pb.Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-ha.Yb-Il-d-W .Yb-Il-d-c-Nd {
 			background-color: dark3;
+		}
+
+		/* open and close icon */
+		.Yb-Il-d-c {
+			fill: text3;
+		}
+
+		.Yb-Il-d-c-j[style='background-image: url(https://www.gstatic.com/images/icons/material/system/1x/add_grey600_24dp.png)'] {
+			filter: brightness(1.3);
+		}
+
+		/* separator between apps and add apps button */
+		.Kk7lMc-Yb-Il-vc {
+			border-top-color: text3;
 		}
 	}
 
