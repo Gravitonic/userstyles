@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.13
+@version        0.1.14
 
 @preprocessor	stylus
 
@@ -18,6 +18,8 @@
 ==/UserStyle== */
 white = text1;
 light = text2;
+dark1 = darkColor;
+accent = accentColor;
 
 detransparentify(top, bottom = #fff, opacity) {
 	rgb(
@@ -53,6 +55,10 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: light !important;
 			opacity: 1 !important;
 			/* Firefox */
+		}
+
+		a {
+			color: accentColor;
 		}
 
 		.a-Va-Zb-vb:focus, .a-Va-Zb-vb:hover {
@@ -1340,6 +1346,152 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 	} else if (activationMode == 'Always') {
 		activateFileMoveMenu();
+	}
+}
+
+/* === WELCOME MESSAGE === */
+@-moz-document domain("drive.google.com") {
+	activateWelcome() {
+		/* a place for all your files */
+		.guXkdd {
+			color: text1;
+		}
+
+		/* list of file types */
+		.zl82Bc {
+			color: text2;
+		}
+
+		/* info popup icon */
+		.VRs7I {
+			fill: text3;
+		}
+
+		/* info popup */
+		.dCrPI {
+			background: dark2;
+		}
+
+		/* You can drag files or folders right into Drive */
+		.SCe7Ib {
+			color: text3;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activateWelcome();
+		}
+	} else if (activationMode == 'Always') {
+		activateWelcome();
+	}
+}
+
+/* === ORGANIZATION ACCOUNTS === */
+@-moz-document domain("drive.google.com") {
+	activateOrgAcct() {
+		/* account switcher dropdown button */
+		.gb_ia {
+			background-color: dark3;
+			border-color: dark3;
+
+			&:hover {
+				background-color: detransparentify(accentColor, dark3, overlayOpacity);
+				border-color: detransparentify(accentColor, dark3, overlayOpacity2);
+			}
+
+			&:focus {
+				border-color: darkColor;
+				background-color: darkColor;
+			}
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activateOrgAcct();
+		}
+	} else if (activationMode == 'Always') {
+		activateOrgAcct();
+	}
+}
+
+/* === SHARED DRIVES === */
+@-moz-document domain("drive.google.com") {
+	activate() {
+		/* == WELCOME MESSAGES == */
+		.JN7Q2c {
+			color: text1;
+		}
+
+		/* create shared drive button */
+		.oWBWHf.paynGb:not(:disabled) {
+			background-color: accentColor;
+			color: dark1;
+		}
+
+		/* How to use shared drives on your team */
+		.cBZb5e {
+			color: accent;
+		}
+
+		/* == ACTIONS TOOLBAR == */
+		/* hidden shared drive button */
+		.a-D-B .a-Ba-Ed .a-r-d.h-R-d, .mXlnof .a-s-Ba-Ak .a-r-d.h-R-d {
+			color: accent;
+		}
+
+		.a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d-W, .a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d:hover, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d-W, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d:hover {
+			background: rgba(accent, overlayOpacity);
+		}
+
+		.a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d-Sa, .a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d:active, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d-Sa, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d:active {
+			background: rgba(accent, overlayOpacity2);
+		}
+
+		/* number of people in shared drive */
+		.a-D-B .a-D-B-x .o-Yc-Ej, .aQh4x .o-Yc-Ej {
+			color: text3;
+		}
+
+		/* == NO HIDDEN SHARED DRIVES MESSAGE == */
+		.ab-S-Wg {
+			color: text2;
+		}
+
+		/* == EMPTY SHARED DRIVE MESSAGE == */
+		/* Drop files here or create something new */
+		.i0V6Le {
+			color: text2;
+		}
+
+		/* == SHARED DRIVES GRID VIEW == */
+		.l-u-fc-a-j .l-u-V {
+			background: dark1;
+			color: text2;
+		}
+
+		.l-u-ha .l-u-fc-a-q-Ej {
+			color: text3;
+		}
+
+		/* when selected */
+		.l-u-ha .l-u-fc-a-q-Ed {
+			background: detransparentify(accent, dark1, overlayOpacity);
+			color: accent;
+		}
+
+		.l-u-xb {
+			border-color: dark3;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activate();
+		}
+	} else if (activationMode == 'Always') {
+		activate();
 	}
 }
 
