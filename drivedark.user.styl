@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.14
+@version        0.1.15
 
 @preprocessor	stylus
 
@@ -972,9 +972,14 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* == FILE UPLOAD NOTIFICATION == */
+		/* upload notification header bar */
+		.af {
+			background-color: dark3;
+		}
+
 		.a-Cd-oa {
-			background-color: dark2;
-			border-color: dark2;
+			background-color: dark1;
+			border-color: dark1;
 		}
 
 		.Ea-oa {
@@ -987,6 +992,60 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		.z-Ea-Lm {
 			color: rgba(light, 0.5);
+		}
+
+		/* upload count bar */
+		.le-Ba {
+			background-color: dark2;
+			border-color: dark2;
+		}
+
+		.a-Cd-Ba-j {
+			border-color: dark2;
+		}
+
+		/* cancel, retry buttons */
+		.le-Ba-d {
+			color: accent;
+		}
+
+		/* upload file list */
+		.Ea-j.Ea-Lj:hover {
+			background-color: rgba(accent, overlayOpacity);
+		}
+
+		/* upload file list: upload canceled text */
+		.z-Ea-gj-r {
+			color: text3;
+		}
+
+		/* upload progress circle */
+		.f-G svg circle[fill='#4285f4'] {
+			fill: accent;
+		}
+
+		.Ea-j .W-d .d-za svg circle[fill='#ccc'] {
+			fill: dark3;
+		}
+
+		.f-Pn svg circle[fill='#FFFFFF'] {
+			fill: dark3;
+		}
+
+		/* == TOASTS / BOTTOM LEFT NOTIFICATIONS == */
+		.a-la-B.g-Yd.a-Ff-B {
+			background-color: dark3;
+		}
+
+		/* close button */
+		.a-la-Xf-d {
+			opacity: 1;
+
+			&:hover {
+				.a-s-fa-Ha-pa {
+					fill: text1;
+				}
+			}
 		}
 
 		/* == SHARE MENU DIALOG == */
