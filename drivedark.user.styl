@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.16
+@version        0.1.17
 
 @preprocessor	stylus
 
@@ -88,16 +88,6 @@ detransparentify(top, bottom = #fff, opacity) {
 			fill: light;
 		}
 
-		/* left sidebar item hover */
-		:not(.a-U-ye-ha)>.a-U-J:hover, :not(.a-U-ye-ha)>.a-U-J-W {
-			background-color: dark2;
-		}
-
-		/* active left sidebar item */
-		.a-U-ye-ha > .a-U-J {
-			background-color: rgba(accentColor, 0.2);
-		}
-
 		.Hb-ja-Na .a-U-xc:focus .a-U-ye.a-U-Vd-jh>.a-U-J {
 			background-color: dark3;
 			border-color: accentColor;
@@ -157,6 +147,16 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* == LEFT SIDEBAR == */
+		/* left sidebar item hover */
+		:not(.a-U-ye-ha)>.a-U-J:hover, :not(.a-U-ye-ha)>.a-U-J-W {
+			background-color: dark2;
+		}
+
+		/* active left sidebar item */
+		.a-U-ye-ha > .a-U-J {
+			background-color: rgba(accentColor, 0.2);
+		}
+
 		/* new button */
 		.a-ec-Gd .Kzazxf.x6jRSb {
 			background-color: dark3;
@@ -169,6 +169,12 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		.a-U-J-x {
 			color: light;
+		}
+
+		/* CREATE FILE MENU */
+		/* dividers between file type and arrow */
+		.a-S8Cb5b-aa:before {
+			border-left-color: dark3;
 		}
 
 		/* search bar */
@@ -308,6 +314,10 @@ detransparentify(top, bottom = #fff, opacity) {
 			box-shadow: inset 2px 2px accentColor, inset -2px -2px accentColor, 0 1px 2px rgba(darkColor, 10%);
 		}
 
+		/* folder icons with default color */
+		/* .B56cNe svg[fill='#5f6368'] {
+			fill: text3;
+		} */
 		/* == FILE LIST VIEW == */
 		/* file list, shared with me file list */
 		.aabwZd .WYuW0e, .a-t-cb {
@@ -834,10 +844,23 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* buy storage button */
-		.VfPpkd-d.VfPpkd-d-Qu-INsAgc.VfPpkd-d-Qu-dgl2Hf.Rj2Mlf.OLiIxf.PDpWxe.P62QJc.xFWpbf.uJtSke.paynGb {
-			display: none;
+		.uJtSke.paynGb:not(:disabled) {
+			color: accent;
+			border-color: dark3;
 		}
 
+		.uJtSke.paynGb:active:not(:disabled), .uJtSke.paynGb:focus:not(:disabled), .uJtSke.paynGb:hover:not(:disabled) {
+			color: accent;
+			border-color: dark3;
+		}
+
+		.uJtSke.paynGb .VfPpkd-Jh9lGc:after, .uJtSke.paynGb .VfPpkd-Jh9lGc:before {
+			background-color: accent;
+		}
+
+		/* .VfPpkd-d.VfPpkd-d-Qu-INsAgc.VfPpkd-d-Qu-dgl2Hf.Rj2Mlf.OLiIxf.PDpWxe.P62QJc.xFWpbf.uJtSke.paynGb {
+			display: none;
+		} */
 		/* side panel with gcal, tasks, etc. */
 		.Kk7lMc-Yb-Il-j, .a-Kk7lMc-ae3xF-j {
 			border-left: transparent;
@@ -1590,6 +1613,93 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		.l-u-xb {
 			border-color: dark3;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activate();
+		}
+	} else if (activationMode == 'Always') {
+		activate();
+	}
+}
+
+/* === SETTINGS MENU === */
+@-moz-document domain("drive.google.com") {
+	activate() {
+		.ca-k .lb-k-V {
+			background-color: dark2;
+		}
+
+		/* settings menu sidebar hover */
+		.ca-k-ra-B>.h-ra-B>.h-ra:hover {
+			background-color: dark2;
+		}
+
+		.ca-k-ra-B>.h-ra-B>.h-ra:hover>.a-ra-Mb-j>.a-ra-Mb {
+			border-color: text3;
+		}
+
+		/* view items taking up storage link */
+		.ca-k-ml-Pr .USrqEe-ml-Pr-gi .ml-Pr-kg .ml-Pr-A {
+			color: accent;
+		}
+
+		/* links */
+		.kc-A {
+			color: accent;
+		}
+
+		.ca-k-wb-M .c {
+			fill: accent;
+		}
+
+		/* not recommended on public or shared computers help text */
+		.ca-k-wb-bd-r {
+			color: text3;
+		}
+
+		/* dividers */
+		.ca-k-wb-j {
+			border-color: dark3;
+		}
+
+		.ca-k-oa {
+			border-left-color: dark3;
+		}
+
+		/* == MANAGE APPS == */
+		/* dividers */
+		.a-fd-ba-lp, .a-fd-ba-Q {
+			border-color: dark3;
+		}
+
+		/* app description */
+		.a-fd-ba-Q-ij {
+			color: text3;
+		}
+
+		/* use by default checkbox label */
+		.a-fd-ba-Q-Qa-ga {
+			color: text3;
+		}
+
+		/* options buttons */
+		button.RTMQvb.uHoRpf.h-sb-Ic.fCmhtc.hc0pBf {
+			background-color: dark2;
+			color: text1;
+
+			/* options buttons: hover */
+			&:not(.VuWATc) {
+				&:hover, &.sXaDqb-W, &:focus, &.sXaDqb-Pb {
+					background-color: dark3;
+				}
+			}
+		}
+
+		.RTMQvb::before {
+			box-shadow: inset 0 0 0 1px accent;
 		}
 	}
 
