@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.15
+@version        0.1.16
 
 @preprocessor	stylus
 
@@ -86,6 +86,11 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		.a-U-ye-ha > .a-U-J .a-U-Ze svg, .a-U-xc-J .a-Ng-c-wk svg, .a-U-J .a-U-Ze svg {
 			fill: light;
+		}
+
+		/* left sidebar item hover */
+		:not(.a-U-ye-ha)>.a-U-J:hover, :not(.a-U-ye-ha)>.a-U-J-W {
+			background-color: dark2;
 		}
 
 		/* active left sidebar item */
@@ -226,7 +231,7 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		/* top toolbar icons */
 		.a-c-d.h-R-d-pb, .Hb-ja-Na .a-c-d.h-R-d-Pb.h-R-d-pb:not(.h-R-d-db), .a-c-d:not(.h-R-d-db):active {
-			background-color: dark2;
+			background-color: dark3;
 		}
 
 		/* toolbar icons */
@@ -754,6 +759,49 @@ detransparentify(top, bottom = #fff, opacity) {
 		/* shared with me file list background */
 		.a-t-j .a-gd-j {
 			background-color: darkColor;
+		}
+
+		/* INFO SIDEBAR: ACTIVITY STREAM */
+		/* no recorded activity before date message */
+		.y-E-Xc-Ma-hi-r {
+			color: text3;
+		}
+
+		/* you are offline message */
+		.a-Mg-cc {
+			color: text3;
+		}
+
+		/* INFO SIDEBAR: DETAILS PANE WITH NO FOLDER SELECTED */
+		/* Select a file or folder to view its details */
+		.a-q-Xc-Ab {
+			color: text3;
+		}
+
+		/* INFO SIDEBAR: DETAILS PANE */
+		/* information labels */
+		.a-q-Jc-bj {
+			color: text3;
+		}
+
+		/* current location on hover */
+		.a-q-rj-r:focus, .a-q-rj-r:hover {
+			color: accent;
+		}
+
+		/* description placeholder */
+		.a-q-Lb-go {
+			color: text3;
+		}
+
+		/* caption tracks placeholder */
+		.a-q-Ki {
+			color: text3;
+		}
+
+		/* viewer download permission info */
+		.a-q-Ed-Js-j {
+			color: text3;
 		}
 
 		/* share icon next to folder */
