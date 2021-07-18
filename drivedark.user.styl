@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.17
+@version        0.1.18
 
 @preprocessor	stylus
 
@@ -161,9 +161,10 @@ detransparentify(top, bottom = #fff, opacity) {
 		.a-ec-Gd .Kzazxf.x6jRSb {
 			background-color: dark3;
 			color: white;
+			box-shadow: 0 1px 2px 0 rgba(black, overlayOpacity), 0 1px 3px 1px rgba(black, overlayOpacity);
 		}
 
-		.a-ec-Gd .Kzazxf.x6jRSb:hover {
+		.a-ec-Gd .Kzazxf.x6jRSb:hover, .a-ec-Gd .Kzazxf.x6jRSb:focus {
 			background-color: dark2;
 		}
 
@@ -171,10 +172,10 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: light;
 		}
 
-		/* CREATE FILE MENU */
+		/* FILE CREATION MENU */
 		/* dividers between file type and arrow */
 		.a-S8Cb5b-aa:before {
-			border-left-color: dark3;
+			border-left-color: rgba(text1, overlayOpacity);
 		}
 
 		/* search bar */
@@ -494,6 +495,10 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: light;
 		}
 
+		.a-S-dc-ds:focus, .a-S-dc-ds:hover, .a-S-dc-Q-A:focus, .a-S-dc-Q-A:hover {
+			color: text1;
+		}
+
 		/* context menu question mark help icon popup explanation e.g. what are shortcuts */
 		.Y6NKxf {
 			background-color: darkColor;
@@ -722,8 +727,9 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: white;
 		}
 
+		/* info sidebar activity stream general text color */
 		.y-C-q-D, .y-C-Ed-V, .y-C-Ya, .y-C-q-j, .y-C-fh-Bf-r, .y-C-fh-Bf-Jj {
-			color: light;
+			color: text3;
 		}
 
 		/* info sidebar title */
@@ -735,13 +741,17 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: accentColor;
 		}
 
-		/* info sidebar item show in folder icon */
+		/* info sidebar item locate in folder icon */
 		.y-C-ka:hover .y-C-lg svg, .y-C-ka:active .y-C-lg svg, .y-C-ka:focus .y-C-lg svg {
 			fill: light !important;
 		}
 
-		/* info sidebar details */
-		/* info sidebar details folder icon preview background */
+		.y-C-lg:hover svg, .y-C-lg:active svg, .y-C-lg:focus svg, .y-C-ka:hover .y-C-lg:hover svg, .y-C-ka:active .y-C-lg:active svg, .y-C-ka:focus .y-C-lg:focus svg {
+			fill: light;
+		}
+
+		/* INFO SIDEBAR DETAILS */
+		/* folder icon preview background */
 		.l-Mg-wg-o .a-q-zb-j {
 			background-color: dark2;
 			border: transparent;
@@ -751,14 +761,23 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: light;
 		}
 
-		/* info sidebar details sharing settings icon */
+		/* sharing settings icon */
 		.a-q-me-Z-c svg {
-			fill: light;
+			fill: text3;
 		}
 
+		/* owner and collaborators divider */
+		.H-qa-ud.H-qa-ud-Dg {
+			border-right-color: rgba(text1, overlayOpacity);
+		}
+
+		/* additional editors display (+n) */
 		.H-qa-Ma-d-Jb {
-			border-color: light;
-			opacity: 0.5;
+			border-color: text3;
+		}
+
+		.H-qa-Ma-d-ga {
+			color: text3;
 		}
 
 		/* info sidebar folder container */
@@ -780,6 +799,23 @@ detransparentify(top, bottom = #fff, opacity) {
 		/* you are offline message */
 		.a-Mg-cc {
 			color: text3;
+		}
+
+		/* show all button for long lists of flies */
+		.y-C-rh-d {
+			color: accent;
+		}
+
+		.y-C-rh-d-Pb {
+			background-color: rgba(accent, overlayOpacity);
+		}
+
+		.y-C-rh-d-W {
+			background-color: rgba(accent, overlayOpacity);
+		}
+
+		.y-C-rh-d-W.y-C-rh-d-Pb {
+			background-color: rgba(accent, overlayOpacity2);
 		}
 
 		/* INFO SIDEBAR: DETAILS PANE WITH NO FOLDER SELECTED */
@@ -864,6 +900,34 @@ detransparentify(top, bottom = #fff, opacity) {
 		/* side panel with gcal, tasks, etc. */
 		.Kk7lMc-Yb-Il-j, .a-Kk7lMc-ae3xF-j {
 			border-left: transparent;
+		}
+
+		/* == SEARCH RESULTS == */
+		/* search result 'did you mean' suggestions */
+		.WfiJb {
+			color: text3;
+		}
+
+		.glX3de {
+			background-color: dark1;
+			border-color: dark3;
+
+			&:hover {
+				color: text2;
+				fill: text1;
+			}
+
+			&.u3bW4e { // active state
+				background-color: rgba(light, overlayOpacity);
+				color: text1;
+			}
+		}
+
+		.VfPpkd-ksKsZd-XxIAqe::before, .VfPpkd-ksKsZd-XxIAqe::after {
+			background-color: text2;
+		}
+
+		.glX3de.u3bW4e {
 		}
 
 		/* == SEARCH SUGGESTIONS == */
