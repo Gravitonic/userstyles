@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.18
+@version        0.1.19
 
 @preprocessor	stylus
 
@@ -9,6 +9,7 @@
 @var	color	darkColor	"Dark Color"	#202124
 @var	color	dark2	"Dark 2"	#28292C
 @var	color	dark3	"Dark 3"	#393A3D
+@var	color	dark4	"Dark 4"	#5f6368
 @var	color	text1	"Primary Text Color"	#ffffff
 @var	color	text2	"Secondary Text Color"	#e8eaed
 @var	color	text3	"Tertiary Text Color"	#9aa0a6
@@ -441,7 +442,7 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		.h-v-x, .h-v-x svg {
-			color: text2 !important;
+			color: text2;
 			fill: text3;
 		}
 
@@ -449,8 +450,8 @@ detransparentify(top, bottom = #fff, opacity) {
 			border-top-color: dark3;
 		}
 
-		.a-v-T {
-			color: light !important;
+		.h-v-db .h-v-Ol, .h-v-db .h-v-x {
+			color: rgba(text2, 0.3) !important;
 		}
 
 		/* hover */
@@ -790,6 +791,44 @@ detransparentify(top, bottom = #fff, opacity) {
 			background-color: darkColor;
 		}
 
+		/* == SHARED WITH ME == */
+		/* shared file suggestions heading */
+		.HclN9d {
+			color: text2;
+		}
+
+		/* suggestion card */
+		.Onyn4c {
+			background-color: transparent;
+			border-color: dark4;
+		}
+
+		.ObPBWd {
+			color: text1;
+		}
+
+		.N1Qolf {
+			color: text2;
+		}
+
+		.gqNuu {
+			color: text3;
+		}
+
+		.ObPBWd {
+			border-bottom-color: dark4;
+		}
+
+		/* placeholders for text while loading */
+		.vr5Aaf, .sUluqb, .XnpCh {
+			background-color: dark3;
+		}
+
+		/* placeholder for icon while loading */
+		.c4vRU {
+			background-color: dark3;
+		}
+
 		/* INFO SIDEBAR: ACTIVITY STREAM */
 		/* no recorded activity before date message */
 		.y-E-Xc-Ma-hi-r {
@@ -933,6 +972,10 @@ detransparentify(top, bottom = #fff, opacity) {
 		/* == SEARCH SUGGESTIONS == */
 		.a-jn-yd {
 			background-color: dark2;
+		}
+
+		.a-jn-yd {
+			color: text2;
 		}
 
 		/* search suggestion hover */
