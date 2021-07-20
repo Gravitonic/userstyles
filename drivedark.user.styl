@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.19
+@version        0.1.20
 
 @preprocessor	stylus
 
@@ -232,11 +232,6 @@ detransparentify(top, bottom = #fff, opacity) {
 			fill: accentColor;
 		}
 
-		/* file path ellipsis */
-		.o-Yc-Vf-d svg {
-			fill: light;
-		}
-
 		/* top toolbar icons */
 		.a-c-d.h-R-d-pb, .Hb-ja-Na .a-c-d.h-R-d-Pb.h-R-d-pb:not(.h-R-d-db), .a-c-d:not(.h-R-d-db):active {
 			background-color: dark3;
@@ -279,6 +274,23 @@ detransparentify(top, bottom = #fff, opacity) {
 		/* top toolbar icons divider */
 		.a-d-vc {
 			border-color: dark3;
+		}
+
+		/* file path ellipsis */
+		.o-Yc-Vf-d svg {
+			fill: light;
+		}
+
+		.o-Yc-Vf-d.h-d-pb svg, .Hb-ja-Na .o-Yc-Vf-d.h-d-pb.h-d-Pb svg {
+			fill: accent;
+		}
+
+		.o-Yc-Vf-d.h-d-pb, .o-Yc-Vf-d.h-d-pb.h-d-W {
+			background-color: rgba(accent, overlayOpacity);
+		}
+
+		.Hb-ja-Na .o-Yc-Vf-d.h-d-Pb, .Hb-ja-Na .o-Yc-Vf-d.h-d-pb.h-d-Pb {
+			border-color: accent;
 		}
 
 		/* current file path bg */
