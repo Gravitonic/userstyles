@@ -1,21 +1,24 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.1.21
+@version        0.2.0
 
 @preprocessor	stylus
 
-@var	color	accentColor	"Accent Color"	#8ab4f8
-@var	color	darkColor	"Dark Color"	#202124
-@var	color	dark2	"Dark 2"	#28292C
-@var	color	dark3	"Dark 3"	#393A3D
-@var	color	dark4	"Dark 4"	#5f6368
-@var	color	text1	"Primary Text Color"	#ffffff
-@var	color	text2	"Secondary Text Color"	#e8eaed
-@var	color	text3	"Tertiary Text Color"	#9aa0a6
-@var	number	overlayOpacity	"Overlay Opacity"	[0.08, 0, 0.5, 0.01]
-@var	number	overlayOpacity2	"Overlay Opacity 2"	[0.14, 0, 0.5, 0.01]
-@var	select	activationMode	"Activate Based On"	["System", "Always"]
+@var	color	accentColor		"Accent Color"			#8ab4f8
+@var	color	darkColor		"Dark Color"			#202124
+@var	color	dark2			"Dark 2"				#28292C
+@var	color	dark3			"Dark 3"				#393A3D
+@var	color	dark4			"Dark 4"				#5f6368
+@var	color	text1			"Primary Text Color"	#ffffff
+@var	color	text2			"Secondary Text Color"	#e8eaed
+@var	color	text3			"Tertiary Text Color"	#9aa0a6
+@var	number	overlayOpacity	"Overlay Opacity"		[0.08, 0, 0.5, 0.01]
+@var	number	overlayOpacity2	"Overlay Opacity 2"		[0.14, 0, 0.5, 0.01]
+
+@var	select	activationMode	"Enable Based On"		["Always", "System*:System Preference", "Never"]
+@var	select	embedOn			"Enable For Embeds"		["Match:Match Setting", "Always", "System", "Never"]
+@var	select	enableShare		"Enable For Share Menu" ["Match:Match Setting", "Always", "System", "Never"]
 ==/UserStyle== */
 white = text1;
 light = text2;
@@ -31,7 +34,7 @@ detransparentify(top, bottom = #fff, opacity) {
 }
 
 /* === MAIN === */
-@-moz-document domain("drive.google.com") {
+@-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
 	activate() {
 		body {
 			color: light;
@@ -1255,6 +1258,423 @@ detransparentify(top, bottom = #fff, opacity) {
 			}
 		}
 
+		/* search result filters */
+		/* e.g. searching in [folder], file type, etc. */
+		.glX3de {
+			mix-blend-mode: normal;
+		}
+
+		.glX3de.KKjvXb {
+			background: rgba(accentColor, 0.1);
+			color: accentColor;
+			--mdc-ripple-color: accentColor;
+		}
+
+		/* == TRASH == */
+		/* trash automatic deletion warning */
+		.XzbSje.w8ecmf.VLrnY {
+			background-color: dark2;
+			border-color: dark2;
+		}
+
+		.XzbSje {
+			color: light;
+		}
+
+		/* empty trash button */
+		.uFAPIe.qoCZef:not(:disabled) {
+			color: light;
+		}
+
+		.uFAPIe.qoCZef:active:not(:disabled), .uFAPIe.qoCZef:focus:not(:disabled), .uFAPIe.qoCZef:hover:not(:disabled) {
+			color: white;
+		}
+
+		/* == COMPUTERS == */
+		.ab-S-c-j img {
+			height: 171px;
+			width: 172px;
+			z-index: 1000;
+			padding-left: 172px;
+			box-sizing: border-box;
+			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 570 571.34' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23E8F0FE' d='M510.8 152.2H200.2c-6.2 0-11.2 5-11.2 11.2v203.3c0 6.2 5 11.2 11.2 11.2h310.5c6.2 0 11.2-5 11.2-11.2V163.4c.1-6.2-4.9-11.2-11.1-11.2z' style='fill:%23282d35;fill-opacity:1'/%3E%3Cpath fill='%23D2E3FC' d='M207 171h297v189H207z' style='fill:%232f3642;fill-opacity:1'/%3E%3Cpath fill='%23E8F0FE' d='M342 413.7c0 9.9-8.1 18-18 18h-36v9.2h144v-9.2h-36c-9.9 0-18-7.8-18-17.7v-9l-.1-27H342v35.7z' style='fill:%232f3642;fill-opacity:1'/%3E%3Cpath fill='%23E8F0FE' d='M303.6 234H56.7c-6.3 0-11.4 5.1-11.4 11.4V441H315V245.4c0-6.3-5.1-11.4-11.4-11.4z' style='fill:%23282d35;fill-opacity:1'/%3E%3Cpath fill='%23E8F0FE' d='M303.5 232.2H189V368c0 6.3 5.1 11.3 11.3 11.3H315V243.7c0-6.4-5.1-11.5-11.5-11.5z' style='fill:%23282d35;fill-opacity:1'/%3E%3Cpath fill='%23D2E3FC' d='M36 422.5h288V441H36z'/%3E%3Cpath fill='%23D2E3FC' d='M36 422.5h288V441H36z' style='fill:%232f3642;fill-opacity:1;stroke:none'/%3E%3Cpath fill='%231A73E8' d='M297 360h-78.7c-6.2 0-11.3-5.1-11.3-11.3V252h78.7c6.2 0 11.3 5.1 11.3 11.3V360z' style='fill:%238ab4f8;fill-opacity:1'/%3E%3Cpath fill='%23D2E3FC' d='M200.2 378c-6.2 0-11.2-5-11.2-11.2V252H63v153h234v-27h-96.8z' style='fill:%232f3642;fill-opacity:1'/%3E%3Cpath fill='%23FFF' d='M252 283.4v-8l-10.7 10.7 10.7 10.7v-8c8.8 0 16 7.2 16 16 0 2.7-.7 5.3-1.9 7.5l3.9 3.9c2.1-3.3 3.3-7.2 3.3-11.4.1-11.8-9.5-21.4-21.3-21.4zm0 37.4c-8.8 0-16-7.2-16-16 0-2.7.7-5.3 1.9-7.5l-3.9-3.9c-2.1 3.3-3.3 7.2-3.3 11.4 0 11.8 9.6 21.4 21.4 21.4v8l10.7-10.7-10.8-10.7v8z' style='fill:%23000;fill-opacity:1'/%3E%3C/svg%3E");
+		}
+
+		/* learn more link */
+		.ab-S-Wg a:link {
+			color: accent;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activate();
+		}
+	} else if (activationMode == 'Always') {
+		activate();
+	}
+}
+
+/* === RIGHT SIDE PANEL === */
+@-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
+	// Side Panel
+	activateSidePanel() {
+		.Kk7lMc-Yb-Il-j {
+			background-color: dark2;
+		}
+
+		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd {
+			background-color: dark3;
+		}
+
+		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd, .Yb-Il-d-W .Yb-Il-d-c-Nd, .Yb-Il-d-pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-ha .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-Pb .Yb-Il-d-c-Nd {
+			background-color: dark3;
+		}
+
+		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Yb-Il-d-Pb.Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-ha.Yb-Il-d-W .Yb-Il-d-c-Nd {
+			background-color: dark3;
+		}
+
+		/* open and close icon */
+		.Yb-Il-d-c {
+			fill: text3;
+		}
+
+		.Yb-Il-d-c-j[style='background-image: url(https://www.gstatic.com/images/icons/material/system/1x/add_grey600_24dp.png)'] {
+			filter: brightness(1.3);
+		}
+
+		/* separator between apps and add apps button */
+		.Kk7lMc-Yb-Il-vc {
+			border-top-color: text3;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activateSidePanel();
+		}
+	} else if (activationMode == 'Always') {
+		activateSidePanel();
+	}
+}
+
+/* === FILE MOVE MENU === */
+@-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
+	activateFileMoveMenu() {
+		.e-F-V-Ta.e-Qf-Qd {
+			background-color: dark3;
+		}
+
+		.e-rf.e-Bd .e-F-aa-ed .e-F-aa-Wb {
+			border-color: dark3 transparent;
+		}
+
+		.e-F-V-Ta .e-D-o-T {
+			color: white;
+		}
+
+		.e-rf.e-F {
+			color: light;
+		}
+
+		/* hover over folder in list */
+		.e-Bd .e-F-v-qg .e-F-v-Qb {
+			background: dark3;
+		}
+
+		.e-Bd .e-F-v-W .e-F-v-Qb, .e-Bd .e-F-v-W.e-F-v-qg .e-F-v-Qb {
+			background: accentColor;
+		}
+
+		/* close icon */
+		.e-Bc-va-ra {
+			filter: invert(1);
+		}
+
+		/* back icon */
+		.e-Bc-Nq-Xd-d {
+			filter: invert(1);
+		}
+
+		/* create new folder icon */
+		.e-Bc-o-qb {
+			filter: invert(1);
+		}
+
+		.e-Bc-Ek-aa-be {
+			filter: invert(1);
+		}
+
+		.a-Lk .g-d::before {
+			box-shadow: inset 0 0 0 1px accentColor;
+		}
+
+		/* disabled 'Move Here' button */
+		.a-Lk .g-d.g-d-db {
+			color: rgba(light, 0.5);
+		}
+
+		/* file list focus border */
+		.e-Bd .e-x-j {
+			border-top-color: rgba(light, 0.25);
+			border-bottom-color: rgba(light, 0.25);
+		}
+
+		.Hb-ja-Na .e-Bd .e-x-j:focus {
+			border-color: accentColor;
+		}
+
+		.a-Lk .g-d:not(.g-d-db).g-d-R:active, .a-Lk .g-d:not(.g-d-db).g-d-R.g-d-Sa {
+			background-color: rgba(darkColor, 0.25);
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activateFileMoveMenu();
+		}
+	} else if (activationMode == 'Always') {
+		activateFileMoveMenu();
+	}
+}
+
+/* === WELCOME MESSAGE === */
+@-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
+	activateWelcome() {
+		/* a place for all your files */
+		.guXkdd {
+			color: text1;
+		}
+
+		/* list of file types */
+		.zl82Bc {
+			color: text2;
+		}
+
+		/* info popup icon */
+		.VRs7I {
+			fill: text3;
+		}
+
+		/* info popup */
+		.dCrPI {
+			background: dark2;
+		}
+
+		/* You can drag files or folders right into Drive */
+		.SCe7Ib {
+			color: text3;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activateWelcome();
+		}
+	} else if (activationMode == 'Always') {
+		activateWelcome();
+	}
+}
+
+/* === ORGANIZATION ACCOUNTS === */
+@-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
+	activateOrgAcct() {
+		/* account switcher dropdown button */
+		.gb_ia {
+			background-color: dark3;
+			border-color: dark3;
+
+			&:hover {
+				background-color: detransparentify(accentColor, dark3, overlayOpacity);
+				border-color: detransparentify(accentColor, dark3, overlayOpacity2);
+			}
+
+			&:focus {
+				border-color: darkColor;
+				background-color: darkColor;
+			}
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activateOrgAcct();
+		}
+	} else if (activationMode == 'Always') {
+		activateOrgAcct();
+	}
+}
+
+/* === SHARED DRIVES === */
+@-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
+	activate() {
+		/* == WELCOME MESSAGES == */
+		.JN7Q2c {
+			color: text1;
+		}
+
+		/* create shared drive button */
+		.oWBWHf.paynGb:not(:disabled) {
+			background-color: accentColor;
+			color: dark1;
+		}
+
+		/* How to use shared drives on your team */
+		.cBZb5e {
+			color: accent;
+		}
+
+		/* == ACTIONS TOOLBAR == */
+		/* hidden shared drive button */
+		.a-D-B .a-Ba-Ed .a-r-d.h-R-d, .mXlnof .a-s-Ba-Ak .a-r-d.h-R-d {
+			color: accent;
+		}
+
+		.a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d-W, .a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d:hover, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d-W, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d:hover {
+			background: rgba(accent, overlayOpacity);
+		}
+
+		.a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d-Sa, .a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d:active, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d-Sa, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d:active {
+			background: rgba(accent, overlayOpacity2);
+		}
+
+		/* number of people in shared drive */
+		.a-D-B .a-D-B-x .o-Yc-Ej, .aQh4x .o-Yc-Ej {
+			color: text3;
+		}
+
+		/* == NO HIDDEN SHARED DRIVES MESSAGE == */
+		.ab-S-Wg {
+			color: text2;
+		}
+
+		/* == EMPTY SHARED DRIVE MESSAGE == */
+		/* Drop files here or create something new */
+		.i0V6Le {
+			color: text2;
+		}
+
+		/* == SHARED DRIVES GRID VIEW == */
+		.l-u-fc-a-j .l-u-V {
+			background: dark1;
+			color: text2;
+		}
+
+		.l-u-ha .l-u-fc-a-q-Ej {
+			color: text3;
+		}
+
+		/* when selected */
+		.l-u-ha .l-u-fc-a-q-Ed {
+			background: detransparentify(accent, dark1, overlayOpacity);
+			color: accent;
+		}
+
+		.l-u-xb {
+			border-color: dark3;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activate();
+		}
+	} else if (activationMode == 'Always') {
+		activate();
+	}
+}
+
+/* === SETTINGS MENU === */
+@-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
+	activate() {
+		.ca-k .lb-k-V {
+			background-color: dark2;
+		}
+
+		/* settings menu sidebar hover */
+		.ca-k-ra-B>.h-ra-B>.h-ra:hover {
+			background-color: dark2;
+		}
+
+		.ca-k-ra-B>.h-ra-B>.h-ra:hover>.a-ra-Mb-j>.a-ra-Mb {
+			border-color: text3;
+		}
+
+		/* view items taking up storage link */
+		.ca-k-ml-Pr .USrqEe-ml-Pr-gi .ml-Pr-kg .ml-Pr-A {
+			color: accent;
+		}
+
+		/* links */
+		.kc-A {
+			color: accent;
+		}
+
+		.ca-k-wb-M .c {
+			fill: accent;
+		}
+
+		/* not recommended on public or shared computers help text */
+		.ca-k-wb-bd-r {
+			color: text3;
+		}
+
+		/* dividers */
+		.ca-k-wb-j {
+			border-color: dark3;
+		}
+
+		.ca-k-oa {
+			border-left-color: dark3;
+		}
+
+		/* == MANAGE APPS == */
+		/* dividers */
+		.a-fd-ba-lp, .a-fd-ba-Q {
+			border-color: dark3;
+		}
+
+		/* app description */
+		.a-fd-ba-Q-ij {
+			color: text3;
+		}
+
+		/* use by default checkbox label */
+		.a-fd-ba-Q-Qa-ga {
+			color: text3;
+		}
+
+		/* options buttons */
+		button.RTMQvb.uHoRpf.h-sb-Ic.fCmhtc.hc0pBf {
+			background-color: dark2;
+			color: text1;
+
+			/* options buttons: hover */
+			&:not(.VuWATc) {
+				&:hover, &.sXaDqb-W, &:focus, &.sXaDqb-Pb {
+					background-color: dark3;
+				}
+			}
+		}
+
+		.RTMQvb::before {
+			box-shadow: inset 0 0 0 1px accent;
+		}
+	}
+
+	if (activationMode == 'System') {
+		@media (prefers-color-scheme: dark) {
+			activate();
+		}
+	} else if (activationMode == 'Always') {
+		activate();
+	}
+}
+
+/* === SHARE MENU === */
+@-moz-document regexp("https?:\/\/drive\.google\.com\/sharing.*") {
+	activateShare() {
 		/* == SHARE MENU DIALOG == */
 		.ea-Rc-n {
 			display: none;
@@ -1448,425 +1868,34 @@ detransparentify(top, bottom = #fff, opacity) {
 		.GmFillButton:disabled {
 			color: rgba(light, 0.5);
 		}
-
-		/* search result filters */
-		/* e.g. searching in [folder], file type, etc. */
-		.glX3de {
-			mix-blend-mode: normal;
-		}
-
-		.glX3de.KKjvXb {
-			background: rgba(accentColor, 0.1);
-			color: accentColor;
-			--mdc-ripple-color: accentColor;
-		}
-
-		/* == TRASH == */
-		/* trash automatic deletion warning */
-		.XzbSje.w8ecmf.VLrnY {
-			background-color: dark2;
-			border-color: dark2;
-		}
-
-		.XzbSje {
-			color: light;
-		}
-
-		/* empty trash button */
-		.uFAPIe.qoCZef:not(:disabled) {
-			color: light;
-		}
-
-		.uFAPIe.qoCZef:active:not(:disabled), .uFAPIe.qoCZef:focus:not(:disabled), .uFAPIe.qoCZef:hover:not(:disabled) {
-			color: white;
-		}
-
-		/* == COMPUTERS == */
-		.ab-S-c-j img {
-			height: 171px;
-			width: 172px;
-			z-index: 1000;
-			padding-left: 172px;
-			box-sizing: border-box;
-			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 570 571.34' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23E8F0FE' d='M510.8 152.2H200.2c-6.2 0-11.2 5-11.2 11.2v203.3c0 6.2 5 11.2 11.2 11.2h310.5c6.2 0 11.2-5 11.2-11.2V163.4c.1-6.2-4.9-11.2-11.1-11.2z' style='fill:%23282d35;fill-opacity:1'/%3E%3Cpath fill='%23D2E3FC' d='M207 171h297v189H207z' style='fill:%232f3642;fill-opacity:1'/%3E%3Cpath fill='%23E8F0FE' d='M342 413.7c0 9.9-8.1 18-18 18h-36v9.2h144v-9.2h-36c-9.9 0-18-7.8-18-17.7v-9l-.1-27H342v35.7z' style='fill:%232f3642;fill-opacity:1'/%3E%3Cpath fill='%23E8F0FE' d='M303.6 234H56.7c-6.3 0-11.4 5.1-11.4 11.4V441H315V245.4c0-6.3-5.1-11.4-11.4-11.4z' style='fill:%23282d35;fill-opacity:1'/%3E%3Cpath fill='%23E8F0FE' d='M303.5 232.2H189V368c0 6.3 5.1 11.3 11.3 11.3H315V243.7c0-6.4-5.1-11.5-11.5-11.5z' style='fill:%23282d35;fill-opacity:1'/%3E%3Cpath fill='%23D2E3FC' d='M36 422.5h288V441H36z'/%3E%3Cpath fill='%23D2E3FC' d='M36 422.5h288V441H36z' style='fill:%232f3642;fill-opacity:1;stroke:none'/%3E%3Cpath fill='%231A73E8' d='M297 360h-78.7c-6.2 0-11.3-5.1-11.3-11.3V252h78.7c6.2 0 11.3 5.1 11.3 11.3V360z' style='fill:%238ab4f8;fill-opacity:1'/%3E%3Cpath fill='%23D2E3FC' d='M200.2 378c-6.2 0-11.2-5-11.2-11.2V252H63v153h234v-27h-96.8z' style='fill:%232f3642;fill-opacity:1'/%3E%3Cpath fill='%23FFF' d='M252 283.4v-8l-10.7 10.7 10.7 10.7v-8c8.8 0 16 7.2 16 16 0 2.7-.7 5.3-1.9 7.5l3.9 3.9c2.1-3.3 3.3-7.2 3.3-11.4.1-11.8-9.5-21.4-21.3-21.4zm0 37.4c-8.8 0-16-7.2-16-16 0-2.7.7-5.3 1.9-7.5l-3.9-3.9c-2.1 3.3-3.3 7.2-3.3 11.4 0 11.8 9.6 21.4 21.4 21.4v8l10.7-10.7-10.8-10.7v8z' style='fill:%23000;fill-opacity:1'/%3E%3C/svg%3E");
-		}
-
-		/* learn more link */
-		.ab-S-Wg a:link {
-			color: accent;
-		}
 	}
 
-	if (activationMode == 'System') {
+	if (enableShare == 'System') {
 		@media (prefers-color-scheme: dark) {
-			activate();
+			activateShare();
 		}
-	} else if (activationMode == 'Always') {
-		activate();
-	}
-}
-
-/* === RIGHT SIDE PANEL === */
-@-moz-document domain("drive.google.com") {
-	// Side Panel
-	activateSidePanel() {
-		.Kk7lMc-Yb-Il-j {
-			background-color: dark2;
-		}
-
-		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc .Yb-Il-d-c-Nd {
-			background-color: dark3;
-		}
-
-		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-W .Yb-Il-d-c-Nd, .Yb-Il-d-W .Yb-Il-d-c-Nd, .Yb-Il-d-pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-ha .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-Pb .Yb-Il-d-c-Nd {
-			background-color: dark3;
-		}
-
-		.Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Kk7lMc-QWPxkf-d.Yb-Il-d-rc.Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Yb-Il-d-Pb .Yb-Il-d-c-Nd, .Yb-Il-d-Pb.Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-W .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-pb .Yb-Il-d-c-Nd, .Kk7lMc-Wc-Tn .Yb-Il-d-ha.Yb-Il-d-W .Yb-Il-d-c-Nd {
-			background-color: dark3;
-		}
-
-		/* open and close icon */
-		.Yb-Il-d-c {
-			fill: text3;
-		}
-
-		.Yb-Il-d-c-j[style='background-image: url(https://www.gstatic.com/images/icons/material/system/1x/add_grey600_24dp.png)'] {
-			filter: brightness(1.3);
-		}
-
-		/* separator between apps and add apps button */
-		.Kk7lMc-Yb-Il-vc {
-			border-top-color: text3;
-		}
-	}
-
-	if (activationMode == 'System') {
-		@media (prefers-color-scheme: dark) {
-			activateSidePanel();
-		}
-	} else if (activationMode == 'Always') {
-		activateSidePanel();
-	}
-}
-
-/* === FILE MOVE MENU === */
-@-moz-document domain("drive.google.com") {
-	activateFileMoveMenu() {
-		.e-F-V-Ta.e-Qf-Qd {
-			background-color: dark3;
-		}
-
-		.e-rf.e-Bd .e-F-aa-ed .e-F-aa-Wb {
-			border-color: dark3 transparent;
-		}
-
-		.e-F-V-Ta .e-D-o-T {
-			color: white;
-		}
-
-		.e-rf.e-F {
-			color: light;
-		}
-
-		/* hover over folder in list */
-		.e-Bd .e-F-v-qg .e-F-v-Qb {
-			background: dark3;
-		}
-
-		.e-Bd .e-F-v-W .e-F-v-Qb, .e-Bd .e-F-v-W.e-F-v-qg .e-F-v-Qb {
-			background: accentColor;
-		}
-
-		/* close icon */
-		.e-Bc-va-ra {
-			filter: invert(1);
-		}
-
-		/* back icon */
-		.e-Bc-Nq-Xd-d {
-			filter: invert(1);
-		}
-
-		/* create new folder icon */
-		.e-Bc-o-qb {
-			filter: invert(1);
-		}
-
-		.e-Bc-Ek-aa-be {
-			filter: invert(1);
-		}
-
-		.a-Lk .g-d::before {
-			box-shadow: inset 0 0 0 1px accentColor;
-		}
-
-		/* disabled 'Move Here' button */
-		.a-Lk .g-d.g-d-db {
-			color: rgba(light, 0.5);
-		}
-
-		/* file list focus border */
-		.e-Bd .e-x-j {
-			border-top-color: rgba(light, 0.25);
-			border-bottom-color: rgba(light, 0.25);
-		}
-
-		.Hb-ja-Na .e-Bd .e-x-j:focus {
-			border-color: accentColor;
-		}
-
-		.a-Lk .g-d:not(.g-d-db).g-d-R:active, .a-Lk .g-d:not(.g-d-db).g-d-R.g-d-Sa {
-			background-color: rgba(darkColor, 0.25);
-		}
-	}
-
-	if (activationMode == 'System') {
-		@media (prefers-color-scheme: dark) {
-			activateFileMoveMenu();
-		}
-	} else if (activationMode == 'Always') {
-		activateFileMoveMenu();
-	}
-}
-
-/* === WELCOME MESSAGE === */
-@-moz-document domain("drive.google.com") {
-	activateWelcome() {
-		/* a place for all your files */
-		.guXkdd {
-			color: text1;
-		}
-
-		/* list of file types */
-		.zl82Bc {
-			color: text2;
-		}
-
-		/* info popup icon */
-		.VRs7I {
-			fill: text3;
-		}
-
-		/* info popup */
-		.dCrPI {
-			background: dark2;
-		}
-
-		/* You can drag files or folders right into Drive */
-		.SCe7Ib {
-			color: text3;
-		}
-	}
-
-	if (activationMode == 'System') {
-		@media (prefers-color-scheme: dark) {
-			activateWelcome();
-		}
-	} else if (activationMode == 'Always') {
-		activateWelcome();
-	}
-}
-
-/* === ORGANIZATION ACCOUNTS === */
-@-moz-document domain("drive.google.com") {
-	activateOrgAcct() {
-		/* account switcher dropdown button */
-		.gb_ia {
-			background-color: dark3;
-			border-color: dark3;
-
-			&:hover {
-				background-color: detransparentify(accentColor, dark3, overlayOpacity);
-				border-color: detransparentify(accentColor, dark3, overlayOpacity2);
+	} else if (enableShare == 'Always') {
+		activateShare();
+	} else if (enableShare == 'Match') {
+		if (activationMode == 'System') {
+			@media (prefers-color-scheme: dark) {
+				activateShare();
 			}
-
-			&:focus {
-				border-color: darkColor;
-				background-color: darkColor;
-			}
+		} else if (activationMode == 'Always') {
+			activateShare();
 		}
-	}
-
-	if (activationMode == 'System') {
-		@media (prefers-color-scheme: dark) {
-			activateOrgAcct();
-		}
-	} else if (activationMode == 'Always') {
-		activateOrgAcct();
-	}
-}
-
-/* === SHARED DRIVES === */
-@-moz-document domain("drive.google.com") {
-	activate() {
-		/* == WELCOME MESSAGES == */
-		.JN7Q2c {
-			color: text1;
-		}
-
-		/* create shared drive button */
-		.oWBWHf.paynGb:not(:disabled) {
-			background-color: accentColor;
-			color: dark1;
-		}
-
-		/* How to use shared drives on your team */
-		.cBZb5e {
-			color: accent;
-		}
-
-		/* == ACTIONS TOOLBAR == */
-		/* hidden shared drive button */
-		.a-D-B .a-Ba-Ed .a-r-d.h-R-d, .mXlnof .a-s-Ba-Ak .a-r-d.h-R-d {
-			color: accent;
-		}
-
-		.a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d-W, .a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d:hover, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d-W, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d:hover {
-			background: rgba(accent, overlayOpacity);
-		}
-
-		.a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d-Sa, .a-Ba-Ed .a-r-d:not(.h-R-d-db).h-R-d:active, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d-Sa, .mXlnof .a-s-Ba-Ak .a-r-d:not(.h-R-d-db).h-R-d:active {
-			background: rgba(accent, overlayOpacity2);
-		}
-
-		/* number of people in shared drive */
-		.a-D-B .a-D-B-x .o-Yc-Ej, .aQh4x .o-Yc-Ej {
-			color: text3;
-		}
-
-		/* == NO HIDDEN SHARED DRIVES MESSAGE == */
-		.ab-S-Wg {
-			color: text2;
-		}
-
-		/* == EMPTY SHARED DRIVE MESSAGE == */
-		/* Drop files here or create something new */
-		.i0V6Le {
-			color: text2;
-		}
-
-		/* == SHARED DRIVES GRID VIEW == */
-		.l-u-fc-a-j .l-u-V {
-			background: dark1;
-			color: text2;
-		}
-
-		.l-u-ha .l-u-fc-a-q-Ej {
-			color: text3;
-		}
-
-		/* when selected */
-		.l-u-ha .l-u-fc-a-q-Ed {
-			background: detransparentify(accent, dark1, overlayOpacity);
-			color: accent;
-		}
-
-		.l-u-xb {
-			border-color: dark3;
-		}
-	}
-
-	if (activationMode == 'System') {
-		@media (prefers-color-scheme: dark) {
-			activate();
-		}
-	} else if (activationMode == 'Always') {
-		activate();
-	}
-}
-
-/* === SETTINGS MENU === */
-@-moz-document domain("drive.google.com") {
-	activate() {
-		.ca-k .lb-k-V {
-			background-color: dark2;
-		}
-
-		/* settings menu sidebar hover */
-		.ca-k-ra-B>.h-ra-B>.h-ra:hover {
-			background-color: dark2;
-		}
-
-		.ca-k-ra-B>.h-ra-B>.h-ra:hover>.a-ra-Mb-j>.a-ra-Mb {
-			border-color: text3;
-		}
-
-		/* view items taking up storage link */
-		.ca-k-ml-Pr .USrqEe-ml-Pr-gi .ml-Pr-kg .ml-Pr-A {
-			color: accent;
-		}
-
-		/* links */
-		.kc-A {
-			color: accent;
-		}
-
-		.ca-k-wb-M .c {
-			fill: accent;
-		}
-
-		/* not recommended on public or shared computers help text */
-		.ca-k-wb-bd-r {
-			color: text3;
-		}
-
-		/* dividers */
-		.ca-k-wb-j {
-			border-color: dark3;
-		}
-
-		.ca-k-oa {
-			border-left-color: dark3;
-		}
-
-		/* == MANAGE APPS == */
-		/* dividers */
-		.a-fd-ba-lp, .a-fd-ba-Q {
-			border-color: dark3;
-		}
-
-		/* app description */
-		.a-fd-ba-Q-ij {
-			color: text3;
-		}
-
-		/* use by default checkbox label */
-		.a-fd-ba-Q-Qa-ga {
-			color: text3;
-		}
-
-		/* options buttons */
-		button.RTMQvb.uHoRpf.h-sb-Ic.fCmhtc.hc0pBf {
-			background-color: dark2;
-			color: text1;
-
-			/* options buttons: hover */
-			&:not(.VuWATc) {
-				&:hover, &.sXaDqb-W, &:focus, &.sXaDqb-Pb {
-					background-color: dark3;
-				}
-			}
-		}
-
-		.RTMQvb::before {
-			box-shadow: inset 0 0 0 1px accent;
-		}
-	}
-
-	if (activationMode == 'System') {
-		@media (prefers-color-scheme: dark) {
-			activate();
-		}
-	} else if (activationMode == 'Always') {
-		activate();
 	}
 }
 
 /* === EMBEDS === */
-@-moz-document regexp("\S*drive.google.com/embeddedfolderview\S*") {
+@-moz-document regexp("https?:\/\/drive\.google\.com\/embeddedfolderview.*") {
 	activateEmbeds() {
+		.flip-embedded {
+			background: dark1;
+		}
+
 		.flip-list-view .flip-entry {
+			color: text2;
 			border-color: rgba(white, overlayOpacity2);
 		}
 
@@ -1888,11 +1917,11 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 	}
 
-	if (activationMode == 'System') {
+	if (embedOn == 'System') {
 		@media (prefers-color-scheme: dark) {
 			activateEmbeds();
 		}
-	} else if (activationMode == 'Always') {
+	} else if (embedOn == 'Always') {
 		activateEmbeds();
 	}
 }
