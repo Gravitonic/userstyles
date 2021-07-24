@@ -1,0 +1,22 @@
+/* ==UserStyle==
+@name           UserStyles.world Enhancements
+@namespace      github.com/gravitonic
+@version        1.0.0
+@description    Minor enhancements to the UserStyles.world website.
+@author         Gravitonic
+@supportURL     https://github.com/gravitonic/userstyles/issues
+@license        MIT
+==/UserStyle== */
+
+@-moz-document domain("userstyles.world") {
+	input {
+		font-family: var(--font-sans);
+	}
+
+	input:focus-visible,
+	button:focus-visible,
+	textarea:focus-visible:not([readonly]),
+	.form-wrapper.advanced select:focus {
+		outline: none;
+	}
+}
