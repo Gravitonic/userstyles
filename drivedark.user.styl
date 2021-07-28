@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.1
+@version        0.2.2
 
 @preprocessor	stylus
 
@@ -15,6 +15,7 @@
 @var	color	text3			"Tertiary Text Color"	#9aa0a6
 @var	number	overlayOpacity	"Overlay Opacity"		[0.08, 0, 0.5, 0.01]
 @var	number	overlayOpacity2	"Overlay Opacity 2"		[0.14, 0, 0.5, 0.01]
+@var	number	disabledOpacity	"Disabled Opacity"		[0.38, 0, 1, 0.01]
 
 @var	select	activationMode	"Enable Based On"		["Always", "System:System Setting*", "Never"]
 @var	select	embedOn			"Enable For Embeds"		["Match:Match Setting", "Always", "System", "Never"]
@@ -248,7 +249,7 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		/* toolbar icons disabled */
 		.h-R-d-db .a-d-c svg {
-			opacity: 0.5;
+			opacity: disabledOpacity;
 		}
 
 		.Ewn2Sd.C0fwCb .wo35tf {
@@ -345,6 +346,7 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		.aabwZd .WYuW0e .M3pype[data-column-field='6'] {
 			color: light;
+			fill: light;
 		}
 
 		/* shared with me file names */
@@ -356,9 +358,32 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: light;
 		}
 
+		/* SELECTED ITEMS */
+		/* list entry background */
+		.s55KNe:not(.KBj6Qd) .GZwC2b .jGNTYb, .aabwZd:not(.KBj6Qd) .GZwC2b, .a-t-J-ha {
+			background-color: detransparentify(accentColor, darkColor, overlayOpacity);
+			color: accentColor;
+		}
+
+		.a-t-J-ha .l-t-T-V > .l-Ab-T-r {
+			color: accentColor;
+		}
+
+		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype .YUNZ4c {
+			color: accentColor;
+			fill: accentColor;
+		}
+
 		/* file list offline disabled items */
 		.a-cc .aabwZd .WYuW0e .ACGwFc .M3pype, .a-cc .aabwZd .WYuW0e .M3pype .YUNZ4c, .a-cc .l-oi-cc .l-t-T-V > .l-Ab-T-r, .l-oi-ka .l-t-T-V > .l-Ab-T-r, .a-cc .l-oi-cc .a-t-cb, .l-oi-ka .a-t-cb {
-			color: rgba(light, 0.25);
+			color: rgba(light, disabledOpacity);
+		}
+
+		/* file name */
+		/* note: place after styling for offline/disabled items, otherwise file name will not be highlighted when selected */
+		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype[data-column-field='6'] {
+			color: accentColor;
+			fill: accentColor !important;
 		}
 
 		/* file list group time/date headings e.g. 'today', 'earlier this week' in shared list */
@@ -393,33 +418,9 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: rgba(light, 0.5);
 		}
 
-		.a-cc .aabwZd .WYuW0e .ACGwFc .M3pype, .a-cc .aabwZd .WYuW0e .M3pype .YUNZ4c {
-			color: rgba(light, 0.5);
-		}
-
 		/* file list text placeholder that appears before text is loaded */
 		.Oni9ib {
 			background: dark3;
-		}
-
-		/* currently highlighted item */
-		.s55KNe:not(.KBj6Qd) .GZwC2b .jGNTYb, .aabwZd:not(.KBj6Qd) .GZwC2b, .a-t-J-ha {
-			background-color: detransparentify(accentColor, darkColor, overlayOpacity);
-			color: accentColor;
-		}
-
-		.a-t-J-ha .l-t-T-V > .l-Ab-T-r {
-			color: accentColor;
-		}
-
-		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype[data-column-field='6'] {
-			color: accentColor;
-			fill: accentColor !important;
-		}
-
-		.aabwZd:not(.KBj6Qd) .GZwC2b .M3pype .YUNZ4c {
-			color: accentColor;
-			fill: accentColor;
 		}
 
 		/* file list headers */
@@ -1085,13 +1086,20 @@ detransparentify(top, bottom = #fff, opacity) {
 			color: white;
 		}
 
+		/* popup cancel button */
+		.a-Lk .lb-k-Gb>button::before, .a-X-k-Gb>button::before {
+			box-shadow: inset 0 0 0 1px accent;
+		}
+
 		/* popup confirmation button */
 		.a-Lk .lb-k-Gb .h-De-Y, .a-X-k-Gb .h-De-Y {
 			background-color: accentColor;
+			color: dark1;
 		}
 
 		.a-Lk .lb-k-Gb .h-De-Y:focus, .a-X-k-Gb .h-De-Y:focus, .a-Lk .lb-k-Gb .h-De-Y:hover, .a-X-k-Gb .h-De-Y:hover {
 			background-color: accentColor;
+			color: dark1;
 		}
 
 		/* popup input box container */
@@ -1147,6 +1155,7 @@ detransparentify(top, bottom = #fff, opacity) {
 		/* submit/highlighted button */
 		.a-Lk .g-d-Y:not(.g-d-db), .a-Lk .g-d-Y:not(.g-d-db):focus, .a-Lk .g-d-Y:not(.g-d-db).g-d-Pb {
 			background-color: accentColor;
+			color: dark1;
 		}
 
 		/* link button */
