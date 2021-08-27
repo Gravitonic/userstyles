@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.3
+@version        0.2.4
 
 @preprocessor	stylus
 
@@ -163,6 +163,11 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		/* active left sidebar item */
 		.a-U-ye-ha > .a-U-J {
+			background-color: rgba(accentColor, 0.2);
+		}
+
+		/* drag and drop over left sidebar item */
+		.a-U-ye:not(.a-U-ye-ha) .a-U-J.a-l-Sa-Wa-ka {
 			background-color: rgba(accentColor, 0.2);
 		}
 
@@ -789,6 +794,11 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* INFO SIDEBAR DETAILS */
+		/* headings */
+		.a-q-Lf-V, .a-q-Jc-V {
+			color: text1;
+		}
+
 		/* folder icon preview background */
 		.l-Mg-wg-o .a-q-zb-j {
 			background-color: dark2;
