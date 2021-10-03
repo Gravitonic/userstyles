@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.4
+@version        0.2.5
 
 @preprocessor	stylus
 
@@ -192,8 +192,13 @@ detransparentify(top, bottom = #fff, opacity) {
 			border-left-color: rgba(text1, overlayOpacity);
 		}
 
+		/* TOP BAR */
+		.gb_pa svg, .gb_Ac svg, .gb_Wc .gb_Zd, .gb_Mc .gb_Zd {
+			color: light;
+		}
+
 		/* search bar */
-		.gb_7e, .gb_4e, .gb_Ue, .gb_Te {
+		.gb_7e, .gb_4e, .gb_Ue, .gb_Te, .gb_Ne {
 			background: darkColor !important;
 		}
 
@@ -209,6 +214,11 @@ detransparentify(top, bottom = #fff, opacity) {
 		.gb_7e.gb_8e, .gb_Ve.gb_We, .gb_Ue.gb_Ve, .gb_Te.gb_Ue {
 			background: dark3 !important;
 			transition: 0.2s ease-in-out;
+		}
+
+		/* search bar active icons */
+		.gb_Ne.gb_Oe button svg {
+			color: light;
 		}
 
 		/* search bar bg */
