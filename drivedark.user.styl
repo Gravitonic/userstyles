@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.7
+@version        0.2.8
 
 @preprocessor	stylus
 
@@ -69,6 +69,11 @@ detransparentify(top, bottom = #fff, opacity) {
 		.a-Va-Zb-vb:focus, .a-Va-Zb-vb:hover {
 			border: 1px solid transparent;
 			box-shadow: inset 0 -2px 0 0 accentColor;
+		}
+
+		/* drive text next to logo */
+		.gb_Vc .gb_Xd {
+			color: text2;
 		}
 
 		/* various top menu bar/navbar things */
@@ -198,14 +203,17 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* search bar */
-		.gb_7e, .gb_4e, .gb_Ue, .gb_Te, .gb_Ne {
+		.gb_4e, .gb_Ue, .gb_Te, .gb_Ne {
 			background: darkColor !important;
 		}
 
-		.gb_Le {
-			background: darkColor;
+		.gb_Me {
+			background: dark3;
 		}
 
+		// .gb_Le {
+		// background: darkColor;
+		// }
 		.gb_rf, .gb_of, .gb_gf, .gb_ff {
 			color: white !important;
 
@@ -234,10 +242,20 @@ detransparentify(top, bottom = #fff, opacity) {
 			border-bottom-color: dark3;
 		}
 
-		/* search bar input */
+		/* search bar input (old) */
 		.gb_ef, .gb_Te.gb_Ue .gb_ef, .gb_8e, .gb_Ne.gb_Oe .gb_8e, .gb_6e, .gb_Le.gb_Me .gb_6e {
 			color: white;
 			caret-color: white;
+		}
+
+		/* search bar input */
+		.gb_7e {
+			color: text2;
+		}
+
+		/* search bar input active */
+		.gb_Me.gb_Ne .gb_7e {
+			color: text1;
 		}
 
 		/* search bar buttons while search is active */
