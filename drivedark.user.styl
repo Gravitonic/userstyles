@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.9
+@version        0.2.10
 
 @preprocessor	stylus
 
@@ -37,6 +37,92 @@ detransparentify(top, bottom = #fff, opacity) {
 /* === MAIN === */
 @-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
 	activate() {
+		// ROOT VARIABLES
+		.XV0XSd.KkxPLb {
+			--dt-background: darkColor;
+			--dt-on-background: text1;
+			--dt-outline: dark2;
+			--dt-on-disabled: #25282a;
+			--dt-disabled: #35383b;
+			--dt-inverse-on-surface: #dadce0;
+			--dt-inverse-surface: #202124;
+			--dt-on-surface-variant: #5f6368;
+			--dt-on-surface: #3c4043;
+			--dt-surface-variant: #f1f3f4;
+			--dt-surface1: #fff;
+			--dt-surface1-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+			--dt-surface2: #fff;
+			--dt-surface2-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+			--dt-surface3: #fff;
+			--dt-surface3-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+			--dt-surface4: #fff;
+			--dt-surface4-shadow: 0 2px 3px 0 rgba(60, 64, 67, 0.3), 0 6px 10px 4px rgba(60, 64, 67, 0.15);
+			--dt-surface5: #fff;
+			--dt-surface5-shadow: 0 4px 4px 0 rgba(60, 64, 67, 0.3), 0 8px 12px 6px rgba(60, 64, 67, 0.15);
+			--dt-surface: #fff;
+			--dt-scrim: rgba(32, 33, 36, 0.6);
+			--dt-on-primary-container: #3c4043;
+			--dt-on-primary: #fff;
+			--dt-primary-action-state-layer: accentColor;
+			--dt-primary-action-stateful: #185abc;
+			--dt-primary-action: accentColor;
+			--dt-primary-container-icon: accentColor;
+			--dt-primary-container-link: accentColor;
+			--dt-primary-container: #e8f0fe;
+			--dt-primary-icon: #fff;
+			--dt-primary-link: #fff;
+			--dt-primary-outline: #185abc;
+			--dt-primary: #1a73e8;
+			--dt-on-secondary-container: text3;
+			--dt-on-secondary: #fff;
+			--dt-secondary-action-state-layer: #3c4043;
+			--dt-secondary-action-stateful: #202124;
+			--dt-secondary-action: #3c4043;
+			--dt-secondary-container-icon: #3c4043;
+			--dt-secondary-container-link: accentColor;
+			--dt-secondary-container: #f1f3f4;
+			--dt-secondary-icon: #fff;
+			--dt-secondary-link: #fff;
+			--dt-secondary-outline: #3c4043;
+			--dt-secondary: #3c4043;
+			--dt-on-tertiary-container: #3c4043;
+			--dt-on-tertiary: #fff;
+			--dt-tertiary-action-state-layer: #137333;
+			--dt-tertiary-action-stateful: #0d652d;
+			--dt-tertiary-action: #137333;
+			--dt-tertiary-container-icon: #137333;
+			--dt-tertiary-container-link: #137333;
+			--dt-tertiary-container: #e6f4ea;
+			--dt-tertiary-icon: #fff;
+			--dt-tertiary-link: #fff;
+			--dt-tertiary-outline: #137333;
+			--dt-tertiary: #188038;
+			--dt-error-action-state-layer: #c5221f;
+			--dt-error-action-stateful: #b31412;
+			--dt-error-action: #c5221f;
+			--dt-error-container-icon: #c5221f;
+			--dt-error-container-link: #c5221f;
+			--dt-error-container: #fce8e6;
+			--dt-error-icon: #fff;
+			--dt-error-link: #fff;
+			--dt-error-outline: #b31412;
+			--dt-error: #d93025;
+			--dt-on-error-container: #3c4043;
+			--dt-on-error: #fff;
+			--dt-on-warning-container: #3c4043;
+			--dt-on-warning: #202124;
+			--dt-warning-action-state-layer: #ea8600;
+			--dt-warning-action-stateful: #202124;
+			--dt-warning-action: #3c4043;
+			--dt-warning-container-icon: #3c4043;
+			--dt-warning-container-link: #3c4043;
+			--dt-warning-container: #fef7e0;
+			--dt-warning-icon: #3c4043;
+			--dt-warning-link: #3c4043;
+			--dt-warning-outline: #ea8600;
+			--dt-warning: #f9ab00;
+		}
+
 		body {
 			color: light;
 			background-color: darkColor;
@@ -202,27 +288,32 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* TOP BAR */
-		.gb_pa svg, .gb_Ac svg, .gb_Wc .gb_Zd, .gb_Mc .gb_Zd {
+		.gb_oa svg, .gb_Ec svg, .gb_1c .gb_3d, .gb_Qc .gb_3d {
 			color: light;
 		}
 
 		/* search bar */
-		.gb_4e, .gb_Ue, .gb_Te, .gb_Ne {
-			background: darkColor !important;
-		}
-
-		.gb_Me {
-			background: dark3;
-		}
-
-		.gb_Qe {
+		.gb_Re {
 			background: dark1;
+
+			&.gb_Se {
+				background: dark3;
+			}
 		}
 
+		// .gb_4e, .gb_Ue, .gb_Te, .gb_Ne {
+		// background: darkColor !important;
+		// }
+		// .gb_Me {
+		// background: dark3;
+		// }
+		// .gb_Qe {
+		// background: dark1;
+		// }
 		// .gb_Le {
 		// background: darkColor;
 		// }
-		.gb_rf, .gb_of, .gb_gf, .gb_ff {
+		.gb_rf, .gb_of, .gb_gf, .gb_ff, .gb_cf {
 			color: white !important;
 
 			&::placeholder {
@@ -1073,6 +1164,31 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* == SEARCH SUGGESTIONS == */
+		.cloudsearch_suggestion_overlay {
+			background: dark2;
+		}
+
+		.cloudsearch_suggestion_filter_section {
+			border-color: dark2;
+		}
+
+		.UHqLAb .vARBRb[aria-selected='true'], .UHqLAb .vARBRb:focus, .dc[aria-selected='true'], .dc:focus {
+			background: dark3;
+			outline-color: dark3;
+		}
+
+		.Ke58ze {
+			color: text2;
+		}
+
+		.cloudsearch_suggestion_footer_section {
+			border-color: dark2;
+		}
+
+		.h1Utz {
+			color: accentColor;
+		}
+
 		.a-jn-yd {
 			background-color: dark2;
 		}
