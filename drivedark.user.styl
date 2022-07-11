@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.10
+@version        0.2.11
 
 @preprocessor	stylus
 
@@ -131,6 +131,10 @@ detransparentify(top, bottom = #fff, opacity) {
 		body[jsaction='UjQMac:.CLIENT;wINJic:.CLIENT'] {
 			background: none;
 			backdrop-filter: blur(10px);
+		}
+
+		.g3Fmkb {
+			background: var(--dt-background);
 		}
 
 		:focus {
@@ -293,10 +297,10 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* search bar */
-		.gb_Re {
+		.gb_Se {
 			background: dark1;
 
-			&.gb_Se {
+			&.gb_Te {
 				background: dark3;
 			}
 		}
@@ -352,20 +356,12 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* search bar input */
-		.gb_7e {
-			color: text2;
-		}
-
-		.gb_bf {
+		.gb_df {
 			color: text2;
 		}
 
 		/* search bar input active */
-		.gb_Me.gb_Ne .gb_7e {
-			color: text1;
-		}
-
-		.gb_Qe.gb_Re .gb_bf {
+		.gb_Se.gb_Te .gb_df {
 			color: text1;
 		}
 
