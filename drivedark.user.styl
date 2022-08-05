@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.11
+@version        0.2.12
 
 @preprocessor	stylus
 
@@ -489,6 +489,11 @@ detransparentify(top, bottom = #fff, opacity) {
 			fill: text3;
 		} */
 		/* == FILE LIST VIEW == */
+		/* file list background */
+		.PolqHc {
+			background: transparent;
+		}
+
 		/* file list, shared with me file list */
 		.aabwZd .WYuW0e, .a-t-cb {
 			color: text3;
@@ -940,6 +945,10 @@ detransparentify(top, bottom = #fff, opacity) {
 		/* headings */
 		.a-q-Lf-V, .a-q-Jc-V {
 			color: text1;
+		}
+
+		img[src$='empty_state_details.png'] {
+			content: url('https://raw.github.com/Gravitonic/userstyles/main/empty_state_details.png');
 		}
 
 		/* folder icon preview background */
@@ -1717,6 +1726,11 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* == ACTIONS TOOLBAR == */
+		/* toolbar background */
+		.S630me {
+			background: transparent;
+		}
+
 		/* hidden shared drive button */
 		.a-D-B .a-Ba-Ed .a-r-d.h-R-d, .mXlnof .a-s-Ba-Ak .a-r-d.h-R-d {
 			color: accent;
