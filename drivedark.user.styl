@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.12
+@version        0.2.13
 
 @preprocessor	stylus
 
@@ -46,10 +46,10 @@ detransparentify(top, bottom = #fff, opacity) {
 			--dt-disabled: #35383b;
 			--dt-inverse-on-surface: #dadce0;
 			--dt-inverse-surface: #202124;
-			--dt-on-surface-variant: #5f6368;
+			--dt-on-surface-variant: text3;
 			--dt-on-surface: #3c4043;
 			--dt-surface-variant: #f1f3f4;
-			--dt-surface1: #fff;
+			--dt-surface1: dark2;
 			--dt-surface1-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
 			--dt-surface2: #fff;
 			--dt-surface2-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
@@ -64,7 +64,7 @@ detransparentify(top, bottom = #fff, opacity) {
 			--dt-on-primary-container: #3c4043;
 			--dt-on-primary: #fff;
 			--dt-primary-action-state-layer: accentColor;
-			--dt-primary-action-stateful: #185abc;
+			--dt-primary-action-stateful: accentColor;
 			--dt-primary-action: accentColor;
 			--dt-primary-container-icon: accentColor;
 			--dt-primary-container-link: accentColor;
@@ -77,7 +77,7 @@ detransparentify(top, bottom = #fff, opacity) {
 			--dt-on-secondary: #fff;
 			--dt-secondary-action-state-layer: #3c4043;
 			--dt-secondary-action-stateful: #202124;
-			--dt-secondary-action: #3c4043;
+			--dt-secondary-action: text2;
 			--dt-secondary-container-icon: #3c4043;
 			--dt-secondary-container-link: accentColor;
 			--dt-secondary-container: #f1f3f4;
@@ -172,7 +172,7 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		/* various top menu bar/navbar things */
 		.ak25Me {
-			border-bottom-color: transparent;
+			border-bottom: none;
 		}
 
 		.gb_qa svg, .gb_Cc svg, .gb_Zc .gb_fe, .gb_Oc .gb_fe {
@@ -255,6 +255,11 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* == LEFT SIDEBAR == */
+		/* left sidebar background */
+		.ZHllM, .ALpC8b {
+			background: dark1;
+		}
+
 		/* left sidebar item hover */
 		:not(.a-U-ye-ha)>.a-U-J:hover, :not(.a-U-ye-ha)>.a-U-J-W {
 			background-color: dark2;
@@ -688,6 +693,17 @@ detransparentify(top, bottom = #fff, opacity) {
 
 		.a-S-dc-ds:focus, .a-S-dc-ds:hover, .a-S-dc-Q-A:focus, .a-S-dc-Q-A:hover {
 			color: text1;
+		}
+
+		.OelKyd {
+			background: dark1;
+			border-color: transparent;
+		}
+
+		.usP4bb.sj692e {
+			--gm-neutraltextbutton-ink-color: var(--dt-secondary-action, #3c4043);
+			--gm-neutraltextbutton-state-color: var(--dt-primary-action-state-layer, #1967d2);
+			--gm-neutraltextbutton-ink-color--stateful: var(--dt-primary-action-stateful, #185abc);
 		}
 
 		/* context menu question mark help icon popup explanation e.g. what are shortcuts */
@@ -1136,7 +1152,7 @@ detransparentify(top, bottom = #fff, opacity) {
 			display: none;
 		} */
 		/* side panel with gcal, tasks, etc. */
-		.Kk7lMc-Yb-Il-j, .a-Kk7lMc-ae3xF-j {
+		.a-Kk7lMc-ae3xF-j {
 			border-left: transparent;
 		}
 
@@ -1519,7 +1535,7 @@ detransparentify(top, bottom = #fff, opacity) {
 @-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
 	// Side Panel
 	activateSidePanel() {
-		.Kk7lMc-Yb-Il-j {
+		.Kk7lMc-Wc-Da.Kk7lMc-Yb-Il-j, .Kk7lMc-Wc-Tn.Kk7lMc-Yb-Il-j.Kk7lMc-Yb-Il-j {
 			background-color: dark2;
 		}
 
