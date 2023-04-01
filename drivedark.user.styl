@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.14
+@version        0.2.15
 
 @preprocessor	stylus
 
@@ -38,7 +38,7 @@ detransparentify(top, bottom = #fff, opacity) {
 @-moz-document regexp("https?:\/\/drive\.google\.com\/drive.*") {
 	activate() {
 		// ROOT VARIABLES
-		.XV0XSd.KkxPLb {
+		.vhoiae.KkxPLb {
 			--dt-background: darkColor;
 			--dt-on-background: text1;
 			--dt-outline: dark2;
@@ -53,13 +53,13 @@ detransparentify(top, bottom = #fff, opacity) {
 			--dt-surface1-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
 			--dt-surface2: #fff;
 			--dt-surface2-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
-			--dt-surface3: #fff;
+			--dt-surface3: dark1;
 			--dt-surface3-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
 			--dt-surface4: #fff;
 			--dt-surface4-shadow: 0 2px 3px 0 rgba(60, 64, 67, 0.3), 0 6px 10px 4px rgba(60, 64, 67, 0.15);
 			--dt-surface5: #fff;
 			--dt-surface5-shadow: 0 4px 4px 0 rgba(60, 64, 67, 0.3), 0 8px 12px 6px rgba(60, 64, 67, 0.15);
-			--dt-surface: #fff;
+			--dt-surface: dark2;
 			--dt-scrim: rgba(32, 33, 36, 0.6);
 			--dt-on-primary-container: #3c4043;
 			--dt-on-primary: #fff;
@@ -302,10 +302,24 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* search bar */
-		.gb_Se {
+		// .gb_Se {
+		// 	background: dark1;
+
+		// 	&.gb_Te {
+		// 		background: dark3;
+		// 	}
+		// }
+		// .gb_Xe {
+		// 	background: dark1;
+		// 
+		// 	&.gb_Ze {
+		// 		background: dark3;
+		// 	}
+		// }
+		.gb_ye {
 			background: dark1;
 
-			&.gb_Te {
+			&.gb_ze {
 				background: dark3;
 			}
 		}
@@ -361,9 +375,16 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* search bar input */
-		.gb_df {
+		// .gb_df {
+		// 	color: text2;
+		// }
+		// .gb_if, .gb_Xe.gb_Ze .gb_if {
+		// 	color: text2;
+		// }
+		.gb_Te:not(.gb_bf), .gb_ye.gb_ze .gb_Te {
 			color: text2;
 		}
+
 
 		/* search bar input active */
 		.gb_Se.gb_Te .gb_df {
