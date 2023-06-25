@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.15
+@version        0.2.16
 
 @preprocessor	stylus
 
@@ -302,6 +302,10 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* search bar */
+		.gb_2d.gb_xe {
+			background: dark3;
+		}
+
 		// .gb_Se {
 		// 	background: dark1;
 
@@ -311,18 +315,18 @@ detransparentify(top, bottom = #fff, opacity) {
 		// }
 		// .gb_Xe {
 		// 	background: dark1;
-		// 
+		//
 		// 	&.gb_Ze {
 		// 		background: dark3;
 		// 	}
 		// }
-		.gb_ye {
-			background: dark1;
+		// .gb_ye {
+		// 	background: dark1;
 
-			&.gb_ze {
-				background: dark3;
-			}
-		}
+		// 	&.gb_ze {
+		// 		background: dark3;
+		// 	}
+		// }
 
 		// .gb_4e, .gb_Ue, .gb_Te, .gb_Ne {
 		// background: darkColor !important;
@@ -345,18 +349,18 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* search bar active */
-		.gb_7e.gb_8e, .gb_Ve.gb_We, .gb_Ue.gb_Ve, .gb_Te.gb_Ue {
-			background: dark3 !important;
-			transition: 0.2s ease-in-out;
-		}
+		// .gb_7e.gb_8e, .gb_Ve.gb_We, .gb_Ue.gb_Ve, .gb_Te.gb_Ue {
+		// 	background: dark3 !important;
+		// 	transition: 0.2s ease-in-out;
+		// }
 
-		.gb_Le.gb_Me {
-			background: dark3;
-		}
+		// .gb_Le.gb_Me {
+		// 	background: dark3;
+		// }
 
-		.gb_Qe.gb_Re {
-			background: dark3;
-		}
+		// .gb_Qe.gb_Re {
+		// 	background: dark3;
+		// }
 
 		/* search bar active icons */
 		.gb_Ne.gb_Oe button svg {
@@ -375,21 +379,29 @@ detransparentify(top, bottom = #fff, opacity) {
 		}
 
 		/* search bar input */
+		.gb_ye {
+			color: text2;
+		}
+
+		// .gb_Te:not(.gb_bf), .gb_ye.gb_ze .gb_Te {
+		// 	color: text2;
+		// }
 		// .gb_df {
 		// 	color: text2;
 		// }
 		// .gb_if, .gb_Xe.gb_Ze .gb_if {
 		// 	color: text2;
 		// }
-		.gb_Te:not(.gb_bf), .gb_ye.gb_ze .gb_Te {
-			color: text2;
-		}
 
 
 		/* search bar input active */
-		.gb_Se.gb_Te .gb_df {
+		.gb_2d.gb_xe .gb_ye {
 			color: text1;
 		}
+
+		// .gb_Se.gb_Te .gb_df {
+		// 	color: text1;
+		// }
 
 		/* search bar buttons while search is active */
 		.gb_Te.gb_Ue button svg {
