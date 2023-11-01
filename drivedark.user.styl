@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.17
+@version        0.2.18
 
 @preprocessor	stylus
 
@@ -52,7 +52,7 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 			--dt-surface-variant: dark1;
 			--dt-surface1: dark2;
 			--dt-surface1-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-			--dt-surface2: #fff;
+			--dt-surface2: dark3;
 			--dt-surface2-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
 			--dt-surface3: dark1;
 			--dt-surface3-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
@@ -472,6 +472,11 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 			border-bottom-color: dark3;
 		}
 
+		/* search bar bg active */
+		.gb_Vd, .gb_Vd.gb_re {
+			background: dark3;
+		}
+
 		/* search bar input (old) */
 		.gb_ef, .gb_Te.gb_Ue .gb_ef, .gb_8e, .gb_Ne.gb_Oe .gb_8e, .gb_6e, .gb_Le.gb_Me .gb_6e {
 			color: white;
@@ -479,7 +484,7 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 		}
 
 		/* search bar input */
-		.gb_ye {
+		.gb_se, .gb_Vd.gb_re .gb_se {
 			color: text2;
 		}
 
@@ -597,9 +602,16 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 		}
 
 		/* current file path folders */
-		.o-Yc-o-T {
-			color: light;
+		.mUIrbf-vQzf8d {
+			color: text2;
 		}
+
+		.mUIrbf-d:hover .mUIrbf-vQzf8d {
+			color: white;
+		}
+		// .o-Yc-o-T {
+		// 	color: light;
+		// }
 
 		.o-Yc-o-T:hover, .Hb-ja-Na .o-Yc-o-T:focus:hover {
 			background-color: dark3;
