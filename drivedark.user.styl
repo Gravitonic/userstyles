@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Drive Dark
 @namespace      github.com/Gravitonic
-@version        0.2.18
+@version        0.2.19
 
 @preprocessor	stylus
 
@@ -81,7 +81,7 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 			--dt-secondary-action: text2;
 			--dt-secondary-container-icon: #3c4043;
 			--dt-secondary-container-link: accentColor;
-			--dt-secondary-container: #f1f3f4;
+			--dt-secondary-container: dark3; // #f1f3f4;
 			--dt-secondary-icon: #fff;
 			--dt-secondary-link: #fff;
 			--dt-secondary-outline: #3c4043;
@@ -123,6 +123,15 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 			--dt-warning-outline: #ea8600;
 			--dt-warning: #f9ab00;
 
+			--dt-surface-container-lowest: darkColor; // #fff
+			--dt-surface-container-low: dark2; // #F8FAFD
+			--dt-surface-container: dark2; // #F0F4F9
+			--dt-surface-container-high: dark3; // #E9EEF6
+			--dt-surface-container-highest: dark4; // #DDE3EA
+
+			--dt-surface-dim: dark2; // #D3DBE5;
+    	--dt-surface-bright: dark3; // #fff;
+
 			--gm3-sys-color-background: #fff;
 			--gm3-sys-color-background-rgb: 255,255,255;
 			--gm3-sys-color-error: #b3261e;
@@ -141,7 +150,7 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 			--gm3-sys-color-on-error-rgb: 255,255,255;
 			--gm3-sys-color-on-error-container: #410e0b;
 			--gm3-sys-color-on-error-container-rgb: 65,14,11;
-			--gm3-sys-color-on-primary: #fff;
+			--gm3-sys-color-on-primary: darkColor; // #fff;
 			--gm3-sys-color-on-primary-rgb: 255,255,255;
 			--gm3-sys-color-on-primary-container: #041e49;
 			--gm3-sys-color-on-primary-container-rgb: 4,30,73;
@@ -157,7 +166,7 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 			--gm3-sys-color-on-secondary-fixed-rgb: 0,29,53;
 			--gm3-sys-color-on-secondary-fixed-variant: #004a77;
 			--gm3-sys-color-on-secondary-fixed-variant-rgb: 0,74,119;
-			--gm3-sys-color-on-surface: #1f1f1f;
+			--gm3-sys-color-on-surface: text3; // #1f1f1f;
 			--gm3-sys-color-on-surface-rgb: 31,31,31;
 			--gm3-sys-color-on-surface-variant: #444746;
 			--gm3-sys-color-on-surface-variant-rgb: 68,71,70;
@@ -183,9 +192,9 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 			--gm3-sys-color-primary-fixed-dim-rgb: 168,199,250;
 			--gm3-sys-color-scrim: #000;
 			--gm3-sys-color-scrim-rgb: 0,0,0;
-			--gm3-sys-color-secondary: #00639b;
+			--gm3-sys-color-secondary: #00639b; // #00639b
 			--gm3-sys-color-secondary-rgb: 0,99,155;
-			--gm3-sys-color-secondary-container: #c2e7ff;
+			--gm3-sys-color-secondary-container: accentColor; // #c2e7ff;
 			--gm3-sys-color-secondary-container-rgb: 194,231,255;
 			--gm3-sys-color-secondary-fixed: #c2e7ff;
 			--gm3-sys-color-secondary-fixed-rgb: 194,231,255;
@@ -406,6 +415,11 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 			background: dark3;
 		}
 
+		/* search bar active */
+		.gb_0d.gb_ve {
+			background: dark3;
+		}
+
 		// .gb_Se {
 		// 	background: dark1;
 
@@ -485,6 +499,10 @@ regexp("https?:\/\/drive\.google\.com\/odp\/embed.*") {
 
 		/* search bar input */
 		.gb_se, .gb_Vd.gb_re .gb_se {
+			color: text2;
+		}
+
+		.gb_we, .gb_0d.gb_ve .gb_we {
 			color: text2;
 		}
 
